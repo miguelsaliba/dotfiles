@@ -1,0 +1,3 @@
+export XDG_CONFIG_HOME=$HOME/.config
+export GCM_CREDENTIAL_STORE=secretservice
+export EDITOR=nvim
