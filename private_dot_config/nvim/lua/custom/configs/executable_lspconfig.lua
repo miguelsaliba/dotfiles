@@ -4,7 +4,7 @@ local capabilities = configs.capabilities
 
 lspconfig = require("lspconfig")
 
-local servers = {"rust_analyzer"}
+local servers = {}
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -14,12 +14,14 @@ for _, lsp in ipairs(servers) do
 end
 
 lspconfig.rust_analyzer.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
   settings = {
     ['rust_analyzer'] = {
       cargo = {
         allFeatures = true,
       },
-      procMacro = { enabled = true }
+      procMacro = { enabled = true },
     }
   }
 })
