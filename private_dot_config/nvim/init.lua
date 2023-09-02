@@ -1,3 +1,4 @@
+--
 --[[
 
 =====================================================================
@@ -269,6 +270,9 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
+-- Esc to remove search highlights
+vim.keymap.set('n', '<Esc>', ':noh <CR>')
+
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
@@ -283,17 +287,17 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 -- [[ Chezmoi auto-apply ]]
 --
-local group = vim.api.nvim_create_augroup("CustomAutocmds", { clear = true })
-vim.api.nvim_create_autocmd("BufWritePost",
-  {
-    pattern = "/home/miguo/.local/share/chezmoi/*",
-    -- command = "!chezmoi apply --source-path %",
-    -- command = "echo 'hello'",
-    callback = function ()
-      vim.cmd("silent exe \"!chezmoi apply --source-path %\"")
-    end,
-    group = group
-  })
+-- local group = vim.api.nvim_create_augroup("CustomAutocmds", { clear = true })
+-- vim.api.nvim_create_autocmd("BufWritePost",
+--   {
+--     pattern = "/home/miguo/.local/share/chezmoi*",
+--     -- command = "!chezmoi apply --source-path %",
+--     command = "echo 'hello'",
+--     -- callback = function ()
+--     --   vim.cmd("silent exe \"!chezmoi apply --source-path %\"")
+--     -- end,
+--     group = group
+--   })
 
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
@@ -458,7 +462,7 @@ local servers = {
   -- clangd = {},
   -- gopls = {},
   -- pyright = {},
-  -- rust_analyzer = {},
+  rust_analyzer = {},
   -- tsserver = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
 
@@ -471,7 +475,16 @@ local servers = {
 }
 
 -- Setup neovim lua configuration
-require('neodev').setup()
+require('neodev').setup({
+  override = function (root_dir, library)
+    if root_dir:find("nvim") ~= nil then
+      library.enabled = true
+      library.plugins = true
+      library.types = true
+      library.runtime = true
+    end
+  end
+})
 
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
 local capabilities = vim.lsp.protocol.make_client_capabilities()
