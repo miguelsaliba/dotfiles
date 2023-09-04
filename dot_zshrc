@@ -1,3 +1,6 @@
+path+=('/home/miguo/.local/share/bob/nvim-bin')
+export PATH
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -6,9 +9,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 source ~/Repos/powerlevel10k/powerlevel10k.zsh-theme
-source ~/Repos/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-bindkey '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
-
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/Repos/zsh-autosuggestions/zsh-autosuggestions.zsh
 
