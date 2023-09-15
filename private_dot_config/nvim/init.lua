@@ -89,40 +89,17 @@ require('lazy').setup({
       end,
     },
   },
-
-  -- {
-  --   -- Theme inspired by Atom
-  --   'navarasu/onedark.nvim',
-  --   priority = 1000,
-  --   config = function()
-  --     vim.cmd.colorscheme 'onedark'
-  --   end,
-  -- },
-
-  -- {
-  --   'Shatur/neovim-ayu',
-  --   priority = 1000,
-  --   opts = {
-  --     overrides = {
-  --         Normal = { bg = "None" },
-  --         ColorColumn = { bg = "None" },
-  --         SignColumn = { bg = "None" },
-  --         Folded = { bg = "None" },
-  --         FoldColumn = { bg = "None" },
-  --         CursorLine = { bg = "None" },
-  --         CursorColumn = { bg = "None" },
-  --         WhichKeyFloat = { bg = "None" },
-  --         VertSplit = { bg = "None" },
-  --     },
-  --   },
-  --   config = function()
-  --     vim.cmd.colorscheme 'ayu'
-  --   end,
-  -- },
   {
-    "catppuccin/nvim",
-    name = "catppuccin",
-    priority = 1000
+    --   'navarasu/onedark.nvim',
+    -- 'Shatur/neovim-ayu',
+    -- 'ellisonleao/gruvbox.nvim',
+    'nyoom-engineering/oxocarbon.nvim',
+    lazy = false,
+    name = 'oxocarbon',
+    priority = 1000,
+    config = function()
+      vim.cmd.colorscheme 'oxocarbon'
+    end
   },
   {
     -- Set lualine as statusline
@@ -132,7 +109,7 @@ require('lazy').setup({
       options = {
         component_separators = '|',
         section_separators = '',
-        theme = "catppuccin",
+        theme = "auto",
         sections = {
           lualine_y = {},
         },
@@ -203,8 +180,6 @@ require('lazy').setup({
 -- See `:help vim.o`
 -- NOTE: You can change these options as you wish!
 
-vim.cmd.colorscheme "catppuccin"
-
 vim.o.showmode = false
 vim.o.scrolloff = 3
 
@@ -246,6 +221,7 @@ vim.o.completeopt = 'menuone,noselect'
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
 
+
 -- [[ Basic Keymaps ]]
 
 -- Keymaps for better default experience
@@ -253,8 +229,8 @@ vim.o.termguicolors = true
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 -- Remap for dealing with word wrap
-vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+-- vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+-- vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- Esc to remove search highlights
 vim.keymap.set('n', '<Esc>', ':noh <CR>')
@@ -447,9 +423,9 @@ end
 local servers = {
   -- clangd = {},
   -- gopls = {},
-  -- pyright = {},
+  pyright = {},
   rust_analyzer = {},
-  -- tsserver = {},
+  tsserver = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
 
   lua_ls = {
@@ -541,6 +517,37 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
+
+
+vim.api.nvim_buf_create_user_command(0, 'GetChar',
+  function()
+    local col = vim.api.nvim_win_get_cursor(0)[2] + 1
+    vim.print(vim.api.nvim_win_get_cursor(0))
+    vim.print(col)
+    -- vim.print(vim.api.nvim_get_current_line())
+    -- vim.print(vim.api.nvim_get_current_line():sub(col, col))
+    print(vim.api.nvim_get_current_line():sub(col, col))
+  end,
+  {})
+
+-- maybe use nvim_input instead
+vim.api.nvim_buf_create_user_command(0, 'ScrollTillNonWhitespace',
+  function()
+    local function get_current_char()
+      local col = vim.api.nvim_win_get_cursor(0)[2] + 1
+      vim.print(vim.api.nvim_get_current_line():sub(col, col))
+      return vim.api.nvim_get_current_line():sub(col, col)
+    end
+    local function is_last_line()
+      return vim.fn.line('$') == vim.api.nvim_win_get_cursor(0)[1]
+    end
+    vim.cmd('norm! j')
+    while ((get_current_char() == '' or string.find(get_current_char(), '%s') ~= nil) and not is_last_line()) do
+      vim.cmd('norm! j')
+    end
+  end,
+  {})
+
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
