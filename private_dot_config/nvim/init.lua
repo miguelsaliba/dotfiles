@@ -90,7 +90,11 @@ require('lazy').setup({
     },
   },
   {
-    --   'navarasu/onedark.nvim',
+    'folke/tokyonight.nvim',
+    priority = 999,
+  },
+  {
+    -- 'navarasu/onedark.nvim',
     -- 'Shatur/neovim-ayu',
     -- 'ellisonleao/gruvbox.nvim',
     'nyoom-engineering/oxocarbon.nvim',
@@ -99,7 +103,12 @@ require('lazy').setup({
     priority = 1000,
     config = function()
       vim.cmd.colorscheme 'oxocarbon'
-    end
+      vim.cmd('TransparentEnable')
+    end,
+    dependencies = { 'xiyaowong/transparent.nvim' },
+  },
+  {
+    'xiyaowong/transparent.nvim'
   },
   {
     -- Set lualine as statusline
@@ -109,7 +118,7 @@ require('lazy').setup({
       options = {
         component_separators = '|',
         section_separators = '',
-        theme = "auto",
+        theme = "tokyonight",
         sections = {
           lualine_y = {},
         },
@@ -421,12 +430,12 @@ end
 --  If you want to override the default filetypes that your language server will attach to you can
 --  define the property 'filetypes' to the map in question.
 local servers = {
-  -- clangd = {},
+  clangd = {},
   -- gopls = {},
   pyright = {},
   rust_analyzer = {},
   tsserver = {},
-  -- html = { filetypes = { 'html', 'twig', 'hbs'} },
+  html = { filetypes = { 'html', 'twig', 'hbs' } },
 
   lua_ls = {
     Lua = {

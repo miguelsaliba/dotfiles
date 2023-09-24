@@ -31,3 +31,12 @@ autoload -U compinit && compinit
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 alias bootwindows="sudo grub-reboot \"Windows Boot Manager (on /dev/nvme0n1p2)\" && shutdown -r now"
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
+
+# bun completions
+[ -s "/home/miguo/.bun/_bun" ] && source "/home/miguo/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
