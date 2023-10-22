@@ -1,0 +1,10 @@
+theme = "rasmus_transparent"
+
+[editor]
+true-color = true
+line-number = "relative"
+color-modes = true
+# idle-timeout = 50
+
+[editor.soft-wrap]
+enable = true
