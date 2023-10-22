@@ -1,0 +1,11 @@
+#!/bin/zsh
+
+time=$1
+
+if [[ ${time} == 'day' ]]; then
+    ddccontrol -r 0x10 -w 100 dev:/dev/i2c-8 >/dev/null 2>&1
+    ddccontrol -r 0x10 -w 69 dev:/dev/i2c-7 >/dev/null 2>&1
+else
+    ddccontrol -r 0x10 -w 44 dev:/dev/i2c-8 >/dev/null 2>&1
+    ddccontrol -r 0x10 -w 20 dev:/dev/i2c-7 >/dev/null 2>&1
+fi
