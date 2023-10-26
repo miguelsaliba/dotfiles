@@ -9,7 +9,6 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-exec --no-startup-id redshift-gtk
 focus_follows_mouse no
 
 # smart_borders no_gaps
@@ -19,8 +18,19 @@ bindsym $mod+x move workspace to output next
 
 default_border pixel 2
 
-assign [class="discord"] → output nonprimary
-assign [class="telegram"] → output nonprimary
+workspace 1 output 1
+workspace 2 output 1
+workspace 3 output 1
+workspace 4 output 1
+workspace 5 output 1
+workspace 6 output 2
+workspace 7 output 2
+workspace 8 output 2
+workspace 9 output 2
+workspace 0 output 2
+assign [class="discord"] → 8
+assign [class="telegram"] → 9
+assign [class="spotify"] → 0
 
 set $mod Mod4
 
@@ -70,9 +80,9 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run
+# bindsym $mod+d exec --no-startup-id dmenu_run
 # A more modern dmenu replacement is rofi:
-# bindcode $mod+40 exec "rofi -modi drun,run -show drun"
+bindsym $mod+d exec "rofi -show combi -modes combi -show-icons -combi-modes \\"window,drun,run\\""
 # There also is i3-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
@@ -202,4 +212,5 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         status_command i3blocks
+        tray_output primary
 }
