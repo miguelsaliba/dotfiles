@@ -1,4 +1,4 @@
-path+=('/home/miguo/.local/share/bob/nvim-bin')
+path+=('$HOME/.local/share/bob/nvim-bin')
 export PATH
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
@@ -35,7 +35,7 @@ export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 
 # bun completions
-[ -s "/home/miguo/.bun/_bun" ] && source "/home/miguo/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"

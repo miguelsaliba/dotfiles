@@ -18,19 +18,20 @@ bindsym $mod+x move workspace to output next
 
 default_border pixel 2
 
-workspace 1 output 1
-workspace 2 output 1
-workspace 3 output 1
-workspace 4 output 1
-workspace 5 output 1
-workspace 6 output 2
-workspace 7 output 2
-workspace 8 output 2
-workspace 9 output 2
-workspace 0 output 2
-assign [class="discord"] → 8
-assign [class="telegram"] → 9
-assign [class="spotify"] → 0
+workspace 1 output primary
+workspace 2 output primary
+workspace 3 output primary
+workspace 4 output primary
+workspace 5 output primary
+workspace 6 output DP-4
+workspace 7 output DP-4
+workspace 8 output DP-4
+workspace 9 output DP-4
+workspace 0 output DP-4
+assign [class="discord"] 8
+assign [class="TelegramDesktop"] 9
+# weird spotify workaround: 
+for_window [class="Spotify"] move to workspace 10
 
 set $mod Mod4
 
@@ -57,12 +58,17 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
-# Use pactl to adjust volume in PulseAudio.
-set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+# change volume or toggle mute
+bindsym XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 5%+ && pkill -RTMIN+10 i3blocks 
+bindsym XF86AudioLowerVolume exec amixer -q -D pulse sset Master 5%- && pkill -RTMIN+10 i3blocks
+bindsym XF86AudioMute exec amixer -q -D pulse sset Master toggle && pkill -RTMIN+10 i3blocks
+
+# # Use pactl to adjust volume in PulseAudio.
+# set $refresh_i3status killall -SIGUSR1 i3status
+# bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+# bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+# bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+# bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play-pause
@@ -74,7 +80,7 @@ bindsym XF86AudioPrev exec playerctl previous
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -213,4 +219,5 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3blocks
         tray_output primary
+        workspace_min_width 30
 }
