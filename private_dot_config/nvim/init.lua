@@ -328,7 +328,7 @@ vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { de
 -- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
   -- Add languages to be installed here that you want installed for treesitter
-  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim' },
+  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'java' },
 
   -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
   auto_install = true,
@@ -546,36 +546,6 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
-
-
-vim.api.nvim_buf_create_user_command(0, 'GetChar',
-  function()
-    local col = vim.api.nvim_win_get_cursor(0)[2] + 1
-    vim.print(vim.api.nvim_win_get_cursor(0))
-    vim.print(col)
-    -- vim.print(vim.api.nvim_get_current_line())
-    -- vim.print(vim.api.nvim_get_current_line():sub(col, col))
-    print(vim.api.nvim_get_current_line():sub(col, col))
-  end,
-  {})
-
--- maybe use nvim_input instead
-vim.api.nvim_buf_create_user_command(0, 'ScrollTillNonWhitespace',
-  function()
-    local function get_current_char()
-      local col = vim.api.nvim_win_get_cursor(0)[2] + 1
-      vim.print(vim.api.nvim_get_current_line():sub(col, col))
-      return vim.api.nvim_get_current_line():sub(col, col)
-    end
-    local function is_last_line()
-      return vim.fn.line('$') == vim.api.nvim_win_get_cursor(0)[1]
-    end
-    vim.cmd('norm! j')
-    while ((get_current_char() == '' or string.find(get_current_char(), '%s') ~= nil) and not is_last_line()) do
-      vim.cmd('norm! j')
-    end
-  end,
-  {})
 
 
 -- The line beneath this is called `modeline`. See `:help modeline`
