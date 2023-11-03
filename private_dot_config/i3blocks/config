@@ -24,7 +24,7 @@
 #
 # The top properties below are applied to every block, but can be overridden.
 # Each block command defaults to the script name to avoid boilerplate.
-command=/usr/share/i3blocks/$BLOCK_NAME
+command=/usr/share/i3blocks/$BLOCK_NAME/$BLOCK_NAME
 separator_block_width=15
 markup=none
 
@@ -49,7 +49,7 @@ interval=60
 # The second parameter overrides the mixer selection
 # See the script for details.
 [volume]
-label=VOL
+label=VOL 
 #label=♪
 instance=Master
 # instance=PCM
@@ -60,12 +60,12 @@ signal=10
 #
 # The type defaults to "mem" if the instance is not specified.
 [memory]
-label=MEM
+label=MEM 
 separator=false
 interval=30
 
 [memory]
-label=SWAP
+label=SWAP 
 instance=swap
 separator=false
 interval=30
@@ -76,7 +76,7 @@ interval=30
 # The script may be called with a optional argument to set the alert
 # (defaults to 10 for 10%).
 [disk]
-label=HOME
+label=HOME 
 #instance=/mnt/data
 interval=30
 
@@ -104,7 +104,7 @@ interval=5
 # The script may be called with -w and -c switches to specify thresholds,
 # see the script for details.
 [cpu_usage]
-label=CPU
+label=CPU 
 interval=10
 min_width=CPU: 100.00%
 #separator=false
