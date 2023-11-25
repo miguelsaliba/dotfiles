@@ -48,6 +48,7 @@ require('lazy').setup({
 
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
+      'mfussenegger/nvim-jdtls',
     },
   },
 
@@ -69,6 +70,7 @@ require('lazy').setup({
 
   -- Useful plugin to show you pending keybinds.
   { 'folke/which-key.nvim',  opts = {} },
+  { 'nvim-telescope/telescope-symbols.nvim' },
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -112,6 +114,16 @@ require('lazy').setup({
     priority = 999,
   },
   {
+    'rose-pine/neovim',
+    priority = 998,
+    name = 'rose-pine',
+    -- config = function()
+    --   vim.cmd.colorscheme 'rose-pine'
+    --   vim.cmd('TransparentEnable')
+    -- end,
+    dependencies = { 'xiyaowong/transparent.nvim' },
+  },
+  {
     -- 'navarasu/onedark.nvim',
     -- 'Shatur/neovim-ayu',
     -- 'ellisonleao/gruvbox.nvim',
@@ -126,7 +138,12 @@ require('lazy').setup({
     dependencies = { 'xiyaowong/transparent.nvim' },
   },
   {
-    'xiyaowong/transparent.nvim'
+    'xiyaowong/transparent.nvim',
+    opts = {
+      extra_groups = {
+        'GitSignsAdd', 'GitSignsChange', 'GitSignsDelete'
+      }
+    }
   },
   {
     -- Set lualine as statusline
@@ -138,9 +155,6 @@ require('lazy').setup({
         section_separators = '',
         theme = "tokyonight",
       },
-      -- sections = {
-      --   lualine_y = {},
-      -- },
     },
   },
 
@@ -148,9 +162,12 @@ require('lazy').setup({
     -- Add indentation guides even on blank lines
     'lukas-reineke/indent-blankline.nvim',
     -- Enable `lukas-reineke/indent-blankline.nvim`
-    -- See `:help indent_blankline.txt`
+    -- See `:help ibl`
     main = "ibl",
     opts = {
+      indent = {
+        char = '┊',
+      },
       scope = {
         enabled = false,
       },
@@ -209,7 +226,14 @@ require('lazy').setup({
 -- See `:help vim.o`
 -- NOTE: You can change these options as you wish!
 
+-- make tabs 4 spaces
+vim.o.shiftwidth = 4
+vim.o.tabstop = 4
+
+-- remove showmode because it's already shown in lualine
 vim.o.showmode = false
+
+-- cursor cannot reach the last line
 vim.o.scrolloff = 3
 
 -- Set highlight on search
@@ -253,6 +277,9 @@ vim.o.termguicolors = true
 
 -- [[ Basic Keymaps ]]
 
+-- Telescope symbols for insert special symbols.
+vim.keymap.set('n', '<leader>ts', ':Telescope symbols <CR>')
+
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
@@ -275,20 +302,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
 })
 
-
--- [[ Chezmoi auto-apply ]]
---
--- local group = vim.api.nvim_create_augroup("CustomAutocmds", { clear = true })
--- vim.api.nvim_create_autocmd("BufWritePost",
---   {
---     pattern = "/home/miguo/.local/share/chezmoi*",
---     -- command = "!chezmoi apply --source-path %",
---     command = "echo 'hello'",
---     -- callback = function ()
---     --   vim.cmd("silent exe \"!chezmoi apply --source-path %\"")
---     -- end,
---     group = group
---   })
 
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`

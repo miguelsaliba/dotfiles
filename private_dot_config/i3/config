@@ -9,28 +9,31 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-focus_follows_mouse no
+set $primary primary
+set $secondary DP-2
 
-# smart_borders no_gaps
+# focus_follows_mouse no
 
-# Move the current workspace to the next output
-bindsym $mod+x move workspace to output next
+smart_borders on
+smart_gaps on
+
+gaps inner 5
 
 default_border pixel 2
 
-workspace 1 output primary
-workspace 2 output primary
-workspace 3 output primary
-workspace 4 output primary
-workspace 5 output primary
-workspace 6 output DP-2
-workspace 7 output DP-2
-workspace 8 output DP-2
-workspace 9 output DP-2
-workspace 10 output DP-2
+workspace 1 output $primary
+workspace 2 output $primary
+workspace 3 output $primary
+workspace 4 output $primary
+workspace 5 output $primary
+workspace 6 output $secondary
+workspace 7 output $secondary
+workspace 8 output $secondary
+workspace 9 output $secondary
+workspace 10 output $secondary
+assign [class="firefox"] 2
 assign [class="discord"] 8
 assign [class="TelegramDesktop"] 9
-# weird spotify workaround: 
 assign [class="Spotify"] 10
 
 set $mod Mod4
@@ -44,6 +47,10 @@ set $mod Mod4
 font pango:DejaVu Sans Mono 8
 
 bindsym Print exec flameshot gui -c
+
+exec --no-startup-id lxpolkit
+
+exec_always --no-startup-id picom
 
 exec --no-startup-id redshift-gtk
 
@@ -62,6 +69,9 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -c 000000
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
+# Background picture
+exec --no-startup-id ~/.fehbg
+
 # change volume or toggle mute
 bindsym XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 5%+ && pkill -RTMIN+10 i3blocks 
 bindsym XF86AudioLowerVolume exec amixer -q -D pulse sset Master 5%- && pkill -RTMIN+10 i3blocks
@@ -79,6 +89,11 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioPause exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
+
+bindsym $mod+u [urgent=latest] focus
+
+# Move the current workspace to the next output
+bindsym $mod+x move workspace to output next
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -224,4 +239,25 @@ bar {
         status_command i3blocks
         tray_output primary
         workspace_min_width 30
+
+        colors {
+                background #282A36
+                statusline #F8F8F2
+                separator  #44475A
+
+                focused_workspace  #44475A #44475A #F8F8F2
+                active_workspace   #282A36 #44475A #F8F8F2
+                inactive_workspace #282A36 #282A36 #BFBFBF
+                urgent_workspace   #FF5555 #FF5555 #F8F8F2
+                binding_mode       #FF5555 #FF5555 #F8F8F2
+        }
 }
+
+# class                 border  bground text    indicator child_border
+client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
+client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
+client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
+client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
+client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
+
+exec_always --no-startup-id ~/.xprofile
