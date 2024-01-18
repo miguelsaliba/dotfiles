@@ -73,9 +73,9 @@ exec --no-startup-id nm-applet
 exec --no-startup-id ~/.fehbg
 
 # change volume or toggle mute
-bindsym XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 5%+ && pkill -RTMIN+10 i3blocks 
-bindsym XF86AudioLowerVolume exec amixer -q -D pulse sset Master 5%- && pkill -RTMIN+10 i3blocks
-bindsym XF86AudioMute exec amixer -q -D pulse sset Master toggle && pkill -RTMIN+10 i3blocks
+bindsym XF86AudioRaiseVolume exec amixer -q -D default sset Master 5%+ && pkill -RTMIN+10 i3blocks 
+bindsym XF86AudioLowerVolume exec amixer -q -D default sset Master 5%- && pkill -RTMIN+10 i3blocks
+bindsym XF86AudioMute exec amixer -q -D default sset Master toggle && pkill -RTMIN+10 i3blocks
 
 # # Use pactl to adjust volume in PulseAudio.
 # set $refresh_i3status killall -SIGUSR1 i3status
