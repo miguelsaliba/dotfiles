@@ -21,3 +21,7 @@ style = "Regular"
 
 [window]
 opacity = 0.6
+
+[colors.cursor]
+cursor = "#74708e"
+text = "#ffe0ff"
