@@ -1,11 +1,14 @@
-" .ideavimrc is a configuration file for IdeaVim plugin. It uses
-"   the same commands as the original .vimrc configuration.
 " You can find a list of commands here: https://jb.gg/h38q75
 " Find more examples here: https://jb.gg/share-ideavimrc
 
 let mapleader=" "
 
+nnoremap <esc> :noh<CR><esc>
+
+map <leader>so :source ~/.config/ideavim/ideavimrc<CR>
 map <leader>rn <Action>(RenameElement)
+map <leader>sf <Action>(GotoFile)
+map <leader>sg <Action>(FindInPath)
 
 nnoremap <a-j> :m .+1<cr>==
 nnoremap <a-k> :m .-2<cr>==
@@ -17,6 +20,7 @@ set scrolloff=5
 
 " Do incremental searching.
 set incsearch
+set hlsearch
 
 " Don't use Ex mode, use Q for formatting.
 map Q gq
