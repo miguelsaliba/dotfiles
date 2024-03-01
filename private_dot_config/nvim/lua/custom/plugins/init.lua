@@ -64,13 +64,5 @@ return {
     end,
     ft = { 'markdown' },
   },
-  {
-    'zbirenbaum/copilot.lua',
-    cmd = 'Copilot',
-    build = ':Copilot auth',
-    config = function()
-      require('copilot').setup()
-    end,
-  },
   { 'jiangmiao/auto-pairs' },
 }
