@@ -1,3 +1,4 @@
+# Theme
 import = ["/home/miguo/.config/alacritty/themes/rose-pine.toml"]
 
 [font]

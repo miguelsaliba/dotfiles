@@ -3,6 +3,10 @@
 
 let mapleader=" "
 
+" Set relative line numbers
+set relativenumber
+set number
+
 nnoremap <esc> :noh<CR><esc>
 
 map <leader>so :source ~/.config/ideavim/ideavimrc<CR>

@@ -18,6 +18,9 @@ return {
         'GitSignsChange',
         'GitSignsDelete',
       },
+      exclude_groups = {
+        'CursorLine',
+      },
     },
   },
   { 'folke/tokyonight.nvim' },
@@ -28,5 +31,10 @@ return {
   {
     'rose-pine/neovim',
     name = 'rose-pine',
+    opts = {
+      -- styles = {
+      --   transparency = false,
+      -- },
+    },
   },
 }

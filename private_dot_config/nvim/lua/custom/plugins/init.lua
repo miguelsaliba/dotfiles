@@ -45,15 +45,6 @@ return {
       },
     },
   },
-  {
-    'alker0/chezmoi.vim',
-    lazy = false,
-    init = function()
-      -- This option is required.
-      vim.g['chezmoi#use_tmp_buffer'] = true
-      -- add other options here if needed.
-    end,
-  },
   { 'nvim-telescope/telescope-symbols.nvim' },
   {
     'iamcco/markdown-preview.nvim',
@@ -64,5 +55,12 @@ return {
     end,
     ft = { 'markdown' },
   },
-  { 'jiangmiao/auto-pairs' },
+  { 'cohama/lexima.vim' },
+  {
+    'otavioschwanck/arrow.nvim',
+    opts = {
+      show_icon = true,
+      leader_key = '<leader>;',
+    },
+  }
 }
