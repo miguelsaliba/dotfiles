@@ -17,6 +17,7 @@ return {
         'GitSignsAdd',
         'GitSignsChange',
         'GitSignsDelete',
+        'WinSeparator',
       },
       exclude_groups = {
         'CursorLine',

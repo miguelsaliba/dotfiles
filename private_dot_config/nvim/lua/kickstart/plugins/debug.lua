@@ -19,6 +19,7 @@ return {
     'jay-babu/mason-nvim-dap.nvim',
 
     -- Add your own debuggers here
+    'leoluz/nvim-dap-go',
   },
   config = function()
     local dap = require 'dap'
@@ -37,7 +38,7 @@ return {
       -- online, please don't ask me how to install them :)
       ensure_installed = {
         -- Update this to ensure that you have the debuggers for the langs you want
-        'codelldb',
+        'delve',
       },
     }
 
@@ -80,39 +81,7 @@ return {
     dap.listeners.before.event_terminated['dapui_config'] = dapui.close
     dap.listeners.before.event_exited['dapui_config'] = dapui.close
 
-    dap.adapters.lldb = {
-      type = 'executable',
-      command = '/usr/bin/lldb-vscode', -- adjust as needed, must be absolute path
-      name = 'lldb'
-    }
-
-    dap.configurations.cpp = {
-      {
-        name = 'Launch',
-        type = 'lldb',
-        request = 'launch',
-        program = function()
-          return vim.fn.input('Path to executable: ' .. vim.fn.getcwd() .. '/')
-        end,
-        cwd = '${workspaceFolder}',
-        stopOnEntry = false,
-        args = function()
-          local args_string = vim.fn.input("Input arguments: ")
-          return vim.split(args_string, " ")
-        end,
-        -- 💀
-        -- if you change `runInTerminal` to true, you might need to change the yama/ptrace_scope setting:
-        --
-        --    echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
-        --
-        -- Otherwise you might get the following error:
-        --
-        --    Error on launch: Failed to attach to the target process
-        --
-        -- But you should be aware of the implications:
-        -- https://www.kernel.org/doc/html/latest/admin-guide/LSM/Yama.html
-        -- runInTerminal = false,
-      },
-    }
+    -- Install golang specific config
+    require('dap-go').setup()
   end,
 }
