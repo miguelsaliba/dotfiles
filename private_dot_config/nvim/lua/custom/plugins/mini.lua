@@ -2,12 +2,10 @@ return {
   { -- Collection of various small independent plugins/modules
     'echasnovski/mini.nvim',
     config = function()
-      -- Better Around/Inside textobjects
-      --
-      -- Examples:
-      --  - va)  - [V]isually select [A]round [)]parenthen
-      --  - yinq - [Y]ank [I]nside [N]ext [']quote
-      --  - ci'  - [C]hange [I]nside [']quote
+      require('mini.surround').setup()
+      require('mini.move').setup()
+      local minifiles = require('mini.files').setup()
+
       local miniai = require('mini.ai')
       local spec_treesitter = miniai.gen_spec.treesitter
       miniai.setup {
@@ -21,10 +19,8 @@ return {
           c = spec_treesitter { a = '@comment.outer', i = '@comment.inner' },
         },
       }
-
-      require('mini.surround').setup()
-      require('mini.move').setup()
-      require('mini.files').setup()
     end,
+
+    vim.keymap.set({'n', 'v'}, '<leader>o', '<cmd>lua MiniFiles.open()<cr>', { desc = 'Mini Files' })
   },
 }
