@@ -46,7 +46,11 @@ return {
     },
   },
   { 'nvim-telescope/telescope-symbols.nvim' },
-  { 'cohama/lexima.vim' },
+  {
+    'altermo/ultimate-autopair.nvim',
+    event = {'InsertEnter','CmdlineEnter'},
+    opts = {},
+  },
   {
     'otavioschwanck/arrow.nvim',
     opts = {

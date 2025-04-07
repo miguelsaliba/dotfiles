@@ -6,7 +6,7 @@ return {
 
     --  e.g. ~/.local/share/chezmoi/*
     vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-      pattern = { os.getenv("HOME") .. "/.local/share/chezmoi/*" },
+      pattern = { (os.getenv("HOME") or os.getenv("HOMEPATH")) .. "/.local/share/chezmoi/*" },
       callback = function()
         vim.schedule(require("chezmoi.commands.__edit").watch)
       end,
