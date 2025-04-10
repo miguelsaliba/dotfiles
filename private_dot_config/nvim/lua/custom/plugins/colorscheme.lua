@@ -4,10 +4,6 @@ return {
     lazy = false,
     name = 'oxocarbon',
     priority = 2000,
-    config = function()
-      vim.cmd.colorscheme 'oxocarbon'
-      vim.cmd 'TransparentEnable'
-    end,
     dependencies = { 'xiyaowong/transparent.nvim' },
   },
   {
@@ -37,5 +33,14 @@ return {
       --   transparency = false,
       -- },
     },
+  },
+  {
+    'catppuccin/nvim',
+    name = 'catppuccin',
+    priority = 2000,
+    config = function()
+      vim.cmd.colorscheme 'catppuccin'
+      -- vim.cmd 'TransparentEnable'
+    end,
   },
 }

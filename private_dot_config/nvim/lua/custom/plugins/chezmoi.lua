@@ -15,6 +15,6 @@ return {
     -- telscope-config.lua
     local telescope = require("telescope")
     telescope.load_extension('chezmoi')
-    vim.keymap.set('n', '<leader>sc', telescope.extensions.chezmoi.find_files, {})
+    vim.keymap.set('n', '<leader>sc', telescope.extensions.chezmoi.find_files, { desc="[S]earch [C]hezmoi files" })
   end
 }

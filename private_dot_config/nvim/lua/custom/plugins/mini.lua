@@ -17,6 +17,7 @@ return {
             i = { '@block.inner', '@conditional.inner', '@loop.inner' },
           },
           c = spec_treesitter { a = '@comment.outer', i = '@comment.inner' },
+          g = Util.ai_buffer,
         },
       }
 
@@ -37,6 +38,6 @@ return {
 
     end,
 
-    vim.keymap.set({'n', 'v'}, '<leader>o', '<cmd>lua MiniFiles.open()<cr>', { desc = 'Mini Files' })
+    vim.keymap.set({'n', 'v'}, '<leader>e', '<cmd>lua MiniFiles.open()<cr>', { desc = 'Mini Files' })
   },
 }
