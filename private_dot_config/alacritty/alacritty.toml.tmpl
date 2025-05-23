@@ -1,0 +1,16 @@
+[general]
+# Theme
+# import = ["/home/miguo/.config/alacritty/themes/rose-pine.toml"]
+
+[font]
+size = 14
+
+[font.normal]
+{{ if eq .chezmoi.hostname "mig-desktop" }}
+family = "JetBrainsMono Nerd Font"
+{{ else if eq .chezmoi.hostname "mig-laptop" }}
+family = "Hack Nerd Font Mono"
+{{ end }}
+
+[window]
+opacity = 0.80
