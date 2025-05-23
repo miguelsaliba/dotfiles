@@ -16,4 +16,15 @@ function M.ai_buffer(ai_type)
   return { from = { line = start_line, col = 1 }, to = { line = end_line, col = to_col } }
 end
 
+-- Checks if a plugin exists without loading it
+function M.plugin_exists(name)
+  local plugins = require("lazy").plugins()
+  for _, plugin in ipairs(plugins) do
+    if plugin.name == name then
+      return true
+    end
+  end
+  return false
+end
+
 return M

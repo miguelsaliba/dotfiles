@@ -15,6 +15,8 @@ source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+source ~/.bash_aliases
+
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
 SAVEHIST=5000
@@ -30,7 +32,6 @@ setopt hist_find_no_dups
 autoload -U compinit && compinit
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
-alias bootwindows="sudo grub2-reboot \"Windows Boot Manager (on /dev/nvme0n1p2)\" && sudo reboot"
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 
@@ -44,3 +45,9 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
 eval "$(zoxide init --cmd cd zsh)"
+
+export PATH=$PATH:/home/miguo/.spicetify
+
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

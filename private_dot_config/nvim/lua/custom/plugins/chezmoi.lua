@@ -1,5 +1,6 @@
 return {
   'xvzc/chezmoi.nvim',
+  lazy = true,
   dependencies = { 'nvim-lua/plenary.nvim' },
   config = function()
     require("chezmoi").setup{}
@@ -12,9 +13,17 @@ return {
       end,
     })
 
-    -- telscope-config.lua
-    local telescope = require("telescope")
-    telescope.load_extension('chezmoi')
-    vim.keymap.set('n', '<leader>sc', telescope.extensions.chezmoi.find_files, { desc="[S]earch [C]hezmoi files" })
-  end
+  end,
+  keys = {
+    {
+      '<leader>sc',
+      function ()
+        -- telscope-config.lua
+        local telescope = require("telescope")
+        telescope.load_extension('chezmoi')
+        telescope.extensions.chezmoi.find_files()
+      end,
+      desc = "[S]earch [C]hezmoi files"
+    }
+  }
 }

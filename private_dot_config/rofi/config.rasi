@@ -1,4 +1,15 @@
-//@theme "/home/miguo/.config/rofi/themes/simple-tokyonight.rasi"
-//@theme "/usr/share/rofi/themes/Arc-Dark.rasi"
-//@theme "/usr/share/rofi/themes/purple.rasi"
-@theme "/usr/share/rofi/themes/Arc-Dark.rasi"
+// @theme "/home/miguo/.config/rofi/themes/simple-tokyonight.rasi"
+// @theme "/usr/share/rofi/themes/Arc-Dark.rasi"
+// @theme "/usr/share/rofi/themes/purple.rasi"
+// @theme "/usr/share/rofi/themes/gruvbox-dark.rasi"
+@theme "~/.config/rofi/themes/squared-everforest.rasi"
+
+// @theme "~/.cache/wal/colors-rofi-dark.rasi"
+
+// Change combi display format for rofi:
+configuration {
+	combi-display-format: "{text}";
+	window-format: "{c} {t}";
+	kb-cancel: "Escape,Control+g,Control+bracketleft,MouseSecondary";
+}
+

@@ -1,0 +1,29 @@
+
+window {
+	background-color: --wofi-color0;
+	color: --wofi-color5;
+}
+
+#entry {
+	background-color: --wofi-color0;
+}
+
+#entry:selected {
+	background-color: --wofi-color4;
+	border-radius: 0;
+}
+
+#input {
+	background-color: --wofi-color0;
+	color: --wofi-color4;
+	border-color: --wofi-color2;
+}
+
+#input:focus {
+	border-color: --wofi-color10;
+	border-radius: 0;
+}
+
+#img {
+	padding-right: 1rem;
+}

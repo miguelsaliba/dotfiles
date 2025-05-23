@@ -50,7 +50,7 @@ vim.opt.breakindent = true
 vim.opt.undofile = true
 
 -- -- Tabs
--- vim.opt.tabstop = 4
+vim.opt.tabstop = 4
 -- vim.opt.softtabstop = 4
 -- vim.opt.shiftwidth = 4
 -- vim.opt.expandtab = false
@@ -91,4 +91,16 @@ vim.opt.scrolloff = 8
 -- instead raise a dialog asking if you wish to save the current file(s)
 -- See `:help 'confirm'`
 vim.opt.confirm = true
+
+vim.opt.conceallevel = 2
+
+vim.opt.spell = true
+
+vim.opt.linebreak = true
+
+vim.opt.cmdheight = 0
+
+vim.filetype.add({
+  pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
+})
 

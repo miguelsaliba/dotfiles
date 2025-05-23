@@ -1,29 +1,12 @@
 [general]
 # Theme
-import = ["/home/miguo/.config/alacritty/themes/rose-pine.toml"]
+# import = ["/home/miguo/.config/alacritty/themes/rose-pine.toml"]
 
 [font]
 size = 14
 
-[font.bold]
-family = "Hack Nerd Font Mono"
-style = "Bold"
-
-[font.bold_italic]
-family = "Hack Nerd Font Mono"
-style = "Bold Italic"
-
-[font.italic]
-family = "Hack Nerd Font Mono"
-style = "Italic"
-
 [font.normal]
-family = "Hack Nerd Font Mono"
-style = "Regular"
+family = "JetBrainsMono Nerd Font"
 
 [window]
-opacity = 0.85
-
-[colors.cursor]
-cursor = "#74708e"
-text = "#ffe0ff"
+opacity = 0.80
