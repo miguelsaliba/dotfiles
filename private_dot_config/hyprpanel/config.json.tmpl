@@ -19,6 +19,9 @@
       "right": [
         "systray",
         "weather",
+        {{ if eq .chezmoi.hostname "mig-laptop" }}
+        "battery",
+        {{ end }}
         "hypridle",
         "network",
         "bluetooth",
@@ -33,12 +36,14 @@
   "theme.bar.buttons.enableBorders": false,
   "notifications.monitor": 1,
   "notifications.active_monitor": false,
+  {{ if eq .chezmoi.hostname "mig-desktop" }}
   "notifications.position": "top left",
+  {{ end }}
   "menus.transition": "crossfade",
   "theme.bar.menus.enableShadow": true,
   "theme.bar.menus.monochrome": false,
   "wallpaper.pywal": true,
-  "wallpaper.image": "/home/miguo/Downloads/pexels-eberhardgross-629161.jpg",
+  "wallpaper.image": "/home/miguo/Downloads/garden.jpg",
   "theme.matugen": true,
   "theme.matugen_settings.mode": "dark",
   "theme.matugen_settings.scheme_type": "tonal-spot",
@@ -83,7 +88,6 @@
   "bar.network.showWifiInfo": true,
   "bar.media.show_active_only": true,
   "bar.notifications.show_total": false,
-  "theme.notification.shadowMargins": "4px 4px",
   "theme.bar.border_radius": "0.4em",
   "theme.bar.buttons.radius": "0.3em",
   "menus.dashboard.shortcuts.left.shortcut2.command": "flatpak run com.spotify.Client",
