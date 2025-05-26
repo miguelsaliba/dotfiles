@@ -32,14 +32,18 @@ vim.schedule(function()
   vim.opt.clipboard = 'unnamedplus'
 
   if vim.fn.has('wsl') == 1 then
-      vim.g.clipboard = {
-          name = 'WslClipboard',
-          copy = {
-              ['+'] = 'clip.exe',
-              ['*'] = 'clip.exe',
-          },
-          cache_enabled = 0,
-      }
+    vim.opt.clipboard = {
+      name = 'WslClipboard',
+      copy = {
+        ['+'] = 'clip.exe',
+        ['*']= 'clip.exe',
+      },
+      paste= {
+        ['+']= 'powershell.exe -NoLogo -NoProfile -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+        ['*']= 'powershell.exe -NoLogo -NoProfile -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+      },
+      cache_enabled= 0,
+    }
   end
 end)
 
@@ -50,7 +54,7 @@ vim.opt.breakindent = true
 vim.opt.undofile = true
 
 -- -- Tabs
-vim.opt.tabstop = 4
+-- vim.opt.tabstop = 4
 -- vim.opt.softtabstop = 4
 -- vim.opt.shiftwidth = 4
 -- vim.opt.expandtab = false
