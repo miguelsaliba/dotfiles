@@ -29,7 +29,8 @@ vim.opt.showmode = false
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
 vim.schedule(function()
-  vim.opt.clipboard = 'unnamedplus'
+  -- Removing this so I can use <leader>y and <leader>p to yank and paste
+  -- vim.opt.clipboard = 'unnamedplus'
 
   if vim.fn.has('wsl') == 1 then
       vim.g.clipboard = {
@@ -50,7 +51,7 @@ vim.opt.breakindent = true
 vim.opt.undofile = true
 
 -- -- Tabs
-vim.opt.tabstop = 4
+-- vim.opt.tabstop = 4
 -- vim.opt.softtabstop = 4
 -- vim.opt.shiftwidth = 4
 -- vim.opt.expandtab = false

@@ -9,6 +9,11 @@ exec-once = hyprpanel
 exec-once = hypridle
 exec-once = wlsunset -l 45.5 -L -73.5 -t 3000 -T 6000
 
+exec-once = clipse -listen
+
+windowrulev2 = float,class:(clipse)
+windowrulev2 = size 40% >60%,class:(clipse)
+
 {{ if eq .chezmoi.hostname "mig-laptop" }}
 monitor=,preferred,auto,1
 {{ else if eq  .chezmoi.hostname "mig-desktop" }}
@@ -198,10 +203,11 @@ bind = $mod, space, exec, wofi --show drun -I
 bind = $mod, D, exec, wofi --show drun -I
 bind = , Print, exec, grimblast --freeze copy area | grim - | wl-copy
 bind = $mod, Print, exec, grim -g "$(slurp)"
-# bind = $mod, V, exec, rofi -modi clipboard:~/.config/hypr/scripts/cliphist-rofi-img -show clipboard -show-icons && hyprctl dispatch sendshortcut "CTRL SHIFT,V,"
-bind = $mod, V, exec, ~/.config/hypr/scripts/cliphist-wofi-img | wl-copy
+bind = SUPER, V, exec, kitty -o font_size=14 --class clipse -e 'clipse'
 bind = $mod, C, exec, hyprpicker -a
 
+# bind = $mod, V, exec, rofi -modi clipboard:~/.config/hypr/scripts/cliphist-rofi-img -show clipboard -show-icons && hyprctl dispatch sendshortcut "CTRL SHIFT,V,"
+# bind = $mod, V, exec, ~/.config/hypr/scripts/cliphist-wofi-img | wl-copy
 # bind = $mod, V, exec, cliphist list | rofi -dmenu -display-columns 2 | cliphist decode | wl-copy
 # bind = $mod, V, exec, cliphist list | wofi -S dmenu | cliphist decode | wl-copy
 
@@ -252,7 +258,7 @@ bind = $mod, R,submap,reset
 submap=reset
 
 # Swap current monitor
-bind = $mod, X, exec, ~/.config/hypr/scripts/move_workspace.sh
+bind = $mod, X, movecurrentworkspacetomonitor, +1
 
 # Switch workspaces with mod + [0-9]
 bind = $mod, 1, workspace, 1

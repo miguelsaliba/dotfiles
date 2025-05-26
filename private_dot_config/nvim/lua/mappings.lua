@@ -6,7 +6,7 @@ vim.keymap.set('i', '<C-BS>', '<C-W>')
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+vim.keymap.set('n', '<Esc>', vim.cmd.nohlsearch)
 
 -- Save file
 vim.keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
@@ -14,14 +14,26 @@ vim.keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Sav
 -- Lazy
 vim.keymap.set('n', '<leader>l', '<cmd>Lazy<cr>', { desc = 'Open Lazy' })
 
+-- Yank into system clipboard
+vim.keymap.set({'n', 'v'}, '<leader>y', '"+y') -- yank motion
+vim.keymap.set({'n', 'v'}, '<leader>Y', '"+Y') -- yank line
+
+-- Delete into system clipboard
+vim.keymap.set({'n', 'v'}, '<leader>d', '"+d') -- delete motion
+vim.keymap.set({'n', 'v'}, '<leader>D', '"+D') -- delete line
+
+-- Paste from system clipboard
+vim.keymap.set('n', '<leader>p', '"+p')  -- paste after cursor
+vim.keymap.set('n', '<leader>P', '"+P')  -- paste before cursor
+
 -- Goto stuff
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = 'Goto Definition' })
 vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { desc = 'Goto Declaration' })
 
+vim.keymap.set("n", "<leader>cd", vim.diagnostic.open_float, { desc = "Open full [D]iagnostic message" })
+
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>xd', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
-
-vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "Open full [D]iagnostic message" })
 
 -- Quickfix list
 vim.keymap.set("n", "<leader>xq", function()
@@ -36,8 +48,12 @@ vim.keymap.set("n", "[q", vim.cmd.cprev, { desc = "Previous Quickfix" })
 vim.keymap.set("n", "]q", vim.cmd.cnext, { desc = "Next Quickfix" })
 
 -- Buffer navigation
-vim.keymap.set("n", "[b", "<cmd>bprev<CR>", { desc = "Previous Buffer" })
-vim.keymap.set("n", "]b", "<cmd>bnext<CR>", { desc = "Next Buffer" })
+vim.keymap.set("n", "[b", vim.cmd.bprev, { desc = "Previous Buffer" })
+vim.keymap.set("n", "]b", vim.cmd.bnext, { desc = "Next Buffer" })
+
+-- Tab navigation
+vim.keymap.set("n", "[t", vim.cmd.tabprevious, { desc = "Previous Tab" })
+vim.keymap.set("n", "]t", vim.cmd.tabnext, { desc = "Next Tab" })
 
 -- Better indentation
 vim.keymap.set("v", "<", "<gv", { desc = "Shift left" })
@@ -53,15 +69,6 @@ vim.keymap.set("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move Up" })
 vim.keymap.set("v", "<A-j>", ":<C-u>execute \"'<,'>move '>+\" . v:count1<cr>gv=gv", { desc = "Move Down" })
 vim.keymap.set("v", "<A-k>", ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv", { desc = "Move Up" })
 
--- TIP: Disable arrow keys in normal mode
--- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
--- vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
--- vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
--- vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
-
--- Keybinds to make split navigation easier.
---  Use CTRL+<hjkl> to switch between windows
---
 --  See `:help wincmd` for a list of all window commands
 vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
