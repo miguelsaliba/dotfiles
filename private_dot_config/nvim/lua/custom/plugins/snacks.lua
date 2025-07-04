@@ -12,7 +12,12 @@ return{
       statuscolumn = { enabled = false },
       words = { enabled = true },
       quickfile = { enabled = true },
-      picker = { enabled = true },
+      picker = {
+        enabled = true,
+        matcher = {
+          frecency = true,
+        },
+      },
       zen = {
         win = {
           backdrop = { blend = 0, },
@@ -65,13 +70,20 @@ return{
     },
     -- stylua: ignore
     keys = {
-      { "<leader>nn", function()
-        if Snacks.config.picker and Snacks.config.picker.enabled then
-          Snacks.picker.notifications()
-        else
-          Snacks.notifier.show_history()
-        end
-      end, desc = "Notification History" },
+      { "<leader>sf", function () Snacks.picker.files() end, desc="Files" },
+      { "<leader>sg", function () Snacks.picker.grep() end, desc="Grep" },
+      { "<leader>sh", function () Snacks.picker.help() end, desc="Help" },
+      { "<leader>sr", function () Snacks.picker.resume() end, desc="Resume" },
+      { "<leader>sp", function () Snacks.picker.projects() end, desc="Projects" },
+      { "<leader>sj", function () Snacks.picker.jumps() end, desc="Jumps" },
+      { "<leader>sk", function () Snacks.picker.keymaps() end, desc="Keymaps" },
+      { "<leader>sD", function () Snacks.picker.diagnostics() end, desc="Diagnostics" },
+      { "<leader>sd", function () Snacks.picker.diagnostics_buffer() end, desc="Buffer diagnostics" },
+      { "<leader>sl", function () Snacks.picker.git_log_file() end, desc="Git log file" },
+      { "<leader>/", function () Snacks.picker.lines() end, desc="Buffer lines" },
+      { "<leader><leader>", function() Snacks.picker.buffers() end, desc="Buffers" },
+
+      { "<leader>nn", function() Snacks.picker.notifications() end, desc = "Notification History" },
       { "<leader>nd", function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications" },
       { "<leader>uC", function() Snacks.picker.colorschemes() end, desc = "Colorschemes" },
       { "<leader>.", function() Snacks.scratch() end, desc ="Toggle Scratch Buffer" },
