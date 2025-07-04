@@ -8,10 +8,13 @@ return {
   {
     "rose-pine/neovim",
     name = "rose-pine",
+  },
+  {
+    "vague2k/vague.nvim",
     priority = 1000,
-    config = function()
-      vim.cmd.colorscheme("rose-pine")
-    end,
+    config = function ()
+      vim.cmd.colorscheme("vague")
+    end
   },
   {
     "catppuccin/nvim",
@@ -21,9 +24,6 @@ return {
   {
     "rebelot/kanagawa.nvim",
     priority = 1000,
-    opts = {
-      transparent = true,
-    }
   },
   {
     "zenbones-theme/zenbones.nvim",
@@ -44,10 +44,14 @@ return {
         "GitSignsChange",
         "GitSignsDelete",
         "WinSeparator",
+        "SnacksPicker",
+        "WhichKeyNormal",
+        "WhichKeyBorder",
+        "WhichKeyTitle",
       },
       exclude_groups = {
         "CursorLine",
-      },
+      }
     },
   },
 }

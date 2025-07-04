@@ -32,7 +32,7 @@ return {
   },
   {
     "kawre/leetcode.nvim",
-    cmd = "Leet",
+    lazy = "leetcode.nvim" ~= vim.fn.argv(0, -1),
     build = ":TSUpdate html", -- if you have `nvim-treesitter` installed
     dependencies = {
       "nvim-telescope/telescope.nvim",
