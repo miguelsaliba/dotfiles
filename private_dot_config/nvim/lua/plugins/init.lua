@@ -31,45 +31,11 @@ return {
     },
   },
   {
-    "kawre/leetcode.nvim",
-    lazy = "leetcode.nvim" ~= vim.fn.argv(0, -1),
-    build = ":TSUpdate html", -- if you have `nvim-treesitter` installed
-    dependencies = {
-      "nvim-telescope/telescope.nvim",
-      -- "ibhagwan/fzf-lua",
-      "nvim-lua/plenary.nvim",
-      "MunifTanjim/nui.nvim",
-    },
-    opts = {},
-  },
-  {
     'MeanderingProgrammer/render-markdown.nvim',
     cmd = { 'RenderMarkdown' },
     ft = "markdown",
     dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
     opts = {},
-  },
-
-  { "nvzone/volt", lazy = true },
-
-  {
-    "nvzone/menu",
-    lazy = true,
-    keys = {
-      {
-        "<RightMouse>", function ()
-          require('menu.utils').delete_old_menus()
-
-          vim.cmd.exec '"normal! \\<RightMouse>"'
-
-          -- clicked buf
-          local buf = vim.api.nvim_win_get_buf(vim.fn.getmousepos().winid)
-          local options = vim.bo[buf].ft == "NvimTree" and "nvimtree" or "default"
-
-          require("menu").open(options, { mouse = true })
-        end
-      },
-    },
   },
   {
     "f-person/auto-dark-mode.nvim",

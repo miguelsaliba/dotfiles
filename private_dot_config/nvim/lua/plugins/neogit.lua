@@ -8,8 +8,8 @@ return {
   config = true,
   keys = {
     {'<leader>gg', function() require('neogit').open() end, desc = 'Open Neogit', { silent = true, }},
-    {'<leader>gs', function() require('neogit').open() end, desc = 'Open Neogit', { silent = true, }},
-    {'<leader>gc', ":Neogit commit<CR>", desc = 'Neogit Commit', { silent = true,}},
+    {'<leader>gs', function() require('neogit').open({ cwd = vim.fn.expand('%:p:h') }) end, desc = 'Open Neogit', { silent = true, }},
+    {'<leader>gc', function() require('neogit').open({ 'commit' }) end, desc = 'Neogit Commit', { silent = true,}},
     {'<leader>gl', vim.cmd.NeogitLogCurrent, desc = 'Neogit Log for current file', { silent = true,}},
   },
 }

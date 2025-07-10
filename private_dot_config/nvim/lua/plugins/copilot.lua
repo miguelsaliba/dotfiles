@@ -15,10 +15,4 @@ return {
 			-- vim.keymap.set('n', '<leader>co', vim.cmd('Copilot toggle'), { silent = true, desc = 'Toggle [co]pilot' })
 		end,
 	},
-	{
-		"zbirenbaum/copilot-cmp",
-		config = function()
-			require("copilot_cmp").setup()
-		end,
-	},
 }

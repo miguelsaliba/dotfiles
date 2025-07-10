@@ -40,7 +40,7 @@ return{
             { icon = " ", key = "n", desc = "New File", action = ":ene" },
             { icon = " ", key = "g", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
             { icon = " ", key = "r", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
-            { icon = " ", key = "c", desc = "Chezmoi Config", action = ":Telescope chezmoi find_files" },
+            { icon = " ", key = "c", desc = "Chezmoi Config", action = Util.pick_chezmoi },
             { icon = "󰺿 ", key = "o", desc = "Obsidian Vault", action = ":cd ~/Documents/Obsidian"},
             { icon = " ", key = "s", desc = "Restore Session", section = "session" },
             { icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy" },
@@ -70,26 +70,32 @@ return{
     },
     -- stylua: ignore
     keys = {
-      { "<leader>sf", function () Snacks.picker.files() end, desc="Files" },
-      { "<leader>sg", function () Snacks.picker.grep() end, desc="Grep" },
-      { "<leader>sh", function () Snacks.picker.help() end, desc="Help" },
-      { "<leader>sr", function () Snacks.picker.resume() end, desc="Resume" },
-      { "<leader>sp", function () Snacks.picker.projects() end, desc="Projects" },
-      { "<leader>sj", function () Snacks.picker.jumps() end, desc="Jumps" },
-      { "<leader>sk", function () Snacks.picker.keymaps() end, desc="Keymaps" },
-      { "<leader>sD", function () Snacks.picker.diagnostics() end, desc="Diagnostics" },
-      { "<leader>sd", function () Snacks.picker.diagnostics_buffer() end, desc="Buffer diagnostics" },
-      { "<leader>sl", function () Snacks.picker.git_log_file() end, desc="Git log file" },
+      { "gd", function() Snacks.picker.lsp_definitions() end, desc = "Goto Definition" },
+      { "gD", function() Snacks.picker.lsp_declarations() end, desc = "Goto Declaration" },
+      { "gI", function() Snacks.picker.lsp_implementations() end, desc = "Goto Implementation" },
+      { "<leader>sf", function() Snacks.picker.files() end, desc="Files" },
+      { "<leader>sg", function() Snacks.picker.grep() end, desc="Grep" },
+      { "<leader>sh", function() Snacks.picker.help() end, desc="Help" },
+      { "<leader>sr", function() Snacks.picker.resume() end, desc="Resume" },
+      { "<leader>sp", function() Snacks.picker.projects() end, desc="Projects" },
+      { "<leader>sj", function() Snacks.picker.jumps() end, desc="Jumps" },
+      { "<leader>sk", function() Snacks.picker.keymaps() end, desc="Keymaps" },
+      { "<leader>sD", function() Snacks.picker.diagnostics() end, desc="Diagnostics" },
+      { "<leader>sd", function() Snacks.picker.diagnostics_buffer() end, desc="Buffer diagnostics" },
+      { "<leader>sl", function() Snacks.picker.git_log_file() end, desc="Git log file" },
+      { "<leader>sc", Util.pick_chezmoi, desc="Chezmoi Config" },
       { "<leader>/", function () Snacks.picker.lines() end, desc="Buffer lines" },
+      { "<leader>sb", function () Snacks.picker.buffers() end, desc="Buffers" },
       { "<leader><leader>", function() Snacks.picker.buffers() end, desc="Buffers" },
 
+      { "<leader>gx", function() Snacks.gitbrowse.open() end, desc="Open file in browser" },
       { "<leader>nn", function() Snacks.picker.notifications() end, desc = "Notification History" },
       { "<leader>nd", function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications" },
       { "<leader>uC", function() Snacks.picker.colorschemes() end, desc = "Colorschemes" },
       { "<leader>.", function() Snacks.scratch() end, desc ="Toggle Scratch Buffer" },
       { "<c-/>",      function() Snacks.terminal() end, desc = "Toggle Terminal" },
       { "<c-_>",      function() Snacks.terminal() end, desc = "which_key_ignore" },
-      { "<C-/>",      "<cmd>close<cr>", mode = 't', desc = "Hide Terminal", },
+      { "<c-/>",      "<cmd>close<cr>", mode = 't', desc = "Hide Terminal", },
       { "<c-_>",      "<cmd>close<cr>", mode = 't', desc = "which_key_ignore", },
     },
     config = function(_, opts)
@@ -108,8 +114,7 @@ return{
       Snacks.toggle.zen():map("<leader>tz")
 
       -- Add Copilot toggle
-      local copilot_exists = Util.plugin_exists("copilot.lua")
-      if copilot_exists then
+      if Util.plugin_exists("copilot.lua") then
         Snacks.toggle({
           name = "Copilot Completion",
           color = {

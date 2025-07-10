@@ -9,28 +9,28 @@ vim.keymap.set('i', '<C-BS>', '<C-W>')
 vim.keymap.set('n', '<Esc>', vim.cmd.nohlsearch)
 
 -- Save file
-vim.keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
+vim.keymap.set({ "i", "x", "n", "s" }, "<C-s>", vim.cmd.write, { desc = "Save File" })
 
 -- Lazy
 vim.keymap.set('n', '<leader>l', '<cmd>Lazy<cr>', { desc = 'Open Lazy' })
 
 -- Yank into system clipboard
-vim.keymap.set({'n', 'v'}, '<leader>y', '"+y') -- yank motion
-vim.keymap.set({'n', 'v'}, '<leader>Y', '"+Y') -- yank line
+vim.keymap.set({'n', 'v'}, '<leader>y', '"+y')
+vim.keymap.set({'n', 'v'}, '<leader>Y', '"+Y')
 
 -- Delete into system clipboard
-vim.keymap.set({'n', 'v'}, '<leader>d', '"+d') -- delete motion
-vim.keymap.set({'n', 'v'}, '<leader>D', '"+D') -- delete line
+vim.keymap.set({'n', 'v'}, '<leader>d', '"+d')
+vim.keymap.set({'n', 'v'}, '<leader>D', '"+D')
 
 -- Paste from system clipboard
-vim.keymap.set('n', '<leader>p', '"+p')  -- paste after cursor
-vim.keymap.set('n', '<leader>P', '"+P')  -- paste before cursor
+vim.keymap.set('n', '<leader>p', '"+p')
+vim.keymap.set('n', '<leader>P', '"+P')
 
 -- Goto stuff
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = 'Goto Definition' })
 vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { desc = 'Goto Declaration' })
 
-vim.keymap.set("n", "<leader>cd", vim.diagnostic.open_float, { desc = "Open full [D]iagnostic message" })
+vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "Open full [D]iagnostic message" })
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>xd', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
