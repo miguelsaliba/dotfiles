@@ -29,6 +29,8 @@ vim.keymap.set('n', '<leader>P', '"+P')
 -- Goto stuff
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = 'Goto Definition' })
 vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { desc = 'Goto Declaration' })
+vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { desc = '[R]e[n]ame' })
+vim.keymap.set({ 'n', 'x' }, '<leader>ca', vim.lsp.buf.code_action, { desc = '[C]ode [A]ction' })
 
 vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "Open full [D]iagnostic message" })
 
@@ -42,6 +44,9 @@ vim.keymap.set("n", "<leader>xq", function()
     vim.notify(err, vim.log.levels.ERROR)
   end
 end, { desc = "Quickfix List" })
+
+vim.keymap.set({ 'n', 'v' }, '<leader>j', function() Util.skip_whitespace('down') end, { desc = 'Skips whitespace in column' })
+vim.keymap.set({ 'n', 'v' }, '<leader>k', function() Util.skip_whitespace('up') end, { desc = 'Skips whitespace in column' })
 
 -- Quickfix navigation
 vim.keymap.set("n", "[q", vim.cmd.cprev, { desc = "Previous Quickfix" })

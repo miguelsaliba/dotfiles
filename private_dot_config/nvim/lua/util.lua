@@ -61,4 +61,17 @@ function M.pick_chezmoi()
   Snacks.picker.pick(opts)
 end
 
+function M.skip_whitespace(direction)
+  local _, col0 = unpack(vim.api.nvim_win_get_cursor(0))
+  -- build a pattern: "\%{col}c\S" matches a non-space at exactly column {col}
+  local pat = "\\%" .. (col0 + 1) .. "c\\S"
+  -- 'W' to avoid wrap, plus 'b' for backward if needed
+  local flags = "W" .. (direction == "up"  and "b" or "")
+  local pos = vim.fn.searchpos(pat, flags)
+  if pos[1] > 0 then
+    -- pos = {line, col}, but col is 1-based; our API wants 0-based
+    vim.api.nvim_win_set_cursor(0, { pos[1], pos[2] - 1 })
+  end
+end
+
 return M
