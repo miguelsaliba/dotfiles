@@ -11,13 +11,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
-vim.api.nvim_create_autocmd('User', {
-  pattern = 'MiniFilesActionRename',
-  callback = function (event)
-    Snacks.rename.on_rename_file(event.data.from, event.data.to)
-  end
-})
-
 vim.api.nvim_create_autocmd({ "UIEnter", "ColorScheme" }, {
   callback = function()
     local normal = vim.api.nvim_get_hl(0, { name = "Normal" })
@@ -28,4 +21,22 @@ vim.api.nvim_create_autocmd({ "UIEnter", "ColorScheme" }, {
 
 vim.api.nvim_create_autocmd("UILeave", {
   callback = function() io.write("\027]111\027\\") end,
+})
+
+--  This function gets run when an LSP attaches to a particular buffer.
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
+  callback = function(event)
+    local client = assert(vim.lsp.get_client_by_id(event.data.client_id))
+    local map = function(keys, func, desc, mode)
+      mode = mode or 'n'
+      vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
+    end
+
+    map('<leader>rn', vim.lsp.buf.rename, 'Rename')
+    map('<leader>ca', vim.lsp.buf.code_action, 'Code Actions', { 'n', 'x' })
+    if client:supports_method('textDocument/switchSourceHeader') then
+      map('<leader>cl', ':LspClangdSwitchSourceHeader<CR>', 'Switch between source and header files')
+    end
+  end,
 })

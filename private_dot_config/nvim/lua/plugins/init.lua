@@ -1,7 +1,4 @@
 return {
-
-  { 'nvim-telescope/telescope-symbols.nvim' },
-
   {
     'altermo/ultimate-autopair.nvim',
     event = {'InsertEnter','CmdlineEnter'},

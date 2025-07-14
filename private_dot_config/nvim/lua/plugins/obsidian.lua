@@ -1,6 +1,6 @@
 return {
   {
-    "epwalsh/obsidian.nvim",
+    "obsidian-nvim/obsidian.nvim",
     version = "*",  -- recommended, use latest release instead of latest commit
     lazy = true,
     cmd = { 'ObsidianToday', 'ObsidianWorkspace' },
@@ -15,8 +15,7 @@ return {
     dependencies = {
       -- Required.
       "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim",
-
+      "folke/snacks.nvim",
     },
     opts = {
       workspaces = {
