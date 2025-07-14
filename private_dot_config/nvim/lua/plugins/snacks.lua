@@ -12,12 +12,7 @@ return{
       statuscolumn = { enabled = false },
       words = { enabled = true },
       quickfile = { enabled = true },
-      picker = {
-        enabled = true,
-        matcher = {
-          frecency = true,
-        },
-      },
+      picker = { enabled = true, },
       zen = {
         win = {
           backdrop = { blend = 0, },
@@ -84,11 +79,11 @@ return{
       { "<leader>sd", function() Snacks.picker.diagnostics_buffer() end, desc="Buffer diagnostics" },
       { "<leader>sl", function() Snacks.picker.git_log_file() end, desc="Git log file" },
       { "<leader>sc", Util.pick_chezmoi, desc="Chezmoi Config" },
-      { "<leader>/", function () Snacks.picker.lines() end, desc="Buffer lines" },
       { "<leader>sb", function () Snacks.picker.buffers() end, desc="Buffers" },
-      { "<leader><leader>", function() Snacks.picker.buffers() end, desc="Buffers" },
+      { "<leader><leader>", function() Snacks.picker.smart() end, desc="Buffers" },
+      { "<leader>/", function () Snacks.picker.lines() end, desc="Buffer lines" },
 
-      { "<leader>gx", function() Snacks.gitbrowse.open() end, desc="Open file in browser" },
+      { "<leader>gx", function() Snacks.gitbrowse.open() end, mode = { 'v', 'n' }, desc="Open file in browser" },
       { "<leader>nn", function() Snacks.picker.notifications() end, desc = "Notification History" },
       { "<leader>nd", function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications" },
       { "<leader>uC", function() Snacks.picker.colorschemes() end, desc = "Colorschemes" },
