@@ -1,27 +1,50 @@
 {
-  "bar.launcher.icon": "",
-  "menus.media.displayTime": true,
-  "menus.media.displayTimeTooltip": false,
-  "menus.clock.weather.location": "Montreal",
-  "menus.clock.weather.unit": "metric",
-  "menus.clock.weather.enabled": true,
-  "menus.clock.weather.interval": 60000,
+  "bar": {
+    "autoHide": "never",
+    "notifications.show_total": false,
+    "clock.format": "%d/%m/%y %I:%M %p",
+    "launcher": {
+      "icon": "",
+      "autoDetectIcon": false
+    },
+    "network.label": false,
+    "bluetooth.label": false,
+    "volume.label": false,
+    "workspaces": {
+      "show_numbered": false,
+      "show_icons": false,
+      "workspaceMask": false,
+      "showWsIcons": true,
+      "showApplicationIcons": true,
+      "monitorSpecific": true,
+      "numbered_active_indicator": "highlight",
+      "workspaces": 10
+    },
+    "systray": {
+      "ignore": [
+        "spotify-client",
+        "chrome_status_icon_1"
+      ],
+      "customIcons": {}
+    }
+  },
   "bar.layouts": {
     "*": {
       "left": [
         "dashboard",
         "workspaces",
-        "windowtitle"
+        "windowtitle",
+        "weather"
       ],
       "middle": [
         "media"
       ],
       "right": [
         "systray",
-        "weather",
         {{ if eq .chezmoi.hostname "mig-laptop" }}
         "battery",
         {{ end }}
+        "custom/theme",
         "hypridle",
         "network",
         "bluetooth",
@@ -31,66 +54,61 @@
       ]
     }
   },
-  "theme.bar.floating": false,
-  "bar.autoHide": "never",
-  "theme.bar.buttons.enableBorders": false,
+  "menus": {
+    "transition": "crossfade",
+    "media.displayTime": true,
+    "media.displayTimeTooltip": false,
+    "clock.weather.location": "Montreal",
+    "clock.weather.unit": "metric",
+    "clock.weather.enabled": true,
+    "clock.weather.interval": 60000,
+    "clock.weather.key": "/home/miguo/.config/hyprpanel/weatherKey.json",
+    "dashboard.powermenu.avatar.name": "Miguel",
+    "dashboard.shortcuts.left.shortcut1.command": "flatpak run app.zen_browser.geg",
+    "dashboard.shortcuts.left.shortcut1.tooltip": "Zen",
+    "dashboard.shortcuts.left.shortcut1.icon": "󰈹",
+    "dashboard.shortcuts.left.shortcut2.command": "flatpak run com.spotify.Client"
+  },
+  "theme": {
+    "font.name": "JetBrains Mono",
+    "font.label": "JetBrains Mono",
+    "matugen": true,
+    "matugen_settings.mode": "dark",
+    "matugen_settings.scheme_type": "tonal-spot",
+    "matugen_settings.variation": "standard_1",
+    "osd.orientation": "vertical",
+    "bar": {
+      "transparent": true,
+      "floating": false,
+      "buttons.enableBorders": false,
+      "buttons.workspaces.enableBorder": false,
+      "border.location": "none",
+      "enableShadow": false,
+      "border_radius": "0.4em",
+      "buttons.radius": "0.3em",
+      "menus": {
+        "card_radius": "0.4em",
+        "border.radius": "0.7em",
+        "menu.dashboard.profile.size": "8.5em",
+        "enableShadow": true,
+        "monochrome": false
+      }
+    }
+  },
   "notifications.monitor": 1,
   "notifications.active_monitor": false,
+  "notifications.showActionsOnHover": true,
   {{ if eq .chezmoi.hostname "mig-desktop" }}
   "notifications.position": "top left",
   {{ end }}
-  "menus.transition": "crossfade",
-  "theme.bar.menus.enableShadow": true,
-  "theme.bar.menus.monochrome": false,
   "wallpaper.pywal": true,
-  "wallpaper.image": "/home/miguo/Downloads/garden.jpg",
-  "theme.matugen": true,
-  "theme.matugen_settings.mode": "dark",
-  "theme.matugen_settings.scheme_type": "tonal-spot",
-  "theme.bar.transparent": true,
-  "theme.matugen_settings.variation": "standard_1",
-  "bar.workspaces.show_numbered": false,
-  "bar.workspaces.show_icons": false,
-  "bar.workspaces.workspaceMask": false,
-  "bar.workspaces.showWsIcons": true,
-  "bar.workspaces.showApplicationIcons": true,
-  "theme.bar.buttons.workspaces.enableBorder": false,
-  "bar.workspaces.monitorSpecific": true,
-  "bar.workspaces.numbered_active_indicator": "highlight",
-  "bar.network.label": false,
-  "bar.bluetooth.label": false,
-  "bar.workspaces.workspaces": 10,
-  "bar.launcher.autoDetectIcon": false,
-  "bar.systray.ignore": [
-    "spotify-client",
-    "chrome_status_icon_1"
-  ],
-  "bar.systray.customIcons": {},
-  "menus.clock.weather.key": "/home/miguo/.config/hyprpanel/weatherKey.json",
-  "bar.clock.format": "%d/%m/%y %I:%M %p",
-  "theme.font.name": "JetBrains Mono",
-  "theme.font.label": "JetBrains Mono",
-  "theme.bar.menus.card_radius": "0.4em",
-  "theme.bar.menus.border.radius": "0.7em",
-  "notifications.showActionsOnHover": true,
-  "theme.osd.orientation": "vertical",
-  "theme.bar.menus.menu.dashboard.profile.size": "8.5em",
-  "menus.dashboard.powermenu.avatar.name": "Miguel",
-  "menus.dashboard.shortcuts.left.shortcut1.command": "firefox",
-  "menus.dashboard.shortcuts.left.shortcut1.tooltip": "Firefox",
-  "menus.dashboard.shortcuts.left.shortcut1.icon": "󰈹",
-  "bar.customModules.weather.unit": "metric",
-  "theme.bar.border.location": "none",
-  "theme.bar.enableShadow": false,
-  "bar.customModules.hypridle.label": false,
-  "bar.volume.label": false,
+  "wallpaper.image": "/home/miguo/.config/background",
   "wallpaper.enable": true,
+  "bar.customModules.weather.unit": "metric",
+  "bar.customModules.hypridle.label": false,
   "bar.network.showWifiInfo": true,
   "bar.media.show_active_only": true,
-  "bar.notifications.show_total": false,
-  "theme.bar.border_radius": "0.4em",
-  "theme.bar.buttons.radius": "0.3em",
-  "menus.dashboard.shortcuts.left.shortcut2.command": "flatpak run com.spotify.Client",
-  "bar.media.format": "{artist: - }{title}",
-  "bar.customModules.weather.leftClick": "xdg-open https://weather.gc.ca/en/location/index.html?coords=45.529,-73.562"
+  "bar.media.format": "{title: - }{artist}",
+  "bar.customModules.weather.leftClick": "xdg-open https://weather.gc.ca/en/location/index.html?coords=45.529,-73.562",
+  "bar.customModules.storage.paths": [ "/" ]
 }

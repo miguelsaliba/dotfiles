@@ -1,1 +1,13 @@
-{}
+{
+    "custom/theme": {
+        "icon": {
+            "light": "",
+            "dark": ""
+        },
+        "execute": "/home/miguo/.config/hypr/scripts/toggle_dark.sh info -j",
+        "actions": {
+            "onLeftClick": "/home/miguo/.config/hypr/scripts/toggle_dark.sh -j"
+        },
+        "interval": 3000
+    }
+}
