@@ -51,9 +51,10 @@ return {
 			--   return '%2l:%-2v'
 			-- end
 			vim.keymap.set("n", "<leader>e", function()
-				MiniFiles.open(vim.api.nvim_buf_get_name(0), false)
-
-				MiniFiles.reveal_cwd()
+				if not MiniFiles.close() then
+					MiniFiles.open(vim.api.nvim_buf_get_name(0), false)
+					MiniFiles.reveal_cwd()
+				end
 			end, { desc = "Mini Files" })
 		end,
 	},
