@@ -201,7 +201,6 @@ $mod = SUPER
 bind = $mod, Return, exec, alacritty
 bind = $mod, E, exec, nemo
 bind = $mod, space, exec, wofi --show drun -I
-bind = $mod, D, exec, wofi --show drun -I
 bind = , Print, exec, grimblast --freeze copy area | grim - | wl-copy
 bind = $mod, Print, exec, grim -g "$(slurp)"
 bind = $mod, C, exec, hyprpicker -a
@@ -213,7 +212,7 @@ bind = $mod, V, exec, ~/.config/hypr/scripts/cliphist-wofi-img | wl-copy
 # bind = $mod, V, exec, cliphist list | wofi -S dmenu | cliphist decode | wl-copy
 
 bind = $mod, P, exec, hyprlock
-bind = $mod, Q, killactive,
+bind = $mod, W, killactive,
 bind = $mod SHIFT, Q, exec, hyprctl activewindow | grep pid | tr -d 'pid:' | xargs kill
 bind = $mod, M, exit,
 bind = $mod, T, togglefloating,

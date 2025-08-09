@@ -27,7 +27,10 @@ return {
       },
       lsp = {
         hover = {
-          enabled = false
+          enabled = false,
+        },
+        signature = {
+          enabled = false,
         },
       },
       presets = {
@@ -40,6 +43,11 @@ return {
     cmd = { 'RenderMarkdown' },
     ft = 'markdown',
     dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
+    opts = {},
+  },
+  {
+    'stevearc/quicker.nvim',
+    event = 'FileType qf',
     opts = {},
   },
 }
