@@ -11,7 +11,7 @@ exec-once = wlsunset -l 45.5 -L -73.5 -t 3000 -T 6000
 exec-once = clipse -listen
 
 {{ if eq .chezmoi.hostname "mig-laptop" }}
-monitor=,preferred,auto,1
+monitor=,preferred,auto,1.5
 {{ else if eq  .chezmoi.hostname "mig-desktop" }}
 monitor = DP-1, 1920x1080@144, 0x0, 1
 monitor = DP-2, 1920x1080@119.98, auto-right, 1
@@ -129,7 +129,7 @@ decoration {
 }
 
 animations {
-    enabled = true
+    enabled = false
     # Animation curves
 
     bezier = linear, 0, 0, 1, 1
@@ -219,8 +219,9 @@ bind = $mod, T, togglefloating,
 bind = $mod, S, togglesplit, # dwindle
 bind = $mod, F, fullscreen
 bind =     , F11, fullscreen
-bind = $mod, Tab, cyclenext, # change focus to another window
-bind = $mod, Tab, bringactivetotop, # bring it to the top
+bind = $mod, TAB, cyclenext, # change focus to another window
+bind = $mod, TAB, bringactivetotop, # bring it to the top
+bind = ALT, TAB, workspace, previous
 
 # Move focus with mod + arrow keys
 bind = $mod, left, movefocus, l
