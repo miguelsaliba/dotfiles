@@ -11,6 +11,9 @@ return {
 					enabled = false,
 					auto_trigger = false,
 				},
+				server = {
+					type = "binary",
+				},
 			})
 			-- vim.keymap.set('n', '<leader>co', vim.cmd('Copilot toggle'), { silent = true, desc = 'Toggle [co]pilot' })
 		end,

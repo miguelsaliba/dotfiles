@@ -17,6 +17,16 @@ return{
           backdrop = { blend = 0, },
         },
       },
+      gitbrowse = {
+        url_patterns = {
+          ["git.kiwicollection.net"] = {
+            branch = "/-/tree/{branch}",
+            file = "/-/blob/{branch}/{file}#L{line_start}-L{line_end}",
+            permalink = "/-/blob/{commit}/{file}#L{line_start}-L{line_end}",
+            commit = "/-/commit/{commit}",
+          }
+        }
+      },
       dashboard = {
         preset = {
           header = [[

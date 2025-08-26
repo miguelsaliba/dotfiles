@@ -19,6 +19,9 @@ vim.opt.rtp:prepend(lazypath)
 
 
 vim.lsp.enable({'gdscript'}) -- This is already defined in nvim-lspconfig
+vim.lsp.config('phpactor', {
+  root_markers = { '.phpactor.json', '.phpactor.yaml', 'symfony.lock' },
+})
 
 require('lazy').setup({
   {
