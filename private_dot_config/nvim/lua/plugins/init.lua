@@ -6,7 +6,6 @@ return {
       pair_cmap = false,
     },
   },
-
   {
     'otavioschwanck/arrow.nvim',
     opts = {
@@ -14,35 +13,12 @@ return {
       leader_key = '<leader>;',
     },
   },
-
-  {
-    'folke/noice.nvim',
-    dependencies = {
-      'MunifTanjim/nui.nvim',
-    },
-    event = 'VeryLazy',
-    opts = {
-      messages = {
-        view_search = false,
-      },
-      lsp = {
-        hover = {
-          enabled = false,
-        },
-        signature = {
-          enabled = false,
-        },
-      },
-      presets = {
-        command_palette = true,
-      },
-    },
-  },
   {
     'MeanderingProgrammer/render-markdown.nvim',
+    enabled = false,
     cmd = { 'RenderMarkdown' },
     ft = 'markdown',
-    dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
+    dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' },
     opts = {},
   },
   {

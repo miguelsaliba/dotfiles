@@ -8,10 +8,23 @@ return{
       indent = { enabled = true },
       input = { enabled = true },
       notifier = { enabled = true },
-      scope = { enabled = true },
       statuscolumn = { enabled = false },
       quickfile = { enabled = true },
-      picker = { enabled = true, },
+      picker = {
+        enabled = true,
+        layout = {
+          preset = 'ivy',
+          layout = {
+            height = 0.75,
+          },
+          preview = false,
+        },
+        formatters = {
+          file = {
+            truncate = 120,
+          },
+        },
+      },
       zen = {
         win = {
           backdrop = { blend = 0, },
@@ -20,23 +33,16 @@ return{
       gitbrowse = {
         url_patterns = {
           ["git.kiwicollection.net"] = {
-            branch = "/-/tree/{branch}",
-            file = "/-/blob/{branch}/{file}#L{line_start}-L{line_end}",
-            permalink = "/-/blob/{commit}/{file}#L{line_start}-L{line_end}",
-            commit = "/-/commit/{commit}",
+            branch = "/tree/{branch}",
+            file = "/blob/{branch}/{file}#L{line_start}-L{line_end}",
+            permalink = "/blob/{commit}/{file}#L{line_start}-L{line_end}",
+            commit = "/commit/{commit}",
           }
         }
       },
       dashboard = {
         preset = {
-          header = [[
-   _____                               .___
-  /  _  \__  _  ____  _  _______     __| _/
- /  /_\  \ \/ \/ /\ \/ \/ /\__  \   / __ | 
-/    _    \     /  \     /  / __ \_/ /_/ | 
-\___/ \_  /\/\_/    \/\_/  (____  /\____ | 
-        \/                      \/      \/ 
-          ]],
+          header = '',
           -- stylua: ignore
           ---@type snacks.dashboard.Item[]
           keys = {
@@ -56,19 +62,6 @@ return{
           { icon = " ", title = "Keymaps", section = "keys", indent = 2, padding = 1 },
           { icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
           { section = "startup", padding = 2 },
-          {
-            icon = " ",
-            title = "Git Status",
-            section = "terminal",
-            enabled = function()
-              return Snacks.git.get_root() ~= nil
-            end,
-            cmd = "git status --short --branch --renames",
-            height = 5,
-            padding = 1,
-            ttl = 5 * 60,
-            indent = 3,
-          },
         },
       },
     },
@@ -97,7 +90,7 @@ return{
       { "<leader>sM", function() Snacks.picker.man() end, desc = "Man Pages" },
       { '<leader>s"', function() Snacks.picker.registers() end, desc = "Registers" },
       { '<leader>s/', function() Snacks.picker.search_history() end, desc = "Search History" },
-      { "<leader><leader>", function() Snacks.picker.smart() end, desc="Buffers" },
+      { "<leader><leader>", function() Snacks.picker.smart() end, desc="Smart" },
       { "<leader>/", function () Snacks.picker.lines() end, desc="Buffer lines" },
 
       { "<leader>gb", function() Snacks.picker.git_branches() end, desc = "Git Branches" },
@@ -107,8 +100,8 @@ return{
       { "<leader>gS", function() Snacks.picker.git_stash() end, desc = "Git Stash" },
       { "<leader>gd", function() Snacks.picker.git_diff() end, desc = "Git Diff (Hunks)" },
       { "<leader>gf", function() Snacks.picker.git_log_file() end, desc = "Git Log File" },
-
       { "<leader>gx", function() Snacks.gitbrowse.open() end, mode = { 'v', 'n' }, desc="Open file in browser" },
+
       { "<leader>nn", function() Snacks.picker.notifications() end, desc = "Notification History" },
       { "<leader>nd", function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications" },
       { "<leader>uC", function() Snacks.picker.colorschemes() end, desc = "Colorschemes" },
@@ -162,17 +155,5 @@ return{
         end
       })
     end,
-  },
-  {
-    "folke/persistence.nvim",
-    event = "BufReadPre",
-    opts = {},
-    -- stylua: ignore
-    keys = {
-      { "<leader>qs", function() require("persistence").load() end, desc = "Restore Session" },
-      { "<leader>qS", function() require("persistence").select() end,desc = "Select Session" },
-      { "<leader>ql", function() require("persistence").load({ last = true }) end, desc = "Restore Last Session" },
-      { "<leader>qd", function() require("persistence").stop() end, desc = "Don't Save Current Session" },
-    },
   },
 }

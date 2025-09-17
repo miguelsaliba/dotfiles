@@ -11,7 +11,7 @@ if [[ $# -eq 1 ]]; then
 else
     selected=$(fd . "${DIRS[@]}" --type=dir --max-depth=1 --full-path \
         | sed "s|^$HOME/||" \
-        | fzf --margin 10% --color="bw")
+        | fzf --margin 10%)
     [[ $selected ]] && selected="$HOME/$selected"
 fi
 

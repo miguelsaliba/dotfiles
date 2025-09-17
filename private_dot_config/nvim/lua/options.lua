@@ -13,7 +13,6 @@ vim.opt.signcolumn = 'yes'
 vim.opt.mouse = 'a'
 
 vim.opt.showmode = false
-vim.opt.cmdheight = 0
 
 vim.o.winborder = 'rounded'
 
