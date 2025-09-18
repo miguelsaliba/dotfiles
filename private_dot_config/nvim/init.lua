@@ -4,9 +4,6 @@ require "options"
 require "mappings"
 require "commands"
 
-
--- [[ Install `lazy.nvim` plugin manager ]]
---    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
@@ -18,10 +15,7 @@ end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
 
-vim.lsp.enable({'gdscript'}) -- This is already defined in nvim-lspconfig
-vim.lsp.config('phpactor', {
-  root_markers = { '.phpactor.json', '.phpactor.yaml', 'symfony.lock' },
-})
+vim.lsp.enable({'gdscript', 'phpactor'})
 
 require('lazy').setup({
   {
@@ -61,32 +55,14 @@ require('lazy').setup({
     event = 'VimEnter',
     version = '1.*',
     dependencies = {
-      {
-        'L3MON4D3/LuaSnip',
-        version = '2.*',
-        build = (function ()
-          if vim.fn.has 'win32' == 1 or vim.fn.executable 'make' == 0 then
-            return
-          end
-          return 'make install_jsregexp'
-        end)(),
-        dependencies = {
-          {
-            'rafamadriz/friendly-snippets',
-            config = function()
-              require('luasnip.loaders.from_vscode').lazy_load()
-            end,
-          },
-        },
-        opts = {},
-      },
+      'rafamadriz/friendly-snippets',
       'folke/lazydev.nvim',
       'fang2hou/blink-copilot',
     },
     --- @module 'blink.cmp'
     --- @type blink.cmp.Config
     opts = {
-        -- Please read `:help ins-completion`, it is really good!
+      -- Please read `:help ins-completion`, it is really good!
       completion = {
         documentation = { auto_show = true, auto_show_delay_ms = 500 },
         list = { selection = { auto_insert = false } },
@@ -103,8 +79,6 @@ require('lazy').setup({
           }
         },
       },
-
-      snippets = { preset = 'luasnip' },
     },
   },
 

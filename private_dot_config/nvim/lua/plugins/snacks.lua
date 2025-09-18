@@ -67,8 +67,6 @@ return{
     },
     -- stylua: ignore
     keys = {
-      { "gd", function() Snacks.picker.lsp_definitions() end, desc = "Goto Definition" },
-      { "gD", function() Snacks.picker.lsp_declarations() end, desc = "Goto Declaration" },
       { "gI", function() Snacks.picker.lsp_implementations() end, desc = "Goto Implementation" },
       { "<leader>sf", function() Snacks.picker.files() end, desc="Files" },
       { "<leader>sg", function() Snacks.picker.grep() end, desc="Grep" },
@@ -79,7 +77,7 @@ return{
       { "<leader>sk", function() Snacks.picker.keymaps() end, desc="Keymaps" },
       { "<leader>sD", function() Snacks.picker.diagnostics() end, desc="Diagnostics" },
       { "<leader>sd", function() Snacks.picker.diagnostics_buffer() end, desc="Buffer diagnostics" },
-      { "<leader>sl", function() Snacks.picker.git_log_file() end, desc="Git log file" },
+      { "<leader>sl", function() Snacks.picker.git_log() end, desc="Git log" },
       { "<leader>sc", Util.pick_chezmoi, desc="Chezmoi Config" },
       { "<leader>sb", function () Snacks.picker.buffers() end, desc="Buffers" },
       { "<leader>sS", function () Snacks.picker.lsp_workspace_symbols() end, desc="Workspace Symbols" },
@@ -93,8 +91,7 @@ return{
       { "<leader><leader>", function() Snacks.picker.smart() end, desc="Smart" },
       { "<leader>/", function () Snacks.picker.lines() end, desc="Buffer lines" },
 
-      { "<leader>gb", function() Snacks.picker.git_branches() end, desc = "Git Branches" },
-      { "<leader>gl", function() Snacks.picker.git_log() end, desc = "Git Log" },
+      { "<leader>gB", function() Snacks.picker.git_branches() end, desc = "Git Branches" },
       { "<leader>gL", function() Snacks.picker.git_log_line() end, desc = "Git Log Line" },
       { "<leader>gt", function() Snacks.picker.git_status() end, desc = "Git Status" },
       { "<leader>gS", function() Snacks.picker.git_stash() end, desc = "Git Stash" },
