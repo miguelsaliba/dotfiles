@@ -1,0 +1,14 @@
+[general]
+# Theme
+import = ["colors.toml"]
+
+[font]
+size = 14
+
+[font.normal]
+
+family = "JetBrainsMono Nerd Font"
+
+
+[window]
+opacity = 0.80
