@@ -74,4 +74,35 @@ function M.skip_whitespace(direction)
   end
 end
 
+function M.pick_yadm()
+  if vim.fn.executable("yadm") ~= 1 then
+    vim.notify("yadm not found in PATH", vim.log.levels.ERROR)
+    return
+  end
+
+  local files = vim.fn.systemlist({ "yadm", "ls-tree", "--name-only", "-r", "HEAD" })
+  if vim.v.shell_error ~= 0 or not files or #files == 0 then
+    vim.notify("No yadm-managed files found or yadm command failed", vim.log.levels.WARN)
+    return
+  end
+
+  local items = {}
+  for _, f in ipairs(files) do
+    local full = vim.fn.expand("$HOME/" .. f)
+    table.insert(items, {
+      text = f,
+      file = full,
+    })
+  end
+
+  require("snacks").picker({
+    title = "Yadm Dotfiles",
+    items = items,
+    confirm = function(picker, item)
+      picker:close()
+      vim.cmd("edit " .. vim.fn.fnameescape(item.file))
+    end,
+  })
+end
+
 return M

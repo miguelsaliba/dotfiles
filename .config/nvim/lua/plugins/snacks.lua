@@ -79,6 +79,7 @@ return{
       { "<leader>sd", function() Snacks.picker.diagnostics_buffer() end, desc="Buffer diagnostics" },
       { "<leader>sl", function() Snacks.picker.git_log() end, desc="Git log" },
       { "<leader>sc", Util.pick_chezmoi, desc="Chezmoi Config" },
+      { "<leader>sy", Util.pick_yadm, desc="Yadm Config" },
       { "<leader>sb", function () Snacks.picker.buffers() end, desc="Buffers" },
       { "<leader>sS", function () Snacks.picker.lsp_workspace_symbols() end, desc="Workspace Symbols" },
       { "<leader>ss", function () Snacks.picker.lsp_symbols() end, desc="File Symbols" },
