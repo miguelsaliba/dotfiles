@@ -1,0 +1,118 @@
+@import 'colors.css';
+@define-color bg-main #32272d;
+@define-color bg-secondary #303536;
+@define-color bg-highlight #ddc7a1;
+@define-color bg-battery #a9b665;
+@define-color bg-urgent #e78a4e;
+
+@define-color border-main #3c3836;
+@define-color border-secondary #434a4c;
+@define-color border-tooltip #7c6f64;
+@define-color border-highlight #c7ab7a;
+
+@define-color text-normal #c7ab7a;
+@define-color text-focus #edd7b1;
+@define-color text-contrast #1d2021;
+@define-color text-accent #d4be98;
+@define-color text-critical #c14a4a;
+@define-color text-battery #6c782e;
+
+@define-color bg-main            @surface;
+@define-color bg-secondary       @surface;
+@define-color bg-highlight       @primary_fixed;
+@define-color bg-battery         @tertiary_fixed_dim;
+@define-color bg-urgent          @error_container;
+
+@define-color border-main        @outline_variant;
+@define-color border-secondary   @outline;
+@define-color border-tooltip     @outline_variant;
+@define-color border-highlight   @primary;
+
+@define-color text-normal        @on_surface;
+@define-color text-focus         @primary_fixed;
+@define-color text-contrast      @on_primary;
+@define-color text-accent        @on_secondary;
+@define-color text-critical      @error;
+@define-color text-battery       @on_tertiary;
+
+* {
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font Propo";
+    font-weight: 500;
+    font-size: 14px;
+    color: @text-normal;
+    padding: 0;
+}
+
+window#waybar {
+    background: alpha(@bg-main, .5);
+    border: 2px solid @border-main;
+}
+
+.modules-left, .modules-right {
+    margin: 0 6px;
+}
+
+tooltip {
+    background-color: @bg-main;
+    border: 2px solid @border-tooltip;
+}
+
+tooltip label {
+    padding: 6px;
+}
+
+.module {
+    margin: 6px 3px;
+    padding: 2px 8px;
+    background-color: @bg-secondary;
+    border: 2px solid @border-secondary;
+}
+
+#battery {
+    color: @text-battery;
+}
+
+#workspaces {
+    padding: 3px 6px;
+    background-color: @bg-secondary;
+    border: 2px solid @border-secondary;
+}
+
+#workspaces button {
+    min-height: 0;
+    min-width: 0;
+    margin: 0 2px;
+    padding: 0 0.5rem;
+    box-shadow: none;
+}
+
+#workspaces button.active {
+    background-color: @bg-highlight;
+}
+#workspaces button.active label {
+    color: @text-contrast;
+}
+#workspaces button.urgent {
+    background-color: @bg-urgent;
+}
+
+window#waybar.empty #window {
+    background: none;
+    border: none;
+}
+
+#tray image {
+    color: #000000;
+    -gtk-secondary-caret-color: #000000;
+    caret-color: #000000;
+}
+
+#cpu.critical,
+#memory.critical,
+#battery.warning,
+#battery.critical,
+#battery.urgent {
+    color: @text-critical;
+}
+

@@ -1,0 +1,202 @@
+{
+	"layer": "top",
+	"spacing": 0,
+	"height": 0,
+
+	"margin-top": 8,
+	"margin-right": 8,
+	"margin-bottom": 0,
+	"margin-left": 8,
+	"reload_style_on_change": true,
+
+	"modules-left": [ "custom/launcher", "niri/workspaces", "custom/spotify" ],
+
+	"modules-center": [ "niri/window" ],
+
+	"modules-right": [
+		"tray",
+		"custom/theme",
+		"idle_inhibitor",
+		"custom/weather",
+		"cpu_text",
+		"cpu",
+		"memory",
+		"battery",
+		"bluetooth",
+		"pulseaudio",
+		"custom/notification",
+		"clock"
+	],
+
+	"niri/window": {
+		"separate-outputs": true,
+		"max-length": 50,
+		"on-click-middle": "niri msg action close-window",
+		"on-scroll-up": "niri msg action focus-column-left",
+		"on-scroll-down": "niri msg action focus-column-right",
+	},
+
+	"niri/workspaces": {
+		"cursor": false,
+		"on-click-middle": "niri msg action close-window",
+		"on-scroll-up": "niri msg action focus-workspace-up",
+		"on-scroll-down": "niri msg action focus-workspace-down",
+	},
+
+	"tray": {
+		"spacing": 10,
+		"tooltip": false
+	},
+
+	"cpu": {
+		"format": "cpu {usage:2}%",
+		"interval": 2,
+
+		"states": {
+			"critical": 90
+		}
+	},
+
+	"memory": {
+		"format": "mem {percentage}%",
+		"interval": 2,
+
+		"states": {
+			"critical": 80
+		}
+	},
+
+	"battery": {
+		"format": "bat {capacity}%",
+		"interval": 5,
+		"states": {
+			"warning": 20,
+			"critical": 10
+		},
+		"tooltip": false
+	},
+
+	"bluetooth": {
+		"on-click": "blueman-manager",
+		"format": "󰂯",
+		"format-disabled": "󰂲",
+		"format-off": "󰂲",
+		"format-on": "󰂯",
+		"format-connected": "󰂱",
+		"tooltip-format": "{num_connections} connected",
+		"tooltip-format-connected": "{num_connections} connected\n\n{device_enumerate}",
+		"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+		"tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
+	},
+
+	"network": {
+		"format-wifi" : "wifi",
+		"format-ethernet": "enth",
+		"format-disconnected" : "no network",
+		"interval": 5,
+		"tooltip-format": "{essid} {signalStrength}"
+	},
+
+	"pulseaudio": {
+		"scroll-step": 5,
+		"max-volume": 150,
+		"format": "vol {volume}%",
+		"format-bluetooth": "vol {volume}%",
+		"nospacing": 1,
+		"on-click": "pavucontrol",
+		"tooltip": false
+	},
+
+	"custom/launcher": {
+		"format": "apps",
+		"on-click": "pkill wofi || wofi"
+	},
+
+	"custom/lock": {
+		"tooltip": false,
+		"on-click": "hyprlock &",
+		"format": ""
+	},
+
+	"custom/power": {
+		"tooltip": false,
+		"on-click": "wlogout &",
+		"format": "⏻"
+	},
+
+	"custom/notification": {
+		"tooltip": false,
+		"format": "{icon}",
+		"format-icons": {
+			"notification": "",
+			"none": "",
+			"dnd-notification": "",
+			"dnd-none": "",
+			"inhibited-notification": "",
+			"inhibited-none": "",
+			"dnd-inhibited-notification": "",
+			"dnd-inhibited-none": ""
+		},
+		"return-type": "json",
+		"exec-if": "which swaync-client",
+		"exec": "swaync-client -swb",
+		"on-click": "swaync-client -t -sw",
+		"on-click-right": "swaync-client -d -sw",
+		"escape": true
+	},
+
+	"custom/theme": {
+		"tooltip": false,
+		"on-click": "~/.config/hypr/scripts/toggle_dark.sh",
+		"on-scroll-up": "~/.local/bin/brightness_sync up",
+		"on-scroll-down": "~/.local/bin/brightness_sync down",
+		"format": "󰔎"
+	},
+
+	"custom/weather": {
+		"exec": "~/.config/waybar/scripts/weather.sh Vancouver",
+		"return-type": "json",
+		"interval": 3600
+	},
+
+	"custom/music": {
+		"format": " {}",
+		"escape": true,
+		"interval": 5,
+		"tooltip": false,
+		"exec": "playerctl metadata --format='{{ playerName }} | {{ title }} - {{ artist }}'",
+		"on-click": "playerctl play-pause",
+		"on-click-middle": "playerctl previous",
+		"on-click-right": "playerctl next",
+		"max-length": 50
+	},
+
+	"custom/spotify": {
+		"exec": "/usr/bin/python3 ~/.config/waybar/custom_modules/mediaplayer.py",
+		"return-type": "json",
+		"on-click": "playerctl play-pause",
+		"on-scroll-up": "playerctl next",
+		"on-scroll-down": "playerctl previous",
+		"max-length": 50
+	},
+
+	"idle_inhibitor": {
+		"format": "{icon}",
+		"format-icons": {
+			"activated": "",
+			"deactivated": ""
+		},
+		"timeout": 180
+	},
+
+	"clock": {
+		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+		"format-alt": "{:%d/%m/%Y}",
+		"format": "{:%I:%M %p}",
+		"calendar": {
+			"format": {
+				"today": "<span color='#ff6699'><b>{}</b></span>",
+			}
+		}
+	}
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "/etc/xdg/swaync/configSchema.json",
+  "positionX": "left",
+  "control-center-positionX": "right",
+  "control-center-margin-top": 10,
+  "control-center-margin-bottom": 10,
+  "control-center-margin-right": 10,
+  "control-center-margin-left": 10,
+  "notification-window-preferred-output": "DP-2",
+  "widgets": [
+    "mpris",
+    "volume",
+    "inhibitors",
+    "dnd",
+    "title",
+    "notifications"
+  ],
+  "widget-config": {
+    "volume": {
+      "label": "  󰕾 ",
+      "expand-button-label": " ",
+      "collapse-button-label": " ",
+      "show-per-app": true,
+      "show-per-app-icon": false,
+      "show-per-app-label": true
+    }
+  }
+}
