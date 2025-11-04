@@ -1,8 +1,8 @@
 local M = {}
 
 function M.ai_buffer(ai_type)
-  local start_line, end_line = 1, vim.fn.line("$")
-  if ai_type == "i" then
+  local start_line, end_line = 1, vim.fn.line('$')
+  if ai_type == 'i' then
     -- Skip first and last blank lines for `i` textobject
     local first_nonblank, last_nonblank = vim.fn.nextnonblank(start_line), vim.fn.prevnonblank(end_line)
     -- Do nothing for buffer with all blanks
@@ -18,7 +18,7 @@ end
 
 -- Checks if a plugin exists without loading it
 function M.plugin_exists(name)
-  local plugins = require("lazy").plugins()
+  local plugins = require('lazy').plugins()
   for _, plugin in ipairs(plugins) do
     if plugin.name == name then
       return true
@@ -28,14 +28,14 @@ function M.plugin_exists(name)
 end
 
 function M.pick_chezmoi()
-  local results = require("chezmoi.commands").list({
+  local results = require('chezmoi.commands').list({
     args = {
-      "--path-style",
-      "absolute",
-      "--include",
-      "files",
-      "--exclude",
-      "externals",
+      '--path-style',
+      'absolute',
+      '--include',
+      'files',
+      '--exclude',
+      'externals',
     },
   })
   local items = {}
@@ -52,9 +52,9 @@ function M.pick_chezmoi()
     items = items,
     confirm = function(picker, item)
       picker:close()
-      require("chezmoi.commands").edit({
+      require('chezmoi.commands').edit({
         targets = { item.text },
-        args = { "--watch" },
+        args = { '--watch' },
       })
     end,
   }
@@ -64,9 +64,9 @@ end
 function M.skip_whitespace(direction)
   local _, col0 = unpack(vim.api.nvim_win_get_cursor(0))
   -- build a pattern: "\%{col}c\S" matches a non-space at exactly column {col}
-  local pat = "\\%" .. (col0 + 1) .. "c\\S"
+  local pat = '\\%' .. (col0 + 1) .. 'c\\S'
   -- 'W' to avoid wrap, plus 'b' for backward if needed
-  local flags = "W" .. (direction == "up"  and "b" or "")
+  local flags = 'W' .. (direction == 'up' and 'b' or '')
   local pos = vim.fn.searchpos(pat, flags)
   if pos[1] > 0 then
     -- pos = {line, col}, but col is 1-based; our API wants 0-based
@@ -75,32 +75,41 @@ function M.skip_whitespace(direction)
 end
 
 function M.pick_yadm()
-  if vim.fn.executable("yadm") ~= 1 then
-    vim.notify("yadm not found in PATH", vim.log.levels.ERROR)
+  if vim.fn.executable('yadm') ~= 1 then
+    vim.notify('yadm not found in PATH', vim.log.levels.ERROR)
     return
   end
 
-  local files = vim.fn.systemlist({ "yadm", "ls-tree", "--name-only", "-r", "HEAD" })
+  local result = vim.system({ 'yadm', 'rev-parse', '--show-toplevel' }):wait()
+  if result.code ~= 0 then
+    vim.notify('Could not find yadm root' .. result.stderr, vim.log.levels.WARN)
+    return
+  end
+  local root = vim.trim(result.stdout)
+
+  local files = vim.fn.systemlist({ 'yadm', 'ls-tree', '--name-only', '--full-name', '-r', 'HEAD', root })
   if vim.v.shell_error ~= 0 or not files or #files == 0 then
-    vim.notify("No yadm-managed files found or yadm command failed", vim.log.levels.WARN)
+    vim.notify('No yadm-managed files found or yadm command failed' .. vim.inspect(files), vim.log.levels.WARN)
     return
   end
 
   local items = {}
   for _, f in ipairs(files) do
-    local full = vim.fn.expand("$HOME/" .. f)
+    local fullpath = vim.fs.joinpath(root, f)
     table.insert(items, {
-      text = f,
-      file = full,
+      text = fullpath,
+      file = fullpath,
     })
   end
 
-  require("snacks").picker({
-    title = "Yadm Dotfiles",
+  require('snacks').picker.pick({
+    title = 'Yadm Dotfiles',
     items = items,
+    cwd = vim.fs.normalize(root),
+    format = 'text',
     confirm = function(picker, item)
       picker:close()
-      vim.cmd("edit " .. vim.fn.fnameescape(item.file))
+      vim.cmd('edit ' .. vim.fn.fnameescape(item.file))
     end,
   })
 end

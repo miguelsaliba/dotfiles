@@ -6,6 +6,15 @@ return {
     opts = {
       default_file_explorer = false,
     },
+    keys = {
+      {
+        '<leader>o',
+        function()
+          require('oil').open_float()
+        end,
+        desc = 'Open parent directory',
+      },
+    },
     -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
     lazy = false,
   },
@@ -35,5 +44,9 @@ return {
     'stevearc/quicker.nvim',
     event = 'FileType qf',
     opts = {},
+  },
+  {
+    'Kohei-Wada/yadm-git.nvim',
+    lazy = false,
   },
 }

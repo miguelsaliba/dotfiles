@@ -4,7 +4,6 @@ return {
     version = '*',
     config = function()
       require('mini.files').setup()
-      require('mini.pick').setup()
       require('mini.clue').setup()
       require('mini.icons').setup()
       require('mini.surround').setup()
