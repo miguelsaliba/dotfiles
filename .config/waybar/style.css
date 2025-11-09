@@ -1,4 +1,6 @@
 @import 'colors.css';
+
+/* Keeping these old ones for now */
 @define-color bg-main #32272d;
 @define-color bg-secondary #303536;
 @define-color bg-highlight #ddc7a1;
@@ -17,36 +19,41 @@
 @define-color text-critical #c14a4a;
 @define-color text-battery #6c782e;
 
-@define-color bg-main            @surface;
-@define-color bg-secondary       @surface;
-@define-color bg-highlight       @primary_fixed;
+@define-color bg-main            @surface_container;
+@define-color bg-secondary       @secondary_container;
+@define-color bg-highlight       @tertiary;
 @define-color bg-battery         @tertiary_fixed_dim;
 @define-color bg-urgent          @error_container;
 
 @define-color border-main        @outline_variant;
-@define-color border-secondary   @outline;
+@define-color border-secondary   @on_secondary_container;
+@define-color border-highlight   @on_secondary_container;
 @define-color border-tooltip     @outline_variant;
-@define-color border-highlight   @primary;
 
-@define-color text-normal        @on_surface;
+@define-color text-normal        @on_secondary_container;
+@define-color text-highlight     @on_tertiary;
 @define-color text-focus         @primary_fixed;
-@define-color text-contrast      @on_primary;
-@define-color text-accent        @on_secondary;
+@define-color text-accent        @on_primary_container;
 @define-color text-critical      @error;
-@define-color text-battery       @on_tertiary;
 
 * {
     border-radius: 0;
     font-family: "JetBrainsMono Nerd Font Propo";
-    font-weight: 500;
+    font-weight: 600;
     font-size: 14px;
     color: @text-normal;
     padding: 0;
 }
 
 window#waybar {
-    background: alpha(@bg-main, .5);
+    background: alpha(@bg-main, .7);
     border: 2px solid @border-main;
+}
+
+/* when there is no open window on workspace */
+window#waybar.empty #window {
+    background: none;
+    border: none;
 }
 
 .modules-left, .modules-right {
@@ -69,43 +76,36 @@ tooltip label {
     border: 2px solid @border-secondary;
 }
 
-#battery {
-    color: @text-battery;
-}
-
 #workspaces {
-    padding: 3px 6px;
+    padding: 2px 5px;
     background-color: @bg-secondary;
     border: 2px solid @border-secondary;
 }
 
 #workspaces button {
-    min-height: 0;
-    min-width: 0;
-    margin: 0 2px;
-    padding: 0 0.5rem;
-    box-shadow: none;
+    all: unset;
 }
-
-#workspaces button.active {
-    background-color: @bg-highlight;
+#workspaces button label {
+    transition: 0.5s;
+    padding: 0.2rem 0.7rem;
+    margin: 2px;
+}
+#workspaces button:hover label {
+    background-color: alpha(@bg-highlight, 0.7);
+    color: @text-highlight;
 }
 #workspaces button.active label {
-    color: @text-contrast;
+    background-color: @bg-highlight;
+    color: @text-highlight;
 }
 #workspaces button.urgent {
     background-color: @bg-urgent;
 }
 
-window#waybar.empty #window {
-    background: none;
-    border: none;
-}
-
-#tray image {
-    color: #000000;
-    -gtk-secondary-caret-color: #000000;
-    caret-color: #000000;
+#clock {
+    background-color: @bg-highlight;
+    color: @text-highlight;
+    border: 2px solid @border-highlight;
 }
 
 #cpu.critical,
@@ -116,3 +116,12 @@ window#waybar.empty #window {
     color: @text-critical;
 }
 
+/* tray right click menu */
+.popup menu {
+    padding: 0.5rem;
+    background-color: @bg-secondary;
+    color: @text-normal;
+}
+.popup separator {
+    background-color: alpha(@text-normal, .4);
+}

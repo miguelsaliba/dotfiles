@@ -97,7 +97,7 @@ function M.pick_yadm()
   for _, f in ipairs(files) do
     local fullpath = vim.fs.joinpath(root, f)
     table.insert(items, {
-      text = fullpath,
+      text = f,
       file = fullpath,
     })
   end

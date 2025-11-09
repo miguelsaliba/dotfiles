@@ -12,6 +12,7 @@ input {
         repeat-rate 50
 
         xkb {
+            // options "altwin:menuwin,caps:swapescape"
             options "altwin:menuwin"
         }
     }
@@ -19,7 +20,8 @@ input {
     touchpad {
         tap
         natural-scroll
-        // accel-speed 0.2
+        accel-speed 0
+        scroll-factor 0.2
     }
 
     mouse {
@@ -81,6 +83,7 @@ layout {
 // See the binds section below for more spawn examples.
 
 spawn-at-startup "waybar"
+spawn-at-startup "swaync"
 spawn-at-startup "hypridle"
 spawn-at-startup "swww-daemon"
 spawn-at-startup "swww" "img" "~/.config/background"
@@ -173,6 +176,8 @@ binds {
     Mod+N hotkey-overlay-title="Toggle notifications" { spawn "swaync-client" "-t" "-sw"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: hyprlock" { spawn "hyprlock"; }
 
+    Mod+Ctrl+W hotkey-overlay-title="Random wallpaper" { spawn "~/.local/bin/random_wallpaper.sh"; }
+
     Mod+V hotkey-overlay-title="Clipboard history" { spawn "~/.config/niri/cliphist-fuzzel-img"; }
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }
@@ -183,8 +188,8 @@ binds {
     // Example brightness key mappings for brightnessctl.
     // You can use regular spawn with multiple arguments too (to avoid going through "sh"),
     // but you need to manually put each argument in separate "" quotes.
-    // XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
-    // XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
+    XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
 
     // Open/close the Overview: a zoomed-out view of workspaces and windows.
     // You can also move the mouse into the top-left hot corner,

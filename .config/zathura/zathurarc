@@ -19,6 +19,9 @@ set guioptions ""
 # hide notification
 set selection-notification false
 
+# copy to clipboard
+set selection-clipboard clipboard
+
 # zathurarc-dark
 
 set font "inconsolata 15"

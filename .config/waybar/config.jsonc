@@ -9,7 +9,11 @@
 	"margin-left": 8,
 	"reload_style_on_change": true,
 
-	"modules-left": [ "custom/launcher", "niri/workspaces", "custom/spotify" ],
+	"modules-left": [
+		"custom/launcher",
+		"niri/workspaces"
+		// "custom/spotify"
+	],
 
 	"modules-center": [ "niri/window" ],
 
@@ -21,11 +25,11 @@
 		"cpu_text",
 		"cpu",
 		"memory",
-		"battery",
 		"bluetooth",
 		"pulseaudio",
-		"custom/notification",
-		"clock"
+		"battery",
+		"clock",
+		"custom/notification"
 	],
 
 	"niri/window": {
@@ -49,25 +53,26 @@
 	},
 
 	"cpu": {
-		"format": "cpu {usage:2}%",
+		"format": "{usage}% {icon}",
+		"format-icons": [""],
 		"interval": 2,
-
 		"states": {
 			"critical": 90
 		}
 	},
 
 	"memory": {
-		"format": "mem {percentage}%",
+		"format": "{percentage}% {icon}",
+		"format-icons": [""],
 		"interval": 2,
-
 		"states": {
 			"critical": 80
 		}
 	},
 
 	"battery": {
-		"format": "bat {capacity}%",
+		"format": "{capacity}% {icon}",
+		"format-icons": ["󰁺", "󰁼", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
 		"interval": 5,
 		"states": {
 			"warning": 20,
@@ -100,11 +105,13 @@
 	"pulseaudio": {
 		"scroll-step": 5,
 		"max-volume": 150,
-		"format": "vol {volume}%",
-		"format-bluetooth": "vol {volume}%",
-		"nospacing": 1,
-		"on-click": "pavucontrol",
-		"tooltip": false
+		"format": "{volume}% {icon}",
+		"format-muted": "{volume}% ",
+		"format-icons": ["", "", ""],
+		// "on-click": "pavucontrol",
+		"on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+		"tooltip": false,
+		"menu": "on-click",
 	},
 
 	"custom/launcher": {
