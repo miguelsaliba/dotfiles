@@ -8,7 +8,6 @@ return {
       require('mini.icons').setup()
       require('mini.surround').setup()
       require('mini.move').setup()
-      require('mini.git').setup()
       local miniai = require('mini.ai')
       local miniclue = require('mini.clue')
       local statusline = require('mini.statusline')

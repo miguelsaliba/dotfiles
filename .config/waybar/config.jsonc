@@ -53,7 +53,7 @@
 	},
 
 	"cpu": {
-		"format": "{usage}% {icon}",
+		"format": "{usage:2}% {icon}",
 		"format-icons": [""],
 		"interval": 2,
 		"states": {
@@ -62,7 +62,7 @@
 	},
 
 	"memory": {
-		"format": "{percentage}% {icon}",
+		"format": "{percentage:2}% {icon}",
 		"format-icons": [""],
 		"interval": 2,
 		"states": {
