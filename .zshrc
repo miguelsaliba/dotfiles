@@ -32,7 +32,8 @@ setopt hist_find_no_dups
 eval "$(zoxide init --cmd cd zsh)"
 
 autoload -U compinit && compinit
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+# Fancy completion https://stackoverflow.com/a/24237590
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
