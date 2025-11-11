@@ -11,10 +11,11 @@ input {
         repeat-delay 300
         repeat-rate 50
 
-        xkb {
-            // options "altwin:menuwin,caps:swapescape"
-            options "altwin:menuwin"
-        }
+        // Commenting this out for now because there is no device specific config yet
+        // Using script ~/.config/niri/toggle_caps.sh to toggle this for now
+        // xkb {
+        //     options "altwin:menuwin,caps:swapescape"
+        // }
     }
 
     touchpad {
@@ -176,8 +177,8 @@ binds {
     Mod+N hotkey-overlay-title="Toggle notifications" { spawn "swaync-client" "-t" "-sw"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: hyprlock" { spawn "hyprlock"; }
 
+    Mod+Caps_Lock hotkey-overlay-title="Swap caps and escape" { spawn "sudo" "~/.config/niri/toggle_caps.sh"; }
     Mod+Ctrl+W hotkey-overlay-title="Random wallpaper" { spawn "~/.local/bin/random_wallpaper.sh"; }
-
     Mod+V hotkey-overlay-title="Clipboard history" { spawn "~/.config/niri/cliphist-fuzzel-img"; }
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }
