@@ -13,7 +13,6 @@ return{
       picker = {
         enabled = true,
         layout = {
-          preset = 'ivy',
           layout = {
             height = 0.75,
           },

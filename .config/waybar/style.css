@@ -22,7 +22,7 @@
 @define-color bg-main            @surface_container;
 @define-color bg-secondary       @secondary_container;
 @define-color bg-highlight       @tertiary;
-@define-color bg-battery         @tertiary_fixed_dim;
+@define-color bg-battery         @bg-secondary;
 @define-color bg-urgent          @error_container;
 
 @define-color border-main        @outline_variant;
@@ -35,6 +35,7 @@
 @define-color text-focus         @primary_fixed;
 @define-color text-accent        @on_primary_container;
 @define-color text-critical      @error;
+@define-color text-battery       @on_tertiary_fixed_dim;
 
 * {
     border-radius: 0;
@@ -106,6 +107,11 @@ tooltip label {
     background-color: @bg-highlight;
     color: @text-highlight;
     border: 2px solid @border-highlight;
+}
+
+#battery.charging {
+    background-color: @bg-battery;
+    color: @text-battery;
 }
 
 #cpu.critical,

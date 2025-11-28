@@ -4,13 +4,14 @@ return {
     version = '*',
     config = function()
       require('mini.files').setup()
-      require('mini.clue').setup()
       require('mini.icons').setup()
       require('mini.surround').setup()
       require('mini.move').setup()
       local miniai = require('mini.ai')
-      local miniclue = require('mini.clue')
+      local clue = require('mini.clue')
       local statusline = require('mini.statusline')
+
+      MiniIcons.mock_nvim_web_devicons()
 
       vim.keymap.set('n', '<leader>e', function()
         if not MiniFiles.close() then
@@ -21,18 +22,14 @@ return {
 
       statusline.setup({ use_icons = vim.g.have_nerd_font })
 
-      miniai.setup {
+      miniai.setup({
         n_lines = 1000,
         custom_textobjects = {
           g = Util.ai_buffer,
         },
-      }
+      })
 
-      vim.api.nvim_create_user_command("G", function(opts)
-        vim.cmd("Git " .. opts.args)
-      end, { nargs = "*" })
-
-      miniclue.setup({
+      clue.setup({
         triggers = {
           { mode = 'n', keys = '<Leader>' },
           { mode = 'x', keys = '<Leader>' },
@@ -62,35 +59,19 @@ return {
         },
 
         clues = {
-          miniclue.gen_clues.builtin_completion(),
-          miniclue.gen_clues.g(),
-          miniclue.gen_clues.marks(),
-          miniclue.gen_clues.z(),
-          miniclue.gen_clues.registers({
+          clue.gen_clues.builtin_completion(),
+          clue.gen_clues.g(),
+          clue.gen_clues.marks(),
+          clue.gen_clues.z(),
+          clue.gen_clues.registers({
             show_contents = true,
           }),
-          miniclue.gen_clues.windows({
+          clue.gen_clues.windows({
             submode_move = true,
             submode_resize = true,
           }),
         },
       })
-
-      local align_blame = function(au_data)
-        if au_data.data.git_subcommand ~= 'blame' then return end
-
-        -- Align blame output with source
-        local win_src = au_data.data.win_source
-        vim.wo.wrap = false
-        vim.fn.winrestview({ topline = vim.fn.line('w0', win_src) })
-        vim.api.nvim_win_set_cursor(0, { vim.fn.line('.', win_src), 0 })
-
-        -- Bind both windows so that they scroll together
-        vim.wo[win_src].scrollbind, vim.wo.scrollbind = true, true
-      end
-
-      local au_opts = { pattern = 'MiniGitCommandSplit', callback = align_blame }
-      vim.api.nvim_create_autocmd('User', au_opts)
     end,
   },
 }
