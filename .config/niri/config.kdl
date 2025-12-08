@@ -89,8 +89,9 @@ spawn-at-startup "hypridle"
 spawn-at-startup "swww-daemon"
 spawn-at-startup "swww" "img" "~/.config/background"
 spawn-sh-at-startup "wlsunset -l 45.5 -L -73.5 -t 3000 -T 6000"
-spawn-sh-at-startup "wl-paste --watch cliphist store &"
+spawn-at-startup "vicinae" "server"
 spawn-at-startup "/usr/libexec/polkit-mate-authentication-agent-1"
+// spawn-sh-at-startup "wl-paste --watch cliphist store &"
 // spawn-at-startup "dms" "run"
 
 
@@ -172,14 +173,14 @@ binds {
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+Return hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
-    Mod+Space hotkey-overlay-title="Run an Application: wofi" { spawn "wofi"; }
+    Mod+Space hotkey-overlay-title="Run an Application: vicinae" { spawn "vicinae" "toggle"; }
     Mod+E hotkey-overlay-title="Run an Application: file manager" { spawn "nemo"; }
     Mod+N hotkey-overlay-title="Toggle notifications" { spawn "swaync-client" "-t" "-sw"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: hyprlock" { spawn "hyprlock"; }
 
     Mod+Caps_Lock hotkey-overlay-title="Swap caps and escape" { spawn "sudo" "~/.config/niri/toggle_caps.sh"; }
     Mod+Ctrl+W hotkey-overlay-title="Random wallpaper" { spawn "~/.local/bin/random_wallpaper.sh"; }
-    Mod+V hotkey-overlay-title="Clipboard history" { spawn "~/.config/niri/cliphist-fuzzel-img"; }
+    Mod+V hotkey-overlay-title="Clipboard history" repeat=false { spawn "vicinae" "vicinae://extensions/vicinae/clipboard/history"; }
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
