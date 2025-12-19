@@ -180,9 +180,10 @@ binds {
 
     Mod+Caps_Lock hotkey-overlay-title="Swap caps and escape" { spawn "sudo" "~/.config/niri/toggle_caps.sh"; }
     Mod+Ctrl+W hotkey-overlay-title="Random wallpaper" { spawn "~/.local/bin/random_wallpaper.sh"; }
+    Mod+Ctrl+X hotkey-overlay-title="Switch Monitor Inputs" allow-when-locked=true { spawn "~/.local/bin/switch_displays.sh"; }
     Mod+V hotkey-overlay-title="Clipboard history" repeat=false { spawn "vicinae" "vicinae://extensions/vicinae/clipboard/history"; }
 
-    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }
+    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.5"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
     XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
     XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }

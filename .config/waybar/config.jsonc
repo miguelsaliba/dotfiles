@@ -111,10 +111,9 @@
 		"format": "{volume}% {icon}",
 		"format-muted": "{volume}% ",
 		"format-icons": ["", "", ""],
-		// "on-click": "pavucontrol",
+		"on-click": "pavucontrol",
 		"on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
 		"tooltip": false,
-		"menu": "on-click",
 	},
 
 	"custom/launcher": {

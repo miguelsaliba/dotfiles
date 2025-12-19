@@ -20,7 +20,7 @@
 @define-color text-battery #6c782e;
 
 @define-color bg-main            @surface_container;
-@define-color bg-secondary       @secondary_container;
+@define-color bg-secondary       @surface_container;
 @define-color bg-highlight       @tertiary;
 @define-color bg-battery         @bg-secondary;
 @define-color bg-urgent          @error_container;
@@ -30,7 +30,7 @@
 @define-color border-highlight   @on_secondary_container;
 @define-color border-tooltip     @outline_variant;
 
-@define-color text-normal        @on_secondary_container;
+@define-color text-normal        @on_surface_container;
 @define-color text-highlight     @on_tertiary;
 @define-color text-focus         @primary_fixed;
 @define-color text-accent        @on_primary_container;
