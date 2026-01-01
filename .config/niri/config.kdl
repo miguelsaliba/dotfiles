@@ -32,6 +32,7 @@ input {
 
     trackball {
         accel-profile "flat"
+        scroll-method "on-button-down"
     }
 
     focus-follows-mouse max-scroll-amount="30%"
@@ -137,6 +138,7 @@ window-rule {
 window-rule {
     geometry-corner-radius 3
     clip-to-geometry true
+    draw-border-with-background false
 }
 
 binds {

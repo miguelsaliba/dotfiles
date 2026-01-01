@@ -20,25 +20,23 @@
 @define-color text-battery #6c782e;
 
 @define-color bg-main            @surface_container;
-@define-color bg-secondary       @surface_container;
-@define-color bg-highlight       @tertiary;
-@define-color bg-battery         @bg-secondary;
+@define-color bg-secondary       @primary_container;
+@define-color bg-highlight       @secondary;
+@define-color bg-battery         @tertiary_fixed_dim;
 @define-color bg-urgent          @error_container;
 
 @define-color border-main        @outline_variant;
-@define-color border-secondary   @on_secondary_container;
-@define-color border-highlight   @on_secondary_container;
+@define-color border-secondary   @outline;
+@define-color border-highlight   @border-secondary;
 @define-color border-tooltip     @outline_variant;
 
 @define-color text-normal        @on_surface_container;
-@define-color text-highlight     @on_tertiary;
-@define-color text-focus         @primary_fixed;
-@define-color text-accent        @on_primary_container;
+@define-color text-highlight     @on_secondary;
 @define-color text-critical      @error;
-@define-color text-battery       @on_tertiary_fixed_dim;
+@define-color text-battery       @on_tertiary_fixed;
 
 * {
-    border-radius: 0;
+    border-radius: 3px;
     font-family: "JetBrainsMono Nerd Font Propo";
     font-weight: 600;
     font-size: 14px;
@@ -49,6 +47,8 @@
 window#waybar {
     background: alpha(@bg-main, .7);
     border: 2px solid @border-main;
+    background: transparent;
+    border: none;
 }
 
 /* when there is no open window on workspace */
@@ -71,7 +71,8 @@ tooltip label {
 }
 
 .module {
-    margin: 6px 3px;
+    margin: 3px;
+    margin-bottom: 0;
     padding: 2px 8px;
     background-color: @bg-secondary;
     border: 2px solid @border-secondary;
@@ -79,8 +80,6 @@ tooltip label {
 
 #workspaces {
     padding: 2px 5px;
-    background-color: @bg-secondary;
-    border: 2px solid @border-secondary;
 }
 
 #workspaces button {

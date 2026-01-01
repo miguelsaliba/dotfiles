@@ -1,0 +1,2 @@
+alias bootwindows="sudo grub2-reboot \"Windows Boot Manager (on /dev/nvme0n1p2)\" && sudo reboot"
+alias s="kitten ssh"

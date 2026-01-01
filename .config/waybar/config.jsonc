@@ -11,11 +11,13 @@
 
 	"modules-left": [
 		"custom/launcher",
-		"niri/workspaces"
+		"niri/workspaces",
+		"niri/window"
 		// "custom/spotify"
 	],
 
-	"modules-center": [ "niri/window" ],
+	"modules-center": [
+	],
 
 	"modules-right": [
 		"tray",
