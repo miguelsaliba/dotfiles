@@ -24,21 +24,6 @@ return{
           },
         },
       },
-      zen = {
-        win = {
-          backdrop = { blend = 0, },
-        },
-      },
-      gitbrowse = {
-        url_patterns = {
-          ["git.kiwicollection.net"] = {
-            branch = "/tree/{branch}",
-            file = "/blob/{branch}/{file}#L{line_start}-L{line_end}",
-            permalink = "/blob/{commit}/{file}#L{line_start}-L{line_end}",
-            commit = "/commit/{commit}",
-          }
-        }
-      },
       dashboard = {
         preset = {
           header = '',
@@ -49,7 +34,7 @@ return{
             { icon = " ", key = "n", desc = "New File", action = ":ene" },
             { icon = " ", key = "g", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
             { icon = " ", key = "r", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
-            { icon = " ", key = "c", desc = "Chezmoi Config", action = Util.pick_chezmoi },
+            { icon = " ", key = "c", desc = "Config", action = Util.pick_yadm },
             { icon = "󰺿 ", key = "o", desc = "Obsidian Vault", action = ":cd ~/Documents/Obsidian"},
             { icon = " ", key = "s", desc = "Restore Session", section = "session" },
             { icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy" },
@@ -77,7 +62,6 @@ return{
       { "<leader>sD", function() Snacks.picker.diagnostics() end, desc="Diagnostics" },
       { "<leader>sd", function() Snacks.picker.diagnostics_buffer() end, desc="Buffer diagnostics" },
       { "<leader>sl", function() Snacks.picker.git_log() end, desc="Git log" },
-      { "<leader>sc", Util.pick_chezmoi, desc="Chezmoi Config" },
       { "<leader>sy", Util.pick_yadm, desc="Yadm Config" },
       { "<leader>sb", function () Snacks.picker.buffers() end, desc="Buffers" },
       { "<leader>sS", function () Snacks.picker.lsp_workspace_symbols() end, desc="Workspace Symbols" },

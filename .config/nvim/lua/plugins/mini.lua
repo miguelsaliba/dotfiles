@@ -10,6 +10,7 @@ return {
       local miniai = require('mini.ai')
       local clue = require('mini.clue')
       local statusline = require('mini.statusline')
+      local bufremove = require('mini.bufremove')
 
       MiniIcons.mock_nvim_web_devicons()
 
@@ -19,6 +20,9 @@ return {
           MiniFiles.reveal_cwd()
         end
       end, { desc = 'Toggle mini files' })
+
+      vim.keymap.set('n', '<leader>bd', function() require('mini.bufremove').delete() end)
+      vim.keymap.set('n', '<leader>bD', function() require('mini.bufremove').delete(0, true) end)
 
       statusline.setup({ use_icons = vim.g.have_nerd_font })
 

@@ -19,13 +19,6 @@ return {
     lazy = false,
   },
   {
-    'altermo/ultimate-autopair.nvim',
-    event = { 'InsertEnter', 'CmdlineEnter' },
-    opts = {
-      pair_cmap = false,
-    },
-  },
-  {
     'otavioschwanck/arrow.nvim',
     opts = {
       show_icon = true,

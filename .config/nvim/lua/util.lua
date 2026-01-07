@@ -27,40 +27,6 @@ function M.plugin_exists(name)
   return false
 end
 
-function M.pick_chezmoi()
-  local results = require('chezmoi.commands').list({
-    args = {
-      '--path-style',
-      'absolute',
-      '--include',
-      'files',
-      '--exclude',
-      'externals',
-    },
-  })
-  local items = {}
-
-  for _, czFile in ipairs(results) do
-    table.insert(items, {
-      text = czFile,
-      file = czFile,
-    })
-  end
-
-  ---@type snacks.picker.Config
-  local opts = {
-    items = items,
-    confirm = function(picker, item)
-      picker:close()
-      require('chezmoi.commands').edit({
-        targets = { item.text },
-        args = { '--watch' },
-      })
-    end,
-  }
-  Snacks.picker.pick(opts)
-end
-
 function M.skip_whitespace(direction)
   local _, col0 = unpack(vim.api.nvim_win_get_cursor(0))
   -- build a pattern: "\%{col}c\S" matches a non-space at exactly column {col}
@@ -75,41 +41,14 @@ function M.skip_whitespace(direction)
 end
 
 function M.pick_yadm()
-  if vim.fn.executable('yadm') ~= 1 then
-    vim.notify('yadm not found in PATH', vim.log.levels.ERROR)
-    return
-  end
-
-  local result = vim.system({ 'yadm', 'rev-parse', '--show-toplevel' }):wait()
-  if result.code ~= 0 then
-    vim.notify('Could not find yadm root' .. result.stderr, vim.log.levels.WARN)
-    return
-  end
-  local root = vim.trim(result.stdout)
-
-  local files = vim.fn.systemlist({ 'yadm', 'ls-tree', '--name-only', '--full-name', '-r', 'HEAD', root })
-  if vim.v.shell_error ~= 0 or not files or #files == 0 then
-    vim.notify('No yadm-managed files found or yadm command failed' .. vim.inspect(files), vim.log.levels.WARN)
-    return
-  end
-
-  local items = {}
-  for _, f in ipairs(files) do
-    local fullpath = vim.fs.joinpath(root, f)
-    table.insert(items, {
-      text = f,
-      file = fullpath,
-    })
-  end
-
-  require('snacks').picker.pick({
-    title = 'Yadm Dotfiles',
-    items = items,
-    cwd = vim.fs.normalize(root),
-    format = 'text',
-    confirm = function(picker, item)
-      picker:close()
-      vim.cmd('edit ' .. vim.fn.fnameescape(item.file))
+  require("snacks").picker({
+    finder = "proc",
+    cmd = "yadm",
+    args = { "ls-files" },
+    cwd = "~",
+    title = "YADM Files",
+    transform = function(item)
+      item.file = '~/' .. item.text
     end,
   })
 end
