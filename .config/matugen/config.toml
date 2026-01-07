@@ -21,14 +21,14 @@ output_path = '~/.config/alacritty/colors.toml'
 input_path = './templates/colors.css'
 output_path = '~/.config/swaync/colors.css'
 
-[templates.gtk3]
-input_path = './templates/gtk-colors.css'
-output_path = '~/.config/gtk-3.0/colors.css'
-post_hook = 'gsettings set org.gnome.desktop.interface gtk-theme ""; gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3-{{mode}}'
+# [templates.gtk3]
+# input_path = './templates/gtk-colors.css'
+# output_path = '~/.config/gtk-3.0/colors.css'
+# post_hook = 'gsettings set org.gnome.desktop.interface gtk-theme ""; gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3-{{mode}}'
 
-[templates.gtk4]
-input_path = './templates/gtk-colors.css'
-output_path = '~/.config/gtk-4.0/colors.css'
+# [templates.gtk4]
+# input_path = './templates/gtk-colors.css'
+# output_path = '~/.config/gtk-4.0/colors.css'
 
 [templates.vicinae]
 input_path = './templates/vicinae.toml'

@@ -87,7 +87,7 @@
 	},
 
 	"bluetooth": {
-		"on-click": "blueman-manager",
+		"on-click": "vicinae close || vicinae vicinae://extensions/Gelei/bluetooth/devices",
 		"format": "󰂯",
 		"format-disabled": "󰂲",
 		"format-off": "󰂲",
@@ -100,9 +100,9 @@
 	},
 
 	"network": {
-		"format-wifi" : "wifi",
+		"format-wifi": "wifi",
 		"format-ethernet": "enth",
-		"format-disconnected" : "no network",
+		"format-disconnected" : "no net",
 		"interval": 5,
 		"tooltip-format": "{essid} {signalStrength}"
 	},

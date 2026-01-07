@@ -1,15 +1,22 @@
 # Required packages
 
 ```
+nvim
 niri
 waybar
-nvim
-matugen
-NetworkManager
-alacritty
-blueman-applet
-nemo
 swaync
+matugen
 hyprlock
+hypridle
+fd
+rg
+vicinae
+swww
+wlsunset
+NetworkManager
+kitty
+blueman-applet
+syncthing
+zathura
 ```
 
