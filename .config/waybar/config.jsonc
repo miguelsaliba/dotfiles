@@ -39,14 +39,14 @@
 		"max-length": 50,
 		"on-click": "niri msg action close-window",
 		"on-scroll-up": "niri msg action focus-column-left",
-		"on-scroll-down": "niri msg action focus-column-right",
+		"on-scroll-down": "niri msg action focus-column-right"
 	},
 
 	"niri/workspaces": {
 		"cursor": false,
 		"on-click-middle": "niri msg action close-window",
 		"on-scroll-up": "niri msg action focus-workspace-up",
-		"on-scroll-down": "niri msg action focus-workspace-down",
+		"on-scroll-down": "niri msg action focus-workspace-down"
 	},
 
 	"tray": {
@@ -76,7 +76,7 @@
 		"format": "{capacity}% {icon}",
 		"format-icons": {
 			"default": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
-			"charging": ["󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"],
+			"charging": ["󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"]
 		},
 		"interval": 5,
 		"states": {
@@ -115,7 +115,7 @@
 		"format-icons": ["", "", ""],
 		"on-click": "pavucontrol",
 		"on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-		"tooltip": false,
+		"tooltip": false
 	},
 
 	"custom/launcher": {
@@ -158,7 +158,7 @@
 
 	"custom/theme": {
 		"tooltip": false,
-		"on-click": "~/.config/hypr/scripts/toggle_dark.sh",
+		"on-click": "~/.local/bin/toggle_dark.sh",
 		"on-scroll-up": "~/.local/bin/brightness_sync up",
 		"on-scroll-down": "~/.local/bin/brightness_sync down",
 		"format": "󰔎"
@@ -206,7 +206,7 @@
 		"format": "{:%I:%M %p}",
 		"calendar": {
 			"format": {
-				"today": "<span color='#ff6699'><b>{}</b></span>",
+				"today": "<span color='#ff6699'><b>{}</b></span>"
 			}
 		}
 	}

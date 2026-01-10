@@ -41,9 +41,6 @@ return {
   {
     'Kohei-Wada/yadm-git.nvim',
     lazy = false,
-    enabled = false,
-    opts = {
-      debug = true
-    },
+    opts = {},
   },
 }

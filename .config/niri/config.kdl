@@ -121,6 +121,7 @@ layer-rule {
 }
 
 overview {
+    zoom 0.25
     workspace-shadow {
         off
     }
@@ -136,7 +137,7 @@ window-rule {
 }
 
 window-rule {
-    geometry-corner-radius 3
+    geometry-corner-radius 12
     clip-to-geometry true
     draw-border-with-background false
 }
@@ -150,7 +151,7 @@ binds {
 
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Mod+Space hotkey-overlay-title="Run an Application: vicinae" { spawn "vicinae" "toggle"; }
-    Mod+E hotkey-overlay-title="Run an Application: file manager" { spawn "nemo"; }
+    Mod+E hotkey-overlay-title="Run an Application: file manager" { spawn "xdg-open" "."; }
     Mod+N hotkey-overlay-title="Toggle notifications" { spawn "swaync-client" "-t" "-sw"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: hyprlock" { spawn "hyprlock"; }
 
