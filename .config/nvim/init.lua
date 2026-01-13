@@ -15,7 +15,7 @@ end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
 
-vim.lsp.enable({'gdscript'})
+vim.lsp.enable({'gdscript', 'gopls'})
 
 require('lazy').setup({
   {
@@ -36,19 +36,8 @@ require('lazy').setup({
       },
     },
   },
-  {
-    'williamboman/mason-lspconfig.nvim',
-    dependencies = {
-      { 'williamboman/mason.nvim', opts = {} },
-      'neovim/nvim-lspconfig',
-      'saghen/blink.cmp',
-    },
-    opts = {
-      ensure_installed = {},
-      automatic_installation = false,
-      automatic_enable = true,
-    },
-  },
+  { 'williamboman/mason.nvim', opts = {} },
+  {'neovim/nvim-lspconfig'},
 
   {
     'saghen/blink.cmp',

@@ -9,8 +9,12 @@ sudo dnf install -y \
     rg \
     wlsunset \
     kitty \
+    golang \
+    gopls \
     syncthing \
     zathura \
+    zathura-pdf-mupdf \
+    zsh \
     oh-my-posh \
     zsh-autosuggestions \
     zsh-syntax-highlighting
