@@ -15,7 +15,7 @@ end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
 
-vim.lsp.enable({'gdscript', 'phpactor'})
+vim.lsp.enable({'gdscript'})
 
 require('lazy').setup({
   {
@@ -85,7 +85,6 @@ require('lazy').setup({
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
-    main = 'nvim-treesitter.config', -- Sets main module to use for opts
     opts = {
       ensure_installed = { 'bash', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline' },
       auto_install = true,

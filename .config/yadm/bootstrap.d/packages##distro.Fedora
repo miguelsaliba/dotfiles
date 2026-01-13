@@ -1,0 +1,25 @@
+#!/bin/bash
+
+sudo dnf install -y \
+    neovim \
+    niri \
+    waybar \
+    swaync \
+    fd \
+    rg \
+    wlsunset \
+    kitty \
+    syncthing \
+    zathura \
+    oh-my-posh \
+    zsh-autosuggestions \
+    zsh-syntax-highlighting
+    
+# Rustup install
+curl https://sh.rustup.rs -sSf | sh
+
+# cargo packages
+cargo install matugen
+
+chsh -s "$(command -v zsh)"
+

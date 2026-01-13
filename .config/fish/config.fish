@@ -4,3 +4,4 @@ if status is-interactive
 end
 
 fish_add_path ~/.local/bin
+fish_add_path ~/.cargo/env.fish
