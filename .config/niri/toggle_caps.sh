@@ -30,4 +30,4 @@ fi
 
 # If variant is empty, pass empty string explicitly
 # Use --no-convert to avoid converting to console keymap
-sudo localectl set-x11-keymap "$layout" "$variant" "" "$new_options" --no-convert
+localectl set-x11-keymap "$layout" "$variant" "" "$new_options" --no-convert

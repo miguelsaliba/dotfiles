@@ -127,7 +127,7 @@ binds {
     Mod+N hotkey-overlay-title="Toggle notifications" { spawn "swaync-client" "-t" "-sw"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: hyprlock" { spawn "hyprlock"; }
 
-    Mod+Caps_Lock hotkey-overlay-title="Swap caps and escape" { spawn "sudo" "~/.config/niri/toggle_caps.sh"; }
+    Mod+Shift+C hotkey-overlay-title="Swap caps and escape" { spawn "~/.config/niri/toggle_caps.sh"; }
     Mod+Ctrl+W hotkey-overlay-title="Wallpaper picker" { spawn-sh "matugen image $(find ~/Pictures/walls -type f | vicinae dmenu -p 'Pick a wallpaper...')"; }
     Mod+Ctrl+X hotkey-overlay-title="Switch Monitor Inputs" allow-when-locked=true { spawn "~/.local/bin/switch_displays.sh"; }
     Mod+V hotkey-overlay-title="Clipboard history" repeat=false { spawn "vicinae" "vicinae://extensions/vicinae/clipboard/history"; }
