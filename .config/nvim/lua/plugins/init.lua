@@ -1,8 +1,11 @@
 return {
   {
+    'NMAC427/guess-indent.nvim',
+    opts = {},
+  },
+  {
     'stevearc/oil.nvim',
-    ---@module 'oil'
-    ---@type oil.SetupOpts
+    ---@type oil.setupOpts
     opts = {
       default_file_explorer = false,
     },
@@ -10,7 +13,7 @@ return {
       {
         '<leader>o',
         function()
-          require('oil').open_float()
+          require('oil').toggle_float()
         end,
         desc = 'Open parent directory',
       },

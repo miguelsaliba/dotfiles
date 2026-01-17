@@ -1,5 +1,12 @@
 return {
-  { -- Autoformat
+  { 'williamboman/mason.nvim', opts = {} },
+  { 'neovim/nvim-lspconfig' },
+  {
+    'nvim-treesitter/nvim-treesitter',
+    lazy = false,
+    build = ':TSUpdate',
+  },
+  {
     'stevearc/conform.nvim',
     opts = {
       notify_on_error = false,
@@ -24,10 +31,20 @@ return {
       {
         '<leader>fm',
         function()
-          require('conform').format { lsp_fallback = true }
+          require('conform').format({ lsp_fallback = true })
         end,
         mode = { 'n', 'v' },
         desc = 'conform format',
+      },
+    },
+  },
+  {
+    'folke/lazydev.nvim',
+    ft = 'lua',
+    opts = {
+      library = {
+        -- Load luvit types when the `vim.uv` word is found
+        { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
       },
     },
   },
