@@ -15,7 +15,7 @@ end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
 
-vim.lsp.enable({'gdscript', 'gopls'})
+vim.lsp.enable({'gdscript', 'gopls', 'lua_ls'})
 
 require('lazy').setup({
   {
@@ -23,10 +23,7 @@ require('lazy').setup({
     opts = {},
   },
 
-  -- LSP Plugins
   {
-    -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
-    -- used for completion, annotations and signatures of Neovim apis
     'folke/lazydev.nvim',
     ft = 'lua',
     opts = {
@@ -71,15 +68,10 @@ require('lazy').setup({
     },
   },
 
-  { -- Highlight, edit, and navigate code
+  {
     'nvim-treesitter/nvim-treesitter',
+    lazy = false,
     build = ':TSUpdate',
-    opts = {
-      ensure_installed = { 'bash', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline' },
-      auto_install = true,
-      highlight = { enable = true },
-      indent = { enable = true },
-    },
   },
 
   { import = 'plugins' },
