@@ -108,17 +108,17 @@ tooltip label {
     border: 2px solid @border-highlight;
 }
 
-#battery.charging {
-    background-color: @bg-battery;
-    color: @text-battery;
-}
-
 #cpu.critical,
 #memory.critical,
 #battery.warning,
 #battery.critical,
 #battery.urgent {
     color: @text-critical;
+}
+
+#battery.charging {
+    background-color: @bg-battery;
+    color: @text-battery;
 }
 
 /* tray right click menu */
