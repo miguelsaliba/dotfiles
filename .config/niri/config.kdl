@@ -37,8 +37,12 @@ environment {
     QT_QPA_PLATFORMTHEME_QT6 "gtk3"
 }
 
+output "DP-1" {
+    variable-refresh-rate on-demand=true
+}
 output "DP-2" {
     mode "1920x1080@119.982"
+    variable-refresh-rate on-demand=true
 }
 
 layout {
@@ -53,7 +57,7 @@ layout {
         proportion 0.66667
     }
 
-    default-column-width { proportion 0.5; }
+    default-column-width {}
 
     focus-ring {
         width 3
@@ -95,7 +99,7 @@ overview {
 }
 
 window-rule {
-    geometry-corner-radius 12
+    geometry-corner-radius 14
     clip-to-geometry true
     draw-border-with-background false
 }

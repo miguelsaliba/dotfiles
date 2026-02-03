@@ -18,7 +18,9 @@ sudo dnf install -y \
     oh-my-posh \
     zsh-autosuggestions \
     zsh-syntax-highlighting
-    
+
+sudo dnf swap ffmpeg-free ffmpeg --allowerasing
+
 # Rustup install
 curl https://sh.rustup.rs -sSf | sh
 
@@ -27,3 +29,10 @@ cargo install matugen
 
 chsh -s "$(command -v zsh)"
 
+# Gnome keyring setup
+systemctl --user enable gcr-ssh-agent.socket
+systemctl --user start gcr-ssh-agent.socket
+
+# Syncthing autostart
+mkdir .config/autostart/
+cp /usr/share/applications/syncthing-start.desktop .config/autostart/

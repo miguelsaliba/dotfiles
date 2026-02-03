@@ -71,8 +71,6 @@ tooltip label {
 }
 
 .module {
-    margin: 3px;
-    margin-bottom: 0;
     padding: 2px 8px;
     background-color: @bg-secondary;
     border: 2px solid @border-secondary;

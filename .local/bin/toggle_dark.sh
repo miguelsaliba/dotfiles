@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-light_theme="${USER_THEME:-Adwaita}-light"
-dark_theme="${USER_THEME:-Adwaita}-dark"
+light_theme="${USER_THEME:-adw-gtk3}"
+dark_theme="${USER_THEME:-adw-gtk3}-dark"
 
 ## Toggles between light and dark GTK themes, or reports current theme.
 ## Usage:
