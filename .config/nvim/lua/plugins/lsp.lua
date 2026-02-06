@@ -22,8 +22,13 @@ return {
       })
       vim.api.nvim_create_autocmd('FileType', {
         pattern = { '<filetype>' },
-        callback = function()
+        callback = function(args)
           vim.treesitter.start()
+          if vim.treesitter.highlighter.active[args.buf] ~= nil then
+            vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
+            vim.wo[0][0].foldmethod = "expr"
+            vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+          end
         end,
       })
     end,
