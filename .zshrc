@@ -4,6 +4,9 @@ fi
 
 source ~/.bash_aliases
 
+EDITOR=nvim
+VISUAL=nvim
+
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
 SAVEHIST=5000

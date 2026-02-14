@@ -4,7 +4,7 @@ require("options")
 require("mappings")
 require("commands")
 
-vim.lsp.enable({'gdscript', 'gopls', 'lua_ls'})
+vim.lsp.enable({'gdscript', 'gopls', 'lua_ls', 'clangd', 'ts_ls', 'vue_ls', 'rust_analyzer'})
 
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
