@@ -97,8 +97,9 @@ overview {
 }
 
 window-rule {
-    geometry-corner-radius 14
+    geometry-corner-radius 8
     clip-to-geometry true
+    tiled-state true
     draw-border-with-background false
 }
 
@@ -124,7 +125,7 @@ window-rule {
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
-    Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
+    Mod+Return hotkey-overlay-title="Open a Terminal: ghostty" { spawn "ghostty"; }
     Mod+Space hotkey-overlay-title="Run an Application: vicinae" { spawn "vicinae" "toggle"; }
     Mod+E hotkey-overlay-title="Run an Application: file manager" { spawn "xdg-open" "."; }
     Mod+N hotkey-overlay-title="Toggle notifications" { spawn "swaync-client" "-t" "-sw"; }

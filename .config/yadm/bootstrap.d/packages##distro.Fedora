@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sudo dnf copr enable scottames/ghostty
+
 sudo dnf install -y \
     neovim \
     niri \
@@ -8,7 +10,8 @@ sudo dnf install -y \
     fd \
     rg \
     wlsunset \
-    kitty \
+    ghostty \
+    xdg-terminal-exec \
     golang \
     gopls \
     syncthing \
