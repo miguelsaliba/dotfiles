@@ -31,7 +31,7 @@ detect_state() {
 # Apply GTK theme based on $1 ("light" or "dark")
 apply_theme() {
   if pgrep -x niri; then
-    niri msg action do-screen-transition -d 100
+    niri msg action do-screen-transition -d 100 > /dev/null
   fi
   if [[ "$1" == "light" ]]; then
     gsettings set org.gnome.desktop.interface gtk-theme "$light_theme"
@@ -39,6 +39,10 @@ apply_theme() {
   else
     gsettings set org.gnome.desktop.interface gtk-theme "$dark_theme"
     gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
+  fi
+  if [ -f ~/.local/state/wallpaper ]; then
+    wallpaper=$(cat ~/.local/state/wallpaper)
+    matugen image $wallpaper -m $1
   fi
 }
 
