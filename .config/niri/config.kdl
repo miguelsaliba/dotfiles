@@ -132,7 +132,7 @@ binds {
     Super+Alt+L hotkey-overlay-title="Lock the Screen: hyprlock" { spawn "hyprlock"; }
 
     Mod+Shift+C hotkey-overlay-title="Swap caps and escape" { spawn "~/.config/niri/toggle_caps.sh"; }
-    Mod+Ctrl+W hotkey-overlay-title="Wallpaper picker" { spawn-sh "matugen image $(find ~/Pictures/walls -type f | vicinae dmenu -p 'Pick a wallpaper...' | tee ~/.local/state/wallpaper)"; }
+    Mod+Ctrl+W hotkey-overlay-title="Wallpaper picker" { spawn-sh "~/.local/bin/set_wallpaper.sh $(find ~/Pictures/walls -type f | vicinae dmenu -p 'Pick a wallpaper...')"; }
     Mod+Ctrl+X hotkey-overlay-title="Switch Monitor Inputs" allow-when-locked=true { spawn "~/.local/bin/switch_displays.sh"; }
     Mod+V hotkey-overlay-title="Clipboard history" repeat=false { spawn "vicinae" "vicinae://extensions/vicinae/clipboard/history"; }
     Mod+P hotkey-overlay-title="Mirror screen" { spawn-sh "wl-mirror $(niri msg --json focused-output | jq -r .name)"; }

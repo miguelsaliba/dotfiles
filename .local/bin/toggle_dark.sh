@@ -40,9 +40,12 @@ apply_theme() {
     gsettings set org.gnome.desktop.interface gtk-theme "$dark_theme"
     gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
   fi
+
   if [ -f ~/.local/state/wallpaper ]; then
-    wallpaper=$(cat ~/.local/state/wallpaper)
-    matugen image $wallpaper -m $1
+    . ~/.local/state/wallpaper
+    matugen image "$wallpaper" --source-color-index 0 -m $1
+    theme=$1
+    typeset -p wallpaper theme > ~/.local/state/wallpaper
   fi
 }
 
