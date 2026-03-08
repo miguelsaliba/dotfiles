@@ -20,7 +20,6 @@ return {
         folder = "Daily Notes",
       },
       frontmatter = { enable = false },
-      ui = { enable = false },
     },
   }
 }
