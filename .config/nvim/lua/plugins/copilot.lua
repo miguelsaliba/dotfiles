@@ -4,18 +4,27 @@ return {
     cmd = 'Copilot',
     lazy = true, -- will be loading it using snacks.nvim
     build = ':Copilot auth',
-    config = function()
-      require('copilot').setup({
-        panel = { enabled = false },
-        suggestion = {
-          enabled = false,
-          auto_trigger = false,
-        },
-        server = {
-          type = 'binary',
-        },
-      })
-      -- vim.keymap.set('n', '<leader>co', vim.cmd('Copilot toggle'), { silent = true, desc = 'Toggle [co]pilot' })
-    end,
+    opts = {
+      panel = { enabled = false },
+      suggestion = {
+        enabled = false,
+        auto_trigger = false,
+      },
+      server = {
+        type = 'binary',
+      },
+    },
+  },
+  {
+    'olimorris/codecompanion.nvim',
+    version = '^19.0.0',
+    opts = {},
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'nvim-treesitter/nvim-treesitter',
+    },
+    keys = {
+      { '<leader>cc', function () require('codecompanion').toggle() end, desc = 'Code Companion Chat' }
+    }
   },
 }

@@ -78,7 +78,6 @@ return{
       { "<leader>gB", function() Snacks.picker.git_branches() end, desc = "Git Branches" },
       { "<leader>gL", function() Snacks.picker.git_log_line() end, desc = "Git Log Line" },
       { "<leader>gt", function() Snacks.picker.git_status() end, desc = "Git Status" },
-      { "<leader>gS", function() Snacks.picker.git_stash() end, desc = "Git Stash" },
       { "<leader>gd", function() Snacks.picker.git_diff() end, desc = "Git Diff (Hunks)" },
       { "<leader>gf", function() Snacks.picker.git_log_file() end, desc = "Git Log File" },
       { "<leader>gx", function() Snacks.gitbrowse.open() end, mode = { 'v', 'n' }, desc="Open file in browser" },

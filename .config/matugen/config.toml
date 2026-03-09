@@ -19,6 +19,7 @@ output_path = '~/.config/alacritty/colors.toml'
 [templates.swayc]
 input_path = './templates/colors.css'
 output_path = '~/.config/swaync/colors.css'
+post_hook = 'swaync-client -rs'
 
 [templates.ghostty]
 input_path = './templates/ghostty'
