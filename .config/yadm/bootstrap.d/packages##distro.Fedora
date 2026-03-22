@@ -1,15 +1,18 @@
 #!/bin/bash
 
-sudo dnf copr enable scottames/ghostty
-sudo dnf copr enable quadratech188/vicinae
+sudo dnf copr enable -y scottames/ghostty
+sudo dnf copr enable -y quadratech188/vicinae
+sudo dnf copr enable -y solopasha/hyprland
 
 sudo dnf install -y \
     neovim \
-    niri \
-    waybar \
-    swaync \
     fd \
     rg \
+    niri \
+    hypridle \
+    hyprlock \
+    waybar \
+    swaync \
     wlsunset \
     ghostty \
     xdg-terminal-exec \
