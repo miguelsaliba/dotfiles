@@ -9,7 +9,6 @@ return {
       "BufNewFile " .. vim.fn.expand "~" .. "/Documents/Obsidian/**.md",
     },
     opts = {
-      legacy_commands = false, -- TODO: remove at some point
       workspaces = {
         {
           name = "Obsidian",
@@ -19,7 +18,8 @@ return {
       daily_notes = {
         folder = "Daily Notes",
       },
-      frontmatter = { enable = false },
+      templates = { folder = 'templates' },
+      note = { template = nil },
     },
   }
 }

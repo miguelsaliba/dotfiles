@@ -18,13 +18,25 @@ return {
   {
     'olimorris/codecompanion.nvim',
     version = '^19.0.0',
-    opts = {},
+    opts = {
+      interactions = {
+        chat = {
+          adapter = 'anthropic',
+        },
+      },
+    },
     dependencies = {
       'nvim-lua/plenary.nvim',
       'nvim-treesitter/nvim-treesitter',
     },
     keys = {
-      { '<leader>cc', function () require('codecompanion').toggle() end, desc = 'Code Companion Chat' }
-    }
+      {
+        '<leader>cc',
+        function()
+          require('codecompanion').toggle()
+        end,
+        desc = 'Code Companion Chat',
+      },
+    },
   },
 }

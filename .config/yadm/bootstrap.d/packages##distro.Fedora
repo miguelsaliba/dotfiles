@@ -1,6 +1,7 @@
 #!/bin/bash
 
 sudo dnf copr enable scottames/ghostty
+sudo dnf copr enable quadratech188/vicinae
 
 sudo dnf install -y \
     neovim \
@@ -12,6 +13,7 @@ sudo dnf install -y \
     wlsunset \
     ghostty \
     xdg-terminal-exec \
+    vicinae \
     golang \
     gopls \
     syncthing \
@@ -25,17 +27,18 @@ sudo dnf install -y \
 sudo dnf swap ffmpeg-free ffmpeg --allowerasing
 
 # Rustup install
-curl https://sh.rustup.rs -sSf | sh
+command -v rustup &> /dev/null || curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 # cargo packages
 cargo install matugen
 
-chsh -s "$(command -v zsh)"
+[[ ${SHELL##*/} == 'zsh' ]] || chsh -s "$(command -v zsh)"
 
 # Gnome keyring setup
-systemctl --user enable gcr-ssh-agent.socket
-systemctl --user start gcr-ssh-agent.socket
+systemctl --user enable --now gcr-ssh-agent.socket
+
+systemctl --user enable --now vicinae.service
 
 # Syncthing autostart
-mkdir .config/autostart/
+mkdir .config/autostart/ &> /dev/null
 cp /usr/share/applications/syncthing-start.desktop .config/autostart/

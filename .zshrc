@@ -50,4 +50,5 @@ fi
 
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.env
 eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/zen.toml)"

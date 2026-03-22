@@ -85,7 +85,7 @@ tooltip label {
 }
 #workspaces button label {
     transition: 0.5s;
-    padding: 0.2rem 0.7rem;
+    padding: 0.2rem 1rem;
     margin: 2px;
 }
 #workspaces button:hover label {
@@ -96,7 +96,7 @@ tooltip label {
     background-color: @bg-highlight;
     color: @text-highlight;
 }
-#workspaces button.urgent {
+#workspaces button.urgent label {
     background-color: @bg-urgent;
 }
 
