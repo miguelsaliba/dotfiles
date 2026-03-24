@@ -18,9 +18,9 @@ setopt hist_expire_dups_first
 bindkey -e
 bindkey "^[[1;5D" backward-word
 bindkey "^[[1;5C" forward-word
-bindkey  "^[[H"   beginning-of-line
-bindkey  "^[[F"   end-of-line
-bindkey  "^[[3~"  delete-char
+bindkey "^[[H"   beginning-of-line
+bindkey "^[[F"   end-of-line
+bindkey "^[[3~"  delete-char
 
 fpath=(/usr/share/doc/yadm/completion/zsh $fpath)
 autoload -U compinit && compinit
@@ -37,12 +37,8 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
 export NVM_DIR="$HOME/.config/nvm"
-if [ -s "$NVM_DIR/nvm.sh" ]; then
-    . "$NVM_DIR/nvm.sh"
-fi
-if [ -s "$NVM_DIR/bash_completion" ]; then
-  . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-fi
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 if [ -s "$HOME/.config/kopia/zsh_completion" ]; then
   . "$HOME/.config/kopia/zsh_completion"
@@ -50,5 +46,5 @@ fi
 
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.env
+[ -s ~/.env ] && source ~/.env
 eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/zen.toml)"
