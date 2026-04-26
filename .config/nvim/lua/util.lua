@@ -44,7 +44,7 @@ function M.pick_yadm()
   require("snacks").picker({
     finder = "proc",
     cmd = "yadm",
-    args = { "ls-files" },
+    args = { "list", "-a" },
     cwd = "~",
     title = "YADM Files",
     transform = function(item)

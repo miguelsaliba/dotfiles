@@ -6,6 +6,7 @@ source ~/.bash_aliases
 
 EDITOR=nvim
 VISUAL=nvim
+export NVIM_APPNAME=12nvim
 
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
