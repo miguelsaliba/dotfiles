@@ -36,15 +36,12 @@ sudo dnf swap ffmpeg-free ffmpeg --allowerasing
 # Rustup install
 command -v rustup &> /dev/null || curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
-# cargo packages
-cargo install matugen
-
 [[ ${SHELL##*/} == 'zsh' ]] || chsh -s "$(command -v zsh)"
 
 # Gnome keyring setup
 systemctl --user enable --now gcr-ssh-agent.socket
 
-systemctl --user enable --now vicinae.service
+systemctl --user add-wants niri.service dms
 
 # Syncthing autostart
 mkdir .config/autostart/ &> /dev/null
