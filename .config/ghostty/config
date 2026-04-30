@@ -11,9 +11,9 @@
 # a full restart to take effect.
 
 # Using the config file syntax rather than just `theme` as it supports optional imports with ?
-config-file = ?themes/matugen
+theme = dankcolors
 
-background-opacity = 0.95
+background-opacity = 0.6
 
 custom-shader = shaders/cursor_warp.glsl
 

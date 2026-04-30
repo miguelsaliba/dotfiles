@@ -1,5 +1,5 @@
 [config.wallpaper]
-command = "swww img --transition-type center --transition-duration 2 {{ image }}"
+command = "# swww img --transition-type center --transition-duration 2 {{ image }}"
 set = true
 
 
