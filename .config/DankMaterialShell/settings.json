@@ -7,7 +7,7 @@
   "runUserMatugenTemplates": true,
   "matugenTargetMonitor": "DP-2",
   "popupTransparency": 0.75,
-  "dockTransparency": 1,
+  "dockTransparency": 0.85,
   "widgetBackgroundColor": "sch",
   "widgetColorMode": "default",
   "controlCenterTileColorMode": "primary",
@@ -206,10 +206,10 @@
   "dankLauncherV2BorderThickness": 2,
   "dankLauncherV2BorderColor": "primary",
   "dankLauncherV2ShowFooter": true,
-  "dankLauncherV2UnloadOnClose": false,
+  "dankLauncherV2UnloadOnClose": true,
   "useAutoLocation": true,
   "weatherEnabled": true,
-  "networkPreference": "auto",
+  "networkPreference": "wifi",
   "iconTheme": "System Default",
   "cursorSettings": {
     "theme": "System Default",
@@ -254,11 +254,11 @@
   "acSuspendTimeout": 1800,
   "acSuspendBehavior": 0,
   "acProfileName": "",
-  "batteryMonitorTimeout": 0,
-  "batteryLockTimeout": 0,
-  "batterySuspendTimeout": 0,
+  "batteryMonitorTimeout": 300,
+  "batteryLockTimeout": 600,
+  "batterySuspendTimeout": 900,
   "batterySuspendBehavior": 0,
-  "batteryProfileName": "",
+  "batteryProfileName": "0",
   "batteryChargeLimit": 100,
   "lockBeforeSuspend": false,
   "loginctlLockIntegration": true,
@@ -309,22 +309,22 @@
   "matugenTemplateEmacs": true,
   "matugenTemplateZed": true,
   "showDock": false,
-  "dockAutoHide": false,
+  "dockAutoHide": true,
   "dockSmartAutoHide": false,
-  "dockGroupByApp": false,
-  "dockOpenOnOverview": false,
+  "dockGroupByApp": true,
+  "dockOpenOnOverview": true,
   "dockPosition": 1,
   "dockSpacing": 4,
   "dockBottomGap": 0,
   "dockMargin": 0,
   "dockIconSize": 40,
-  "dockIndicatorStyle": "circle",
-  "dockBorderEnabled": false,
+  "dockIndicatorStyle": "line",
+  "dockBorderEnabled": true,
   "dockBorderColor": "surfaceText",
-  "dockBorderOpacity": 1,
+  "dockBorderOpacity": 0.85,
   "dockBorderThickness": 1,
   "dockIsolateDisplays": false,
-  "dockLauncherEnabled": false,
+  "dockLauncherEnabled": true,
   "dockLauncherLogoMode": "apps",
   "dockLauncherLogoCustomPath": "",
   "dockLauncherLogoColorOverride": "",
@@ -370,7 +370,7 @@
   "notificationHistorySaveCritical": true,
   "notificationRules": [],
   "osdAlwaysShowValue": false,
-  "osdPosition": 5,
+  "osdPosition": 7,
   "osdVolumeEnabled": true,
   "osdMediaVolumeEnabled": true,
   "osdMediaPlaybackEnabled": false,
@@ -398,7 +398,7 @@
   "customPowerActionHibernate": "",
   "customPowerActionReboot": "",
   "customPowerActionPowerOff": "",
-  "updaterHideWidget": false,
+  "updaterHideWidget": true,
   "updaterUseCustomCommand": false,
   "updaterCustomCommand": "",
   "updaterTerminalAdditionalParams": "",
@@ -469,8 +469,18 @@
         "weather"
       ],
       "rightWidgets": [
-        "systemTray",
-        "clipboard",
+        {
+          "id": "systemUpdate",
+          "enabled": true
+        },
+        {
+          "id": "systemTray",
+          "enabled": true
+        },
+        {
+          "id": "clipboard",
+          "enabled": true
+        },
         {
           "id": "cpuUsage",
           "enabled": true,
@@ -481,15 +491,21 @@
           "enabled": true,
           "showSwap": false
         },
-        "notificationButton",
-        "battery",
+        {
+          "id": "notificationButton",
+          "enabled": true
+        },
+        {
+          "id": "battery",
+          "enabled": true
+        },
         {
           "id": "controlCenterButton",
           "enabled": true,
           "showAudioPercent": true,
           "showBrightnessIcon": false,
           "showBrightnessPercent": false,
-          "showBatteryIcon": true
+          "showBatteryIcon": false
         }
       ],
       "spacing": 4,
