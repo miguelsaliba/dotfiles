@@ -260,7 +260,7 @@
   "batterySuspendBehavior": 0,
   "batteryProfileName": "0",
   "batteryChargeLimit": 100,
-  "lockBeforeSuspend": false,
+  "lockBeforeSuspend": true,
   "loginctlLockIntegration": true,
   "fadeToLockEnabled": true,
   "fadeToLockGracePeriod": 5,
