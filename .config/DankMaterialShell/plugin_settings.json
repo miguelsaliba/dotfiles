@@ -1,5 +1,9 @@
 {
   "dankPomodoroTimer": {
     "enabled": true
+  },
+  "dankKDEConnect": {
+    "enabled": true,
+    "selectedDeviceId": "2c41b25c57e2419493581e0156df1f6d"
   }
 }

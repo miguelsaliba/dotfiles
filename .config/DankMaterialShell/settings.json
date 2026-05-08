@@ -92,7 +92,27 @@
       "id": "brightnessSlider",
       "enabled": true,
       "width": 50,
-      "deviceName": "ddc:i2c-6"
+      "deviceName": "ddc:i2c-7"
+    },
+    {
+      "id": "nightMode",
+      "enabled": true,
+      "width": 25
+    },
+    {
+      "id": "darkMode",
+      "enabled": true,
+      "width": 25
+    },
+    {
+      "id": "idleInhibitor",
+      "enabled": true,
+      "width": 25
+    },
+    {
+      "id": "colorPicker",
+      "enabled": true,
+      "width": 25
     },
     {
       "id": "wifi",
@@ -115,22 +135,7 @@
       "width": 50
     },
     {
-      "id": "idleInhibitor",
-      "enabled": true,
-      "width": 50
-    },
-    {
-      "id": "colorPicker",
-      "enabled": true,
-      "width": 50
-    },
-    {
-      "id": "nightMode",
-      "enabled": true,
-      "width": 50
-    },
-    {
-      "id": "darkMode",
+      "id": "plugin_dankKDEConnect",
       "enabled": true,
       "width": 50
     }
@@ -642,8 +647,8 @@
         "DP-1": {
           "width": 285,
           "height": 396,
-          "x": 1592,
-          "y": 151
+          "x": 1578,
+          "y": 582
         },
         "DP-2": {
           "width": 200,

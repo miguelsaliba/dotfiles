@@ -35,6 +35,9 @@ vim.keymap.set({ 'n', 'v' }, '<leader>k', function() Util.skip_whitespace('up') 
 vim.keymap.set('v', '<', '<gv', { desc = 'Shift left' })
 vim.keymap.set('v', '>', '>gv', { desc = 'Shift right' })
 
+vim.keymap.set('n', ']t', '<cmd>tabnext<cr>', { desc = 'Next tab' })
+vim.keymap.set('n', '[t', '<cmd>tabprev<cr>', { desc = 'Previous tab' })
+
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
 --  See `:help wincmd` for a list of all window commands

@@ -77,3 +77,12 @@ vim.schedule(function()
     }
   end
 end)
+
+vim.api.nvim_create_user_command('LspLog', function(_)
+  local log_path = vim.fn.stdpath('log')
+  local lsp_log_path = vim.fs.joinpath(log_path, 'lsp.log')
+
+  vim.cmd(string.format('tabedit %s', lsp_log_path))
+end, {
+  desc = 'Show LSP log',
+})
