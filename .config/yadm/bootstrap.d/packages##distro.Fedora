@@ -2,8 +2,6 @@
 
 sudo dnf copr enable -y scottames/ghostty
 sudo dnf copr enable -y avengemedia/dms
-sudo dnf copr enable -y yalter/niri
-sudo dnf copr enable -y agriffis/neovim-nightly
 # sudo dnf copr enable -y quadratech188/vicinae
 # sudo dnf copr enable -y solopasha/hyprland
 

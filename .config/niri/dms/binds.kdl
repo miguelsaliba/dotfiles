@@ -42,7 +42,9 @@ binds {
     Mod+Ctrl+WheelScrollUp cooldown-ms=150 { move-column-to-workspace-up; }
     Mod+I { focus-workspace-up; }
     Mod+J { focus-window-or-workspace-down; }
+    Mod+Down { focus-window-or-workspace-down; }
     Mod+K { focus-window-or-workspace-up; }
+    Mod+Up { focus-window-or-workspace-up; }
     Mod+Page_Down { focus-workspace-down; }
     Mod+Page_Up { focus-workspace-up; }
     Mod+Shift+1 { move-column-to-workspace 1; }
@@ -79,7 +81,6 @@ binds {
     Mod+Ctrl+Shift+WheelScrollUp { move-column-left; }
     Mod+Ctrl+WheelScrollLeft { move-column-left; }
     Mod+Ctrl+WheelScrollRight { move-column-right; }
-    Mod+Down { focus-window-down; }
     Mod+End { focus-column-last; }
     Mod+Equal { set-column-width "+10%"; }
     Mod+F { maximize-column; }
@@ -115,7 +116,6 @@ binds {
     Mod+Shift+V { switch-focus-between-floating-and-tiling; }
     Mod+Shift+WheelScrollDown { focus-column-right; }
     Mod+Shift+WheelScrollUp { focus-column-left; }
-    Mod+Up { focus-window-up; }
     Mod+W repeat=false { close-window; }
     Mod+WheelScrollLeft { focus-column-left; }
     Mod+WheelScrollRight { focus-column-right; }
