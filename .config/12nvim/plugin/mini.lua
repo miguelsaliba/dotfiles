@@ -50,7 +50,7 @@ end)
 
 later(function()
   local minipick = require('mini.pick')
-  minipick.setup({ mappings = { mark = '<C-d>' } })
+  minipick.setup({ mappings = { mark = '<C-d>', choose_marked = '<C-q>' } })
 
   local pickbuffers = function()
     local wipeout_cur = function() vim.api.nvim_buf_delete(minipick.get_picker_matches().current.bufnr, {}) end

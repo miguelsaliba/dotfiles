@@ -11,6 +11,9 @@ vim.opt.mouse = 'a'
 vim.opt.showmode = false
 
 vim.o.winborder = 'single'
+vim.o.pumborder = 'single'
+vim.o.winblend = 10
+vim.o.pumblend = 10
 
 -- -- Tabs
 vim.opt.tabstop = 4

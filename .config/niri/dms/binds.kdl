@@ -130,4 +130,5 @@ binds {
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
     Mod+Shift+Slash { show-hotkey-overlay; }
     Mod+Tab repeat=false { toggle-overview; }
+    Mod+Ctrl+X repeat=false hotkey-overlay-title="Switch display input" { spawn "~/.local/bin/switch_displays.sh"; }
 }

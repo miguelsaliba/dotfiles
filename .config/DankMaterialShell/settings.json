@@ -182,7 +182,33 @@
   "runningAppsCurrentWorkspace": true,
   "runningAppsGroupByApp": false,
   "runningAppsCurrentMonitor": false,
-  "appIdSubstitutions": [],
+  "appIdSubstitutions": [
+    {
+      "pattern": "Spotify",
+      "replacement": "spotify",
+      "type": "exact"
+    },
+    {
+      "pattern": "beepertexts",
+      "replacement": "beeper",
+      "type": "exact"
+    },
+    {
+      "pattern": "home assistant desktop",
+      "replacement": "homeassistant-desktop",
+      "type": "exact"
+    },
+    {
+      "pattern": "com.transmissionbt.transmission",
+      "replacement": "transmission-gtk",
+      "type": "contains"
+    },
+    {
+      "pattern": "^steam_app_(\\d+)$",
+      "replacement": "steam_icon_$1",
+      "type": "regex"
+    }
+  ],
   "centeringMode": "index",
   "clockDateFormat": "d/M",
   "lockDateFormat": "",
@@ -374,7 +400,7 @@
   "notificationHistorySaveNormal": true,
   "notificationHistorySaveCritical": true,
   "notificationRules": [],
-  "osdAlwaysShowValue": false,
+  "osdAlwaysShowValue": true,
   "osdPosition": 7,
   "osdVolumeEnabled": true,
   "osdMediaVolumeEnabled": true,
@@ -623,7 +649,14 @@
   ],
   "systemMonitorVariants": [],
   "desktopWidgetPositions": {},
-  "desktopWidgetGridSettings": {},
+  "desktopWidgetGridSettings": {
+    "DP-1": {
+      "enabled": true
+    },
+    "DP-2": {
+      "enabled": true
+    }
+  },
   "desktopWidgetInstances": [
     {
       "id": "dw_1777264106961_f306o40w4",
@@ -633,28 +666,28 @@
       "config": {
         "displayPreferences": [
           {
-            "name": "DP-1",
-            "model": "VG248"
+            "name": "DP-2",
+            "model": "24E3"
           }
         ],
         "viewMode": "detailed",
-        "showOnOverviewOnly": true,
+        "showOnOverviewOnly": false,
         "showPressure": false,
         "showForecast": true,
         "showHourlyForecast": false
       },
       "positions": {
         "DP-1": {
-          "width": 285,
-          "height": 396,
-          "x": 1578,
-          "y": 582
+          "width": 280,
+          "height": 440,
+          "x": 1520,
+          "y": 160
         },
         "DP-2": {
-          "width": 200,
-          "height": 200,
-          "x": 860,
-          "y": 440
+          "width": 280,
+          "height": 360,
+          "x": 840,
+          "y": 400
         }
       }
     }
