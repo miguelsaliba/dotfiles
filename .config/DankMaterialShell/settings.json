@@ -243,7 +243,7 @@
   "networkPreference": "wifi",
   "iconTheme": "System Default",
   "cursorSettings": {
-    "theme": "System Default",
+    "theme": "Breeze_Light",
     "size": 24,
     "niri": {
       "hideWhenTyping": false,

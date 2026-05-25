@@ -5,6 +5,8 @@ sudo dnf copr enable -y avengemedia/dms
 # sudo dnf copr enable -y quadratech188/vicinae
 # sudo dnf copr enable -y solopasha/hyprland
 
+sudo dnf config-manager setopt max_parallel_downloads=10 defaultyes=True
+
 sudo dnf install -y \
     neovim \
     fd \
@@ -20,6 +22,7 @@ sudo dnf install -y \
     zathura-pdf-mupdf \
     zsh \
     oh-my-posh \
+    nodejs \
     zsh-autosuggestions \
     zsh-syntax-highlighting
     # vicinae \
@@ -41,8 +44,9 @@ systemctl --user enable --now gcr-ssh-agent.socket
 
 systemctl --user add-wants niri.service dms
 
-sudo dnf config-manager setopt max_parallel_downloads=10 defaultyes=True
-
 # Syncthing autostart
-mkdir .config/autostart/ &> /dev/null
-cp /usr/share/applications/syncthing-start.desktop .config/autostart/
+mkdir ~/.config/autostart/ &> /dev/null
+cp /usr/share/applications/syncthing-start.desktop ~/.config/autostart/
+
+npm config set prefix ~/.local
+

@@ -4,6 +4,8 @@ require('options')
 require('autocmds')
 require('keymaps')
 
+-- :MasonInstall stylua lua-language-server typescript-language-server vue-language-server tailwindcss-language-server
+
 vim.lsp.enable({
   'gdscript',
   'gopls',
