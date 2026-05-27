@@ -1,4 +1,9 @@
 Util.now_if_args(function()
+  local obsidian_dir = '~/Documents/Obsidian'
+  -- Don't need obsidian.lua if we don't have the directory
+  -- I could make this more complicated but I only have one dir for now.
+  if not vim.uv.fs_stat(vim.fn.expand(obsidian_dir)) then return end
+
   vim.pack.add({
     {
       src = 'https://github.com/obsidian-nvim/obsidian.nvim',
@@ -11,7 +16,7 @@ Util.now_if_args(function()
     workspaces = {
       {
         name = 'personal',
-        path = '~/Documents/Obsidian',
+        path = obsidian_dir,
       },
     },
     daily_notes = {
