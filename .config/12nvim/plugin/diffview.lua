@@ -1,12 +1,18 @@
 Util.later(function()
   vim.pack.add({ 'https://github.com/dlyongemallo/diffview.nvim' })
 
+  require('diffview').setup({
+    view = {
+      merge_tool = { layout = 'diff3_mixed' },
+    },
+  })
+
   local function toggle_diffview(cmd)
-      if next(require('diffview.lib').views) == nil then
-          vim.cmd(cmd)
-      else
-          vim.cmd('DiffviewClose')
-      end
+    if next(require('diffview.lib').views) == nil then
+      vim.cmd(cmd)
+    else
+      vim.cmd('DiffviewClose')
+    end
   end
 
   vim.keymap.set('n', '<leader>gd', function() toggle_diffview('DiffviewOpen') end, { desc = 'Diffview open' })
