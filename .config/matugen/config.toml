@@ -1,46 +1,11 @@
-[config.wallpaper]
-command = "# swww img --transition-type center --transition-duration 2 {{ image }}"
-set = true
+[config]
 
+# [templates.ghostty]
+# input_path = './templates/ghostty'
+# output_path = '~/.config/ghostty/themes/matugen'
+# post_hook = 'pkill -SIGUSR2 ghostty'
 
-[templates.waybar]
-input_path = './templates/colors.css'
-output_path = '~/.config/waybar/colors.css'
-# post_hook = 'pkill -SIGUSR2 waybar'
-
-[templates.hyprland]
-input_path = './templates/hyprland-colors.css'
-output_path = '~/.config/hypr/colors.conf'
-
-[templates.alacritty]
-input_path = './templates/alacritty.toml'
-output_path = '~/.config/alacritty/colors.toml'
-
-[templates.swayc]
-input_path = './templates/colors.css'
-output_path = '~/.config/swaync/colors.css'
-post_hook = 'swaync-client -rs'
-
-[templates.ghostty]
-input_path = './templates/ghostty'
-output_path = '~/.config/ghostty/themes/matugen'
-post_hook = 'pkill -SIGUSR2 ghostty'
-
-# [templates.gtk3]
-# input_path = './templates/gtk-colors.css'
-# output_path = '~/.config/gtk-3.0/colors.css'
-# post_hook = 'gsettings set org.gnome.desktop.interface gtk-theme ""; gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3-{{mode}}'
-
-# [templates.gtk4]
-# input_path = './templates/gtk-colors.css'
-# output_path = '~/.config/gtk-4.0/colors.css'
-
-[templates.vicinae]
-input_path = './templates/vicinae.toml'
-output_path = '~/.local/share/vicinae/themes/matugen.toml'
-post_hook = 'vicinae theme set matugen'
-
-[templates.kitty]
-input_path = './templates/kitty-colors.conf'
-output_path = '~/.config/kitty/colors.conf'
-post_hook = 'pkill -SIGUSR1 kitty'
+[templates.pywalfox]
+input_path = '/usr/share/quickshell/dms/matugen/templates/pywalfox-colors.json'
+output_path = '~/.cache/wal/dank-pywalfox.json'
+post_hook = 'sh -c "command -v pywalfox && test -f ~/.cache/wal/colors.json && pywalfox {{ mode }} && pywalfox update"'
