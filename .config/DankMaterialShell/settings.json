@@ -454,7 +454,8 @@
       "disabled": true
     },
     "DP-2": {
-      "vrrOnDemand": true
+      "vrrOnDemand": true,
+      "focusAtStartup": true
     }
   },
   "hyprlandOutputSettings": {},
