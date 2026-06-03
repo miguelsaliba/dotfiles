@@ -49,32 +49,6 @@ later(function()
 end)
 
 later(function()
-  local minipick = require('mini.pick')
-  minipick.setup({ mappings = { mark = '<C-d>', choose_marked = '<C-q>' } })
-
-  local pickbuffers = function()
-    local wipeout_cur = function() vim.api.nvim_buf_delete(minipick.get_picker_matches().current.bufnr, {}) end
-    local buffer_mappings = { wipeout = { char = '<C-x>', func = wipeout_cur } }
-    minipick.builtin.buffers({ include_current = false }, { mappings = buffer_mappings })
-  end
-
-  vim.keymap.set('n', '<leader>sf', minipick.builtin.files, { desc = 'Pick files' })
-  vim.keymap.set('n', '<leader>sb', pickbuffers, { desc = 'Pick buffers' })
-  vim.keymap.set('n', '<leader>sg', minipick.builtin.grep_live, { desc = 'Pick grep' })
-  vim.keymap.set('n', '<leader>sh', minipick.builtin.help, { desc = 'Pick help' })
-  vim.keymap.set('n', '<leader>sr', minipick.builtin.resume, { desc = 'Pick resume' })
-  vim.keymap.set('n', '<leader>so', MiniExtra.pickers.oldfiles, { desc = 'Pick oldfiles' })
-  vim.keymap.set('n', '<leader>sm', MiniExtra.pickers.manpages, { desc = 'Pick man pages' })
-  vim.keymap.set('n', '<leader>sd', MiniExtra.pickers.diagnostic, { desc = 'Pick diagnostics' })
-  vim.keymap.set('n', '<leader>sS', function() MiniExtra.pickers.lsp({ scope = 'workspace_symbol_live' }) end, { desc = 'Pick workspace symbols' })
-  vim.keymap.set('n', '<leader>ss', function() MiniExtra.pickers.lsp({ scope = 'document_symbol' }) end, { desc = 'Pick document symbols' })
-  vim.keymap.set('n', '<leader>sl', MiniExtra.pickers.git_commits, { desc = 'Pick git log' })
-  vim.keymap.set('n', '<leader>sc', Util.mini_pick_yadm, { desc = 'Pick config files' })
-
-  minipick.registry.config = Util.mini_pick_yadm
-end)
-
-later(function()
   local miniclue = require('mini.clue')
   miniclue.setup({
     triggers = {

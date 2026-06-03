@@ -7,30 +7,34 @@ sudo dnf copr enable -y avengemedia/dms
 
 sudo dnf config-manager setopt max_parallel_downloads=10 defaultyes=True
 
-sudo dnf install -y \
-    neovim \
-    fd \
-    rg \
-    niri \
-    dms \
-    ghostty \
-    xdg-terminal-exec \
-    golang \
-    gopls \
-    syncthing \
-    zathura \
-    zathura-pdf-mupdf \
-    zsh \
-    oh-my-posh \
-    nodejs \
-    zsh-autosuggestions \
+packages=(
+    neovim
+    fd
+    rg
+    niri
+    dms
+    ghostty
+    nautilus-python # For "Open in Ghostty"
+    xdg-terminal-exec
+    golang
+    gopls
+    syncthing
+    zathura
+    zathura-pdf-mupdf
+    zsh
+    oh-my-posh
+    nodejs
+    zsh-autosuggestions
     zsh-syntax-highlighting
-    # vicinae \
-    # hypridle \
-    # hyprlock \
-    # waybar \
-    # swaync \
-    # wlsunset \
+    # vicinae
+    # hypridle
+    # hyprlock
+    # waybar
+    # swaync
+    # wlsunset
+)
+
+sudo dnf install -y "${packages[@]}"
 
 sudo dnf swap ffmpeg-free ffmpeg --allowerasing
 
