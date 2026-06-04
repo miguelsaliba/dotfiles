@@ -172,6 +172,12 @@ window-rule {
         xray false
     }
 }
+layer-rule {
+    match namespace="^vicinae$"
+    background-effect {
+        xray false
+    }
+}
 debug {
     honor-xdg-activation-with-invalid-serial
 }

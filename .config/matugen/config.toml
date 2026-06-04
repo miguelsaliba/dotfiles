@@ -5,7 +5,12 @@
 # output_path = '~/.config/ghostty/themes/matugen'
 # post_hook = 'pkill -SIGUSR2 ghostty'
 
-[templates.pywalfox]
-input_path = '/usr/share/quickshell/dms/matugen/templates/pywalfox-colors.json'
-output_path = '~/.cache/wal/dank-pywalfox.json'
-post_hook = 'sh -c "command -v pywalfox && test -f ~/.cache/wal/colors.json && pywalfox {{ mode }} && pywalfox update"'
+[templates.vicinae]
+input_path = '~/.config/matugen/templates/vicinae.toml'
+output_path = '~/.local/share/vicinae/themes/matugen.toml'
+post_hook = 'vicinae theme set matugen'
+
+# [templates.pywalfox]
+# input_path = '/usr/share/quickshell/dms/matugen/templates/pywalfox-colors.json'
+# output_path = '~/.cache/wal/dank-pywalfox.json'
+# post_hook = 'sh -c "command -v pywalfox && test -f ~/.cache/wal/colors.json && pywalfox {{ mode }} && pywalfox update"'

@@ -2,7 +2,7 @@
 
 sudo dnf copr enable -y scottames/ghostty
 sudo dnf copr enable -y avengemedia/dms
-# sudo dnf copr enable -y quadratech188/vicinae
+sudo dnf copr enable -y quadratech188/vicinae
 # sudo dnf copr enable -y solopasha/hyprland
 
 sudo dnf config-manager setopt max_parallel_downloads=10 defaultyes=True
@@ -13,6 +13,8 @@ packages=(
     rg
     niri
     dms
+    adw-gtk3-theme
+    breeze-cursor-theme
     ghostty
     nautilus-python # For "Open in Ghostty"
     xdg-terminal-exec
@@ -26,7 +28,7 @@ packages=(
     nodejs
     zsh-autosuggestions
     zsh-syntax-highlighting
-    # vicinae
+    vicinae
     # hypridle
     # hyprlock
     # waybar

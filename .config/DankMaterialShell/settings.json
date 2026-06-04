@@ -4,7 +4,7 @@
   "customThemeFile": "",
   "registryThemeVariants": {},
   "matugenScheme": "scheme-tonal-spot",
-  "runUserMatugenTemplates": false,
+  "runUserMatugenTemplates": true,
   "matugenTargetMonitor": "DP-2",
   "popupTransparency": 0.75,
   "dockTransparency": 0.85,
