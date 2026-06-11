@@ -35,8 +35,10 @@ vim.keymap.set({ 'n', 'v' }, '<leader>k', function() Util.skip_whitespace('up') 
 vim.keymap.set('v', '<', '<gv', { desc = 'Shift left' })
 vim.keymap.set('v', '>', '>gv', { desc = 'Shift right' })
 
-vim.keymap.set('n', ']t', '<cmd>tabnext<cr>', { desc = 'Next tab' })
-vim.keymap.set('n', '[t', '<cmd>tabprev<cr>', { desc = 'Previous tab' })
+vim.keymap.set('n', '<leader>tn', '<cmd>tabnext<cr>', { desc = 'Next tab' })
+vim.keymap.set('n', '<leader>tp', '<cmd>tabprev<cr>', { desc = 'Previous tab' })
+vim.keymap.set('n', '<leader>tc', '<cmd>tabclose<cr>', { desc = 'Close tab' })
+vim.keymap.set('n', '<leader>tN', '<cmd>tabnew<cr>', { desc = 'New tab' })
 
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 

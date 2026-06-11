@@ -26,7 +26,7 @@ later(function()
 
   vim.keymap.set('n', '<leader>e', function()
     if not files.close() then
-      files.open(vim.api.nvim_buf_get_name(0), false)
+      files.open(vim.api.nvim_buf_get_name(0))
       files.reveal_cwd()
     end
   end, { desc = 'Toggle mini files' })

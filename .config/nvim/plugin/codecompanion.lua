@@ -10,15 +10,14 @@ Util.later(function()
 
   codecompanion.setup({
     interactions = {
-      chat = {
-        adapter = 'anthropic',
-      },
+      chat = { adapter = 'anthropic' },
       inline = { adapter = 'anthropic' },
       cmd = { adapter = 'anthropic' },
     },
   })
 
-  vim.keymap.set({ 'n', 'v' }, '<leader>cc', codecompanion.toggle, { desc = 'CodeCompanion chat' })
+  vim.keymap.set({ 'n', 'v' }, '<leader>cc', codecompanion.toggle, { desc = 'CodeCompanion toggle' })
+  vim.keymap.set({ 'n', 'v' }, '<leader>cn', codecompanion.chat, { desc = 'CodeCompanion chat' })
 
   vim.cmd.cab('cc CodeCompanion')
 end)

@@ -210,7 +210,7 @@
     }
   ],
   "centeringMode": "index",
-  "clockDateFormat": "d/M",
+  "clockDateFormat": "",
   "lockDateFormat": "",
   "greeterRememberLastSession": true,
   "greeterRememberLastUser": true,
