@@ -4,7 +4,7 @@ vim.keymap.set('n', '<Esc>', vim.cmd.nohlsearch)
 
 vim.keymap.set({ 'i', 'x', 'n', 's' }, '<C-s>', vim.cmd.write, { desc = 'Save File' })
 
-vim.keymap.set('n', '<leader>pu', '<cmd>lua vim.pack.update()<CR>')
+vim.keymap.set('n', '<leader>u', '<cmd>lua vim.pack.update()<CR>')
 
 -- Copy and paste from clipboard
 vim.keymap.set({ 'n', 'v' }, '<leader>y', '"+y')
