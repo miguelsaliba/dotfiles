@@ -53,6 +53,16 @@ final_space = true
   overflow = 'hidden'
 
   [[blocks.segments]]
+    template = 'ssh'
+    foreground = 'yellow'
+    background = 'transparent'
+    type = 'ssh'
+    style = 'plain'
+
+    [blocks.segments.properties]
+      cache_duration = 'none'
+
+  [[blocks.segments]]
     template = '{{ .FormattedMs }}'
     foreground = 'yellow'
     type = 'executiontime'

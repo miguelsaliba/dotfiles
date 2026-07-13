@@ -7,6 +7,8 @@ sudo dnf copr enable -y quadratech188/vicinae
 
 sudo dnf config-manager setopt max_parallel_downloads=10 defaultyes=True
 
+sudo dnf config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo
+
 packages=(
     neovim
     fd
@@ -29,6 +31,7 @@ packages=(
     zsh-autosuggestions
     zsh-syntax-highlighting
     vicinae
+    tailscale
     # hypridle
     # hyprlock
     # waybar
@@ -47,6 +50,8 @@ command -v rustup &> /dev/null || curl --proto '=https' --tlsv1.2 -sSf https://s
 
 # Gnome keyring setup
 systemctl --user enable --now gcr-ssh-agent.socket
+
+sudo systemctl enable --now tailscaled
 
 systemctl --user add-wants niri.service dms
 
