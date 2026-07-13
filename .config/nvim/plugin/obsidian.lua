@@ -23,6 +23,9 @@ Util.now_if_args(function()
       folder = 'Daily Notes',
     },
     templates = { folder = 'templates' },
+    note_id_func = function(title)
+      return title
+    end,
     note = { template = nil },
   })
 end)
