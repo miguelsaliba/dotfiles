@@ -400,8 +400,8 @@
   "soundPluggedIn": true,
   "muteSoundsWhenMediaPlaying": true,
   "acMonitorTimeout": 0,
-  "acLockTimeout": 900,
-  "acSuspendTimeout": 1800,
+  "acLockTimeout": 600,
+  "acSuspendTimeout": 1200,
   "acSuspendBehavior": 0,
   "acProfileName": "1",
   "acPostLockMonitorTimeout": 0,
@@ -426,9 +426,12 @@
   "fadeToLockEnabled": true,
   "fadeToLockGracePeriod": 5,
   "fadeToDpmsEnabled": true,
-  "fadeToDpmsGracePeriod": 5,
+  "fadeToDpmsGracePeriod": 10,
   "launchPrefix": "",
-  "brightnessDevicePins": {},
+  "brightnessDevicePins": {
+    "DP-1": "ddc:i2c-6",
+    "DP-2": "ddc:i2c-7"
+  },
   "wifiNetworkPins": {},
   "bluetoothDevicePins": {
     "preferredDevice": [
