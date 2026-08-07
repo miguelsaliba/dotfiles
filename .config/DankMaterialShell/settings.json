@@ -346,7 +346,7 @@
       "enabled": true
     }
   ],
-  "networkPreference": "wifi",
+  "networkPreference": "auto",
   "iconThemeDark": "System Default",
   "iconThemeLight": "System Default",
   "iconThemePerMode": false,
@@ -437,7 +437,6 @@
   "bluetoothDevicePins": {
     "preferredDevice": [
       "00:7F:1D:1A:2C:8E",
-      "E8:EE:CC:FA:7A:A4",
       "C7:5F:8B:F2:79:4B"
     ]
   },
