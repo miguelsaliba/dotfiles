@@ -134,7 +134,6 @@
   "lockScreenShowProfileImage": false,
   "lockScreenNotificationMode": 1,
   "notificationCompactMode": true,
-  "dankIslandInteractionMode": "click",
   "osdAlwaysShowValue": true,
   "osdPosition": 7,
   "osdPowerProfileEnabled": true,
@@ -329,5 +328,5 @@
   "frameShowOnOverview": true,
   "frameLauncherEmergeSide": "top",
   "frameBarInsetPadding": 16,
-  "configVersion": 17
+  "configVersion": 18
 }
