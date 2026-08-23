@@ -3,7 +3,6 @@
 sudo dnf copr enable -y scottames/ghostty
 sudo dnf copr enable -y avengemedia/dms
 sudo dnf copr enable -y quadratech188/vicinae
-# sudo dnf copr enable -y solopasha/hyprland
 
 sudo dnf config-manager setopt max_parallel_downloads=10 defaultyes=True
 
@@ -32,11 +31,6 @@ packages=(
     zsh-syntax-highlighting
     vicinae
     tailscale
-    # hypridle
-    # hyprlock
-    # waybar
-    # swaync
-    # wlsunset
 )
 
 sudo dnf install -y "${packages[@]}"
