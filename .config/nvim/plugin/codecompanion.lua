@@ -10,9 +10,20 @@ Util.later(function()
 
   codecompanion.setup({
     interactions = {
-      chat = { adapter = 'anthropic' },
-      inline = { adapter = 'anthropic' },
-      cmd = { adapter = 'anthropic' },
+      chat = { adapter = 'claude_code' },
+      inline = { adapter = 'claude_code' },
+      cmd = { adapter = 'claude_code' },
+    },
+    adapters = {
+      http = {
+        anthropic_api = function()
+          return require('codecompanion.adapters').extend('anthropic', {
+            env = {
+              api_key = 'ANTHROPIC_API_KEY_NVIM',
+            },
+          })
+        end,
+      },
     },
   })
 
