@@ -346,7 +346,7 @@
       "enabled": true
     }
   ],
-  "networkPreference": "auto",
+  "networkPreference": "ethernet",
   "iconThemeDark": "System Default",
   "iconThemeLight": "System Default",
   "iconThemePerMode": false,
@@ -429,19 +429,6 @@
   "fadeToDpmsEnabled": true,
   "fadeToDpmsGracePeriod": 10,
   "launchPrefix": "",
-  "brightnessDevicePins": {
-    "DP-1": "ddc:i2c-6",
-    "DP-2": "ddc:i2c-7"
-  },
-  "wifiNetworkPins": {},
-  "bluetoothDevicePins": {
-    "preferredDevice": [
-      "00:7F:1D:1A:2C:8E",
-      "C7:5F:8B:F2:79:4B"
-    ]
-  },
-  "audioInputDevicePins": {},
-  "audioOutputDevicePins": {},
   "gtkThemingEnabled": false,
   "qtThemingEnabled": false,
   "syncModeWithPortal": true,
@@ -620,7 +607,8 @@
   },
   "niriOutputSettings": {
     "DP-1": {
-      "vrrOnDemand": true
+      "vrrOnDemand": true,
+      "disabled": true
     },
     "DP-2": {
       "vrrOnDemand": true,
@@ -906,5 +894,5 @@
   "barInsetPaddingShared": -1,
   "barInsetPaddingSyncAll": false,
   "frameBarInsetPadding": 16,
-  "configVersion": 12
+  "configVersion": 13
 }
