@@ -2,7 +2,7 @@ Util.later(function()
   Util.on_packchanged('nvim-treesitter', { 'update' }, function() vim.cmd('TSUpdate') end, 'TSUpdate')
 
   vim.pack.add({
-    { src = 'https://github.com/nvim-treesitter/nvim-treesitter', branch = 'main' },
+    { src = 'https://github.com/nvim-treesitter/nvim-treesitter' },
   })
 
   local languages = {

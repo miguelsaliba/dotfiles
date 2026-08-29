@@ -8,6 +8,18 @@ end)
 now(function() require('mini.icons').setup() end)
 now(function() require('mini.statusline').setup() end)
 now(function()
+  local statuscolumn = require('mini.statuscolumn')
+  statuscolumn.setup({
+    content = statuscolumn.gen_content.main({
+      { format = 'fs=l', sep = '│' },
+      { ltype = 'virt', lnum = '•' },
+      { ltype = 'wrap', lnum = '↳', format = 'fsl=' },
+      { win = 'inactive', sep = ' ' },
+    }),
+  })
+end)
+
+now(function()
   local mininotify = require('mini.notify')
   mininotify.setup()
 
