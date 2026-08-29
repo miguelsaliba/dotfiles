@@ -18,7 +18,6 @@ later(function() require('mini.extra').setup() end)
 later(function() require('mini.surround').setup() end)
 later(function() require('mini.move').setup() end)
 later(function() require('mini.splitjoin').setup() end)
-later(function() require('mini.pairs').setup() end)
 
 later(function()
   local files = require('mini.files')
@@ -33,6 +32,7 @@ later(function()
 end)
 
 later(function()
+  -- TODO: Use :restart on nvim >= 0.12.5 since that already restores the session
   vim.keymap.set('n', '<leader>R', function() require('mini.sessions').restart() end, { desc = 'Restart nvim' })
 
   vim.keymap.set('n', '<leader>bd', function() require('mini.bufremove').delete() end)
@@ -47,6 +47,8 @@ later(function()
     },
   })
 end)
+
+later(function() require('mini.comment').setup() end)
 
 later(function()
   local miniclue = require('mini.clue')
@@ -104,6 +106,4 @@ later(function()
   })
 end)
 
-later(function ()
-  MiniIcons.mock_nvim_web_devicons()
-end)
+later(function() MiniIcons.mock_nvim_web_devicons() end)
