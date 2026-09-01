@@ -3,7 +3,6 @@ Util.now_if_args(function()
 
   require('snacks').setup({
     bigfile = { enabled = true },
-    indent = { enabled = true },
     picker = { enabled = true },
     gitbrowse = {
       notify = false,

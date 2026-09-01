@@ -1,5 +1,6 @@
 local M = {}
 
+---@param direction "up"|"down"
 function M.skip_whitespace(direction)
   local row0, col0 = unpack(vim.api.nvim_win_get_cursor(0))
   -- build a pattern: "\%{col}c\S" matches a non-space at exactly column {col}
@@ -21,7 +22,10 @@ function M.pick_yadm()
     args = { 'list', '-a' },
     cwd = '~',
     title = 'YADM Files',
-    transform = function(item) item.file = '~/' .. item.text end,
+    transform = function(item, ctx)
+      item.file = '~/' .. item.text
+      return require('snacks.picker.transform').unique_file(item, ctx)
+    end,
   })
 end
 

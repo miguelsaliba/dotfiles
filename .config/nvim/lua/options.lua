@@ -2,7 +2,6 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 vim.opt.number = true
-vim.opt.relativenumber = true
 
 vim.opt.signcolumn = 'yes'
 
@@ -34,15 +33,13 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 
 vim.opt.list = true
-vim.opt.listchars = { tab = '┊ ', trail = '·', nbsp = '␣' }
+vim.opt.listchars = { tab = '  ', trail = '·', nbsp = '␣' }
 
 vim.opt.cursorline = true
 
 vim.opt.scrolloff = 8
 
 vim.opt.confirm = true
-
-vim.opt.conceallevel = 2
 
 vim.opt.spell = true
 
