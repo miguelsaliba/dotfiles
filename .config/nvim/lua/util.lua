@@ -23,6 +23,8 @@ function M.pick_yadm()
     cwd = '~',
     title = 'YADM Files',
     transform = function(item, ctx)
+      -- I think there is a bug in snacks, it is calling the transform function twice. This prevents that
+      if item.file then return end
       item.file = '~/' .. item.text
       return require('snacks.picker.transform').unique_file(item, ctx)
     end,
