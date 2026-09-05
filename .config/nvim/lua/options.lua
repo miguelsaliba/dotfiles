@@ -86,3 +86,5 @@ vim.api.nvim_create_user_command('LspLog', function(_)
 end, {
   desc = 'Show LSP log',
 })
+
+require('vim._core.ui2').enable()

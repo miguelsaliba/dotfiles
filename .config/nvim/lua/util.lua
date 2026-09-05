@@ -65,4 +65,26 @@ M.on_packchanged = function(plugin_name, kinds, callback, desc)
   vim.api.nvim_create_autocmd('PackChanged', { pattern = '*', callback = f, desc = desc })
 end
 
+-- https://github.com/nvim-mini/mini.nvim/issues/928#issuecomment-3399048448
+M.mini_files_set_bookmark = function(id, path, desc)
+  MiniFiles.set_bookmark(id, function()
+    path = vim.is_callable(path) and path() or path
+    if type(path) ~= 'string' then return path end
+    path = vim.fs.abspath(path)
+    local stat = vim.uv.fs_stat(path)
+    if not stat or stat.type == 'directory' then return path end
+    vim.schedule(function()
+      if vim.bo.ft == 'minifiles' then
+        local buf = 0
+        local win = 0
+        for line = 1, vim.api.nvim_buf_line_count(buf) do
+          local entry = MiniFiles.get_fs_entry(buf, line)
+          if entry.path == path then vim.api.nvim_win_set_cursor(win, { line, 0 }) end
+        end
+      end
+    end)
+    return vim.fs.dirname(path)
+  end, { desc = desc })
+end
+
 return M

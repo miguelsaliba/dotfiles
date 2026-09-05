@@ -39,11 +39,25 @@ later(function()
   files.setup({ mappings = { go_in_plus = '<CR>' } })
 
   vim.keymap.set('n', '<leader>e', function()
-    if not files.close() then
-      files.open(vim.api.nvim_buf_get_name(0))
-      files.reveal_cwd()
-    end
+    if not files.close() then files.open() end
   end, { desc = 'Toggle mini files' })
+
+  local function get_current_file()
+    local win = MiniFiles.get_explorer_state().target_window
+    return vim.api.nvim_buf_get_name(vim.api.nvim_win_get_buf(win))
+  end
+
+  local set_bookmark = Util.mini_files_set_bookmark
+  vim.api.nvim_create_autocmd('User', {
+    pattern = 'MiniFilesExplorerOpen',
+    callback = function()
+      set_bookmark('f', get_current_file, 'Current file directory')
+      set_bookmark('c', '~/.config', 'Config')
+      set_bookmark('n', vim.fn.stdpath('config') .. '/init.lua', 'Nvim config')
+      set_bookmark('w', vim.fn.getcwd, 'Working directory')
+      set_bookmark('~', '~', 'Home directory')
+    end,
+  })
 end)
 
 later(function()
@@ -100,9 +114,7 @@ later(function()
       miniclue.gen_clues.g(),
       miniclue.gen_clues.marks(),
       miniclue.gen_clues.z(),
-      miniclue.gen_clues.registers({
-        show_contents = true,
-      }),
+      miniclue.gen_clues.registers(),
       miniclue.gen_clues.windows({
         submode_move = true,
         submode_resize = true,
