@@ -18,7 +18,7 @@ Util.later(function()
       acp = {
         claude_code = function()
           return require('codecompanion.adapters').extend('claude_code', {
-            env = { api_key = 'CLAUDE_CODE_OAUTH_TOKEN_NVIM' },
+            env = { CLAUDE_CODE_OAUTH_TOKEN = 'CLAUDE_CODE_OAUTH_TOKEN_NVIM' },
           })
         end,
       },
