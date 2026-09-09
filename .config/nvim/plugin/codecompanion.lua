@@ -15,12 +15,17 @@ Util.later(function()
       cmd = { adapter = 'claude_code' },
     },
     adapters = {
+      acp = {
+        claude_code = function()
+          return require('codecompanion.adapters').extend('claude_code', {
+            env = { api_key = 'CLAUDE_CODE_OAUTH_TOKEN_NVIM' },
+          })
+        end,
+      },
       http = {
         anthropic_api = function()
           return require('codecompanion.adapters').extend('anthropic', {
-            env = {
-              api_key = 'ANTHROPIC_API_KEY_NVIM',
-            },
+            env = { api_key = 'ANTHROPIC_API_KEY_NVIM' },
           })
         end,
       },
