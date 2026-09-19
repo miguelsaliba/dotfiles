@@ -172,7 +172,8 @@
           "id": "focusedWindow",
           "enabled": true,
           "focusedWindowCompactMode": false,
-          "focusedWindowShowIcon": false
+          "focusedWindowShowIcon": false,
+          "focusedWindowSize": 0
         }
       ],
       "centerWidgets": [
@@ -191,7 +192,9 @@
       "rightWidgets": [
         {
           "id": "systemTray",
-          "enabled": true
+          "enabled": true,
+          "trayUseInlineExpansion": false,
+          "trayPopupSingleLine": true
         },
         {
           "id": "clipboard",
@@ -221,14 +224,30 @@
           "showAudioPercent": true,
           "showBrightnessIcon": false,
           "showBrightnessPercent": false,
-          "showBatteryIcon": false
+          "showBatteryIcon": false,
+          "showIdleInhibitorIcon": true,
+          "showMicIcon": false,
+          "showMicPercent": false,
+          "controlCenterGroupOrder": [
+            "screenSharing",
+            "idleInhibitor",
+            "vpn",
+            "bluetooth",
+            "network",
+            "doNotDisturb",
+            "printer",
+            "brightness",
+            "audio",
+            "microphone",
+            "battery"
+          ]
         }
       ],
       "spacing": 4,
       "innerPadding": 4,
       "bottomGap": 0,
-      "transparency": 0.61,
-      "widgetTransparency": 0.7,
+      "transparency": 0.16,
+      "widgetTransparency": 0.63,
       "squareCorners": false,
       "noBackground": false,
       "maximizeWidgetIcons": false,
@@ -264,7 +283,7 @@
       "shadowColorMode": "text",
       "shadowCustomColor": "#000000",
       "clickThrough": false,
-      "attachToScreenEdge": false,
+      "attachToScreenEdge": true,
       "hoverPopouts": false
     }
   ],
