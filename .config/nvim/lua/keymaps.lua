@@ -4,8 +4,6 @@ vim.keymap.set('n', '<Esc>', vim.cmd.nohlsearch)
 
 vim.keymap.set({ 'i', 'x', 'n', 's' }, '<C-s>', vim.cmd.write, { desc = 'Save File' })
 
-vim.keymap.set('n', '<leader>u', '<cmd>lua vim.pack.update()<CR>')
-
 -- Copy and paste from clipboard
 vim.keymap.set({ 'n', 'v' }, '<leader>y', '"+y')
 vim.keymap.set('n', '<leader>Y', '"+y$')
@@ -22,12 +20,6 @@ vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = 'Open full 
 
 vim.keymap.set('n', '<leader>xd', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
--- Quickfix list
-vim.keymap.set('n', '<leader>xq', function()
-  local success, err = pcall(vim.fn.getqflist({ winid = 0 }).winid ~= 0 and vim.cmd.cclose or vim.cmd.copen)
-  if not success and err then vim.notify(err, vim.log.levels.ERROR) end
-end, { desc = 'Quickfix List' })
-
 vim.keymap.set({ 'n', 'v' }, '<leader>j', function() Util.skip_whitespace('down') end, { desc = 'Skips whitespace in column' })
 vim.keymap.set({ 'n', 'v' }, '<leader>k', function() Util.skip_whitespace('up') end, { desc = 'Skips whitespace in column' })
 
@@ -35,8 +27,6 @@ vim.keymap.set({ 'n', 'v' }, '<leader>k', function() Util.skip_whitespace('up') 
 vim.keymap.set('v', '<', '<gv', { desc = 'Shift left' })
 vim.keymap.set('v', '>', '>gv', { desc = 'Shift right' })
 
-vim.keymap.set('n', '<leader>tn', '<cmd>tabnext<cr>', { desc = 'Next tab' })
-vim.keymap.set('n', '<leader>tp', '<cmd>tabprev<cr>', { desc = 'Previous tab' })
 vim.keymap.set('n', '<leader>tc', '<cmd>tabclose<cr>', { desc = 'Close tab' })
 vim.keymap.set('n', '<leader>tN', '<cmd>tabnew<cr>', { desc = 'New tab' })
 

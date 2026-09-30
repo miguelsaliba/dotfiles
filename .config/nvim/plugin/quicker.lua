@@ -3,7 +3,7 @@ Util.later(function()
 
   vim.keymap.set('n', '<leader>q', function() require('quicker').toggle() end, { desc = 'Toggle quickfix' })
 
-  vim.keymap.set('n', '<leader>l', function() require('quicker').toggle({ loclist = true }) end, { desc = 'Toggle loclist' })
+  vim.keymap.set('n', '<leader>xq', function() require('quicker').toggle({ loclist = true }) end, { desc = 'Toggle loclist' })
 
   require('quicker').setup({
     keys = {

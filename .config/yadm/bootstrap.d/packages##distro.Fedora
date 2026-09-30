@@ -3,6 +3,7 @@
 sudo dnf copr enable -y scottames/ghostty
 sudo dnf copr enable -y avengemedia/dms
 sudo dnf copr enable -y quadratech188/vicinae
+sudo dnf copr enable -y dejan/lazygit
 
 sudo dnf config-manager setopt max_parallel_downloads=10 defaultyes=True
 
@@ -31,6 +32,7 @@ packages=(
     zsh-syntax-highlighting
     vicinae
     tailscale
+    lazygit
 )
 
 sudo dnf install -y "${packages[@]}"
