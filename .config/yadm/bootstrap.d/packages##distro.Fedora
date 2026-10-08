@@ -1,7 +1,7 @@
 #!/bin/bash
 
 sudo dnf copr enable -y scottames/ghostty
-sudo dnf copr enable -y avengemedia/dms
+# sudo dnf copr enable -y avengemedia/dms
 sudo dnf copr enable -y quadratech188/vicinae
 sudo dnf copr enable -y dejan/lazygit
 
@@ -14,7 +14,8 @@ packages=(
     fd
     rg
     niri
-    dms
+    # dms
+    noctalia
     adw-gtk3-theme
     breeze-cursor-theme
     ghostty
@@ -49,7 +50,7 @@ systemctl --user enable --now gcr-ssh-agent.socket
 
 sudo systemctl enable --now tailscaled
 
-systemctl --user add-wants niri.service dms
+# systemctl --user add-wants niri.service dms
 
 # Syncthing autostart
 mkdir ~/.config/autostart/ &> /dev/null
