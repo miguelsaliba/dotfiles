@@ -1,0 +1,91 @@
+[bar.default]
+background_opacity = 0.70
+capsule = true
+capsule_opacity = 0.75
+capsule_padding = 8.0
+capsule_radius = 9
+center = [ "clock", "media" ]
+concave_edge_corners = false
+end = [ "tray", "notifications", "clipboard", "network", "bluetooth", "volume", "brightness", "battery", "session" ]
+margin_ends = 0
+radius = 0
+shadow = false
+
+    [bar.default.dead_zone.actions]
+    scroll_down = "workspace-switch next"
+    scroll_up = "workspace-switch prev"
+
+[brightness]
+enable_ddcutil = true
+
+[control_center]
+width = 840
+
+    [[control_center.shortcuts]]
+    type = "caffeine"
+
+    [[control_center.shortcuts]]
+    type = "nightlight"
+
+    [[control_center.shortcuts]]
+    type = "power_profile"
+
+    [[control_center.shortcuts]]
+    type = "notification"
+
+    [[control_center.shortcuts]]
+    type = "dark_mode"
+
+    [[control_center.shortcuts]]
+    type = "wallpaper"
+
+[desktop_widgets]
+enabled = false
+
+[location]
+auto_locate = true
+
+[nightlight]
+enabled = true
+temperature_day = 6000
+temperature_night = 3000
+
+[notification]
+monitors = [ "DP-2" ]
+
+[shell]
+app_icon_colorize = true
+font_family = "Montserrat"
+telemetry_enabled = true
+
+    [shell.panel]
+    open_near_click_control_center = true
+    open_near_click_session = true
+
+[theme]
+mode = "dark"
+source = "wallpaper"
+wallpaper_scheme = "m3-content"
+
+    [theme.templates]
+    builtin_ids = [ "niri" ]
+    community_ids = [ "pywalfox" ]
+
+[wallpaper]
+directory = "/home/miguo/Pictures/walls"
+
+[widget.clock]
+scale = 1.25
+
+[widget.media]
+hide_when_no_media = true
+
+[widget.network]
+show_label = false
+
+[widget.tray]
+drawer = true
+pinned = [ "Signal Desktop" ]
+
+[widget.workspaces]
+show_labels = false

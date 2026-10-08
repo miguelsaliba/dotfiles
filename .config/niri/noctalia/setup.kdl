@@ -1,0 +1,20 @@
+spawn-at-startup "noctalia"
+
+binds {
+    Mod+Space { spawn-sh "noctalia msg panel-toggle launcher"; }
+    Mod+Shift+P { spawn-sh "noctalia msg panel-toggle session"; }
+    Mod+Shift+L { spawn-sh "noctalia msg panel-toggle session"; }
+    Mod+Comma { spawn-sh "noctalia msg settings-toggle"; }
+
+    XF86MonBrightnessUp allow-when-locked=true { spawn "noctalia" "msg" "brightness-up"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "noctalia" "msg" "brightness-down"; }
+    XF86AudioRaiseVolume allow-when-locked=true { spawn "noctalia" "msg" "volume-up"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn "noctalia" "msg" "volume-down"; }
+    XF86AudioMute allow-when-locked=true { spawn "noctalia" "msg" "volume-mute"; }
+    XF86AudioPlay allow-when-locked=true { spawn "noctalia" "msg" "media" "toggle"; }
+    XF86AudioPause allow-when-locked=true { spawn "noctalia" "msg" "media" "pause"; }
+    XF86AudioNext allow-when-locked=true { spawn "noctalia" "msg" "media" "next"; }
+    XF86AudioPrev allow-when-locked=true { spawn "noctalia" "msg" "media" "prev"; }
+}
+
+include optional=true "../noctalia.kdl"
