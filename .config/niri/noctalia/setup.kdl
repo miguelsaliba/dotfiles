@@ -17,4 +17,3 @@ binds {
     XF86AudioPrev allow-when-locked=true { spawn "noctalia" "msg" "media" "prev"; }
 }
 
-include optional=true "../noctalia.kdl"
