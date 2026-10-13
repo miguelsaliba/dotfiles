@@ -9,10 +9,8 @@ vim.opt.mouse = 'a'
 
 vim.opt.showmode = false
 
-vim.o.winborder = 'single'
-vim.o.pumborder = 'single'
-vim.o.winblend = 10
-vim.o.pumblend = 10
+vim.o.winblend = 5
+vim.o.pumblend = 5
 
 -- -- Tabs
 vim.opt.tabstop = 4
@@ -34,6 +32,15 @@ vim.opt.splitbelow = true
 
 vim.opt.list = true
 vim.opt.listchars = { tab = '  ', trail = '·', nbsp = '␣' }
+
+vim.opt.fillchars = {
+  foldopen = '',
+  foldclose = '',
+  fold = ' ',
+  foldsep = ' ',
+  eob = ' ', -- Don't show ~ at end of buffer
+  diff = '╱', -- Nicer delete lines in DiffView
+}
 
 vim.opt.cursorline = true
 

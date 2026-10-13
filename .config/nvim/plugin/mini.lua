@@ -2,7 +2,6 @@ local now, later = Util.now, Util.later
 
 now(function()
   vim.pack.add({ 'https://github.com/nvim-mini/mini.nvim' })
-  vim.cmd.colorscheme('minisummer')
 end)
 
 now(function() require('mini.icons').setup() end)

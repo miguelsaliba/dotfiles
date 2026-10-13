@@ -19,8 +19,15 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
     map('<leader>rn', vim.lsp.buf.rename, 'Rename')
     map('<leader>ca', vim.lsp.buf.code_action, 'Code Actions', { 'n', 'x' })
-    if client:supports_method('textDocument/switchSourceHeader') then
+    if client.name == 'clangd' then
       map('<leader>cl', ':LspClangdSwitchSourceHeader<CR>', 'Switch between source and header files')
     end
+  end,
+})
+
+vim.api.nvim_create_autocmd("ColorScheme", {
+  group = vim.api.nvim_create_augroup("DiffOverrides", { clear = true }),
+  callback = function()
+    vim.api.nvim_set_hl(0, "DiffDelete", { link = "NonText" })
   end,
 })
