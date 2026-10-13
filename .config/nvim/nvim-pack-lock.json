@@ -18,10 +18,6 @@
       "src": "https://github.com/saghen/blink.pairs",
       "version": ">=0.0.0"
     },
-    "catppuccin": {
-      "rev": "edefef779ab08ce1a4a404713e3012b0d202bd35",
-      "src": "https://github.com/catppuccin/nvim"
-    },
     "codecompanion.nvim": {
       "rev": "56f5b5237ad69c0eb7558a6b6058cba862e4e876",
       "src": "https://github.com/olimorris/codecompanion.nvim",
