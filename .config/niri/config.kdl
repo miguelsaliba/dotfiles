@@ -264,4 +264,3 @@ binds {
 // Split them in case I feel like switching
 // include "dms/setup.kdl"
 include "noctalia/setup.kdl"
-include "noctalia.kdl"

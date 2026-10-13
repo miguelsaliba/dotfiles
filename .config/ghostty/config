@@ -11,7 +11,7 @@
 # a full restart to take effect.
 
 # Using the config file syntax rather than just `theme` as it supports optional imports with ?
-theme = dankcolors
+theme = noctalia
 
 background-opacity = 0.6
 

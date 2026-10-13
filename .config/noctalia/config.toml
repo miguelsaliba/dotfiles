@@ -68,8 +68,17 @@ source = "wallpaper"
 wallpaper_scheme = "m3-content"
 
     [theme.templates]
-    builtin_ids = [ "niri" ]
+    builtin_ids = [  ]
     community_ids = [ "pywalfox" ]
+
+        [theme.templates.user.niri-colors]
+        input_path = "/usr/share/noctalia/assets/templates/niri/niri.kdl"
+        output_path = "~/.config/niri/noctalia/colors.kdl"
+
+        [theme.templates.user.ghostty-colors]
+        input_path = "/usr/share/noctalia/assets/templates/ghostty/ghostty"
+        output_path = "~/.config/ghostty/themes/noctalia"
+        post_hook = "bash /usr/share/noctalia/assets/templates/ghostty/reload.sh"
 
 [wallpaper]
 directory = "/home/miguo/Pictures/walls"
