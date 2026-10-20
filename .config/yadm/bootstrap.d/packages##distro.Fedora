@@ -52,6 +52,8 @@ systemctl --user enable --now gcr-ssh-agent.socket
 sudo systemctl enable --now tailscaled
 
 # systemctl --user add-wants niri.service dms
+systemctl --user daemon-reload
+systemctl --user enable noctalia.service
 
 # Syncthing autostart
 mkdir ~/.config/autostart/ &> /dev/null

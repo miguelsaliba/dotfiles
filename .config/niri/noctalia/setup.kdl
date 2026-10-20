@@ -1,5 +1,3 @@
-spawn-at-startup "noctalia"
-
 binds {
     Mod+Space { spawn-sh "noctalia msg panel-toggle launcher"; }
     Mod+Shift+P { spawn-sh "noctalia msg panel-toggle session"; }
