@@ -60,10 +60,6 @@ later(function()
 end)
 
 later(function()
-  -- TODO: Use :restart on nvim >= 0.12.5 since that already restores the session
-  vim.keymap.set('n', '<leader>R', function() require('mini.sessions').restart() end, { desc = 'Restart nvim' })
-  vim.keymap.set('n', 'ZR', function() require('mini.sessions').restart() end, { desc = 'Restart nvim' })
-
   vim.keymap.set('n', '<leader>bd', function() require('mini.bufremove').delete() end)
   vim.keymap.set('n', '<leader>bD', function() require('mini.bufremove').delete(0, true) end)
 end)

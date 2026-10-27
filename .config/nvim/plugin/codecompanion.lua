@@ -2,7 +2,7 @@ Util.later(function()
   vim.pack.add({
     'https://github.com/nvim-lua/plenary.nvim',
     'https://github.com/nvim-treesitter/nvim-treesitter',
-    { src = 'https://github.com/olimorris/codecompanion.nvim', version = vim.version.range('^19.0.0') },
+    { src = 'https://github.com/olimorris/codecompanion.nvim', version = vim.version.range('^20.0.0') },
     { src = 'https://github.com/saghen/blink.cmp', version = vim.version.range('^1') },
   })
 
@@ -15,13 +15,6 @@ Util.later(function()
       cmd = { adapter = 'claude_code' },
     },
     adapters = {
-      acp = {
-        claude_code = function()
-          return require('codecompanion.adapters').extend('claude_code', {
-            env = { CLAUDE_CODE_OAUTH_TOKEN = 'CLAUDE_CODE_OAUTH_TOKEN_NVIM' },
-          })
-        end,
-      },
       http = {
         anthropic_api = function()
           return require('codecompanion.adapters').extend('anthropic', {
