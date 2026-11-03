@@ -116,6 +116,11 @@ later(function()
       }),
     },
   })
+
+  vim.api.nvim_create_autocmd('FileType', {
+    pattern = 'codecompanion',
+    callback = function(args) miniclue.ensure_buf_triggers(args.buf) end,
+  })
 end)
 
 later(function()
