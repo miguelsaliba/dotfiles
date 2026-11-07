@@ -1,7 +1,3 @@
-if [ -x /home/linuxbrew/.linuxbrew/bin/brew ]; then
-  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-fi
-
 source ~/.bash_aliases
 
 EDITOR=nvim
@@ -30,6 +26,8 @@ zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 
 export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
+
+eval "$(mise activate zsh)"
 
 if [ -s "$HOME/.config/kopia/zsh_completion" ]; then
   . "$HOME/.config/kopia/zsh_completion"

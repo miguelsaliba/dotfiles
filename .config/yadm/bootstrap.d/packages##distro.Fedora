@@ -4,6 +4,7 @@ sudo dnf copr enable -y scottames/ghostty
 # sudo dnf copr enable -y avengemedia/dms
 sudo dnf copr enable -y quadratech188/vicinae
 sudo dnf copr enable -y dejan/lazygit
+sudo dnf copr enable -y jdxcode/mise
 
 sudo dnf config-manager setopt max_parallel_downloads=10 defaultyes=True
 
@@ -22,7 +23,6 @@ packages=(
     nautilus-python # For "Open in Ghostty"
     xdg-terminal-exec
     golang
-    gopls
     syncthing
     zathura
     zathura-pdf-mupdf
@@ -35,6 +35,9 @@ packages=(
     tailscale
     lazygit
     jq
+    git-delta
+    mise
+    rustup
 )
 
 sudo dnf install -y "${packages[@]}"
@@ -42,7 +45,10 @@ sudo dnf install -y "${packages[@]}"
 sudo dnf swap ffmpeg-free ffmpeg --allowerasing
 
 # Rustup install
-command -v rustup &> /dev/null || curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+command -v rustup &> /dev/null || rustup-init -y
+
+# Dev tools from ~/.config/mise/config.toml
+mise install
 
 [[ ${SHELL##*/} == 'zsh' ]] || chsh -s "$(command -v zsh)"
 
