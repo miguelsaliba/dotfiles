@@ -1,0 +1,8 @@
+[tools]
+# Ubuntu's packages are too old or missing for these
+lazygit = "latest"
+oh-my-posh = "latest"
+fd = "latest"
+fzf = "latest"
+delta = "latest"
+gh = "latest"

@@ -1,0 +1,4 @@
+[tools]
+# gopls 0.24+ needs go 1.27; switch back to latest after upgrading to Fedora 45
+"go:golang.org/x/tools/gopls" = "0.23"
+"go:github.com/miguelsaliba/gowol/cmd/gowol" = "latest"
