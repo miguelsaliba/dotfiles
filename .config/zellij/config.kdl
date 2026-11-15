@@ -1,0 +1,43 @@
+plugins {
+    compact-bar location="zellij:bars" {
+        role "compact-bar"
+        tooltip ""
+    }
+}
+
+keybinds preset="unlock-first" unlock="Ctrl space" secondary="Ctrl Alt" {
+    normal {
+        // Send Ctrl space to pane on double press
+        bind "Ctrl space" { Write 0; SwitchToMode "Locked"; }
+    }
+}
+
+// The name of the default layout to load on startup
+// Default: "default"
+//
+default_layout "compact-top"
+
+// A fixed name to always give the Zellij session.
+// Consider also setting `attach_to_session true,`
+// otherwise this will error if such a session exists.
+// Default: <RANDOM>
+// 
+// session_name "My singleton session"
+ 
+// When `session_name` is provided, attaches to that session
+// if it is already running or creates it otherwise.
+// Default: false
+// 
+// attach_to_session true
+
+simplified_ui true
+theme "ansi"
+
+// Ghostty already shows notifications; don't duplicate them as desktop pop-ups
+attention {
+    desktop_notifications {
+        needs_you false
+        failed false
+        done false
+    }
+}
