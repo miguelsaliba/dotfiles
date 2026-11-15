@@ -10,10 +10,11 @@
 # reloaded while running; some only apply to new windows and others may require
 # a full restart to take effect.
 
-# Using the config file syntax rather than just `theme` as it supports optional imports with ?
-theme = noctalia
+# noctalia dark is just a symlink due to a bug with ghostty not reporting the correct theme without separate theme names
+# https://github.com/ghostty-org/ghostty/pull/13605
+theme = light:noctalia,dark:noctalia-dark
 
-background-opacity = 0.6
+background-opacity = 0.8
 
 custom-shader = shaders/cursor_warp.glsl
 
