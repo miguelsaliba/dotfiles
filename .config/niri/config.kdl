@@ -102,7 +102,6 @@ window-rule {
 }
 window-rule {
     match app-id="^app.zen_browser.zen$"
-    match app-id="^com.mitchellh.ghostty$" // Remove in ghostty 1.4
     background-effect {
         blur true
         xray false

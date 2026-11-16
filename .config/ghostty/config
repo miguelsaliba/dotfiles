@@ -16,5 +16,7 @@ theme = light:noctalia,dark:noctalia-dark
 
 background-opacity = 0.8
 
+background-blur = true
+
 custom-shader = shaders/cursor_warp.glsl
 
