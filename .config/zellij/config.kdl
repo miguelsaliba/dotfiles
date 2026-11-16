@@ -21,15 +21,16 @@ default_layout "compact-top"
 // Consider also setting `attach_to_session true,`
 // otherwise this will error if such a session exists.
 // Default: <RANDOM>
-// 
+//
 // session_name "My singleton session"
- 
+
 // When `session_name` is provided, attaches to that session
 // if it is already running or creates it otherwise.
 // Default: false
-// 
+//
 // attach_to_session true
 
+nested_session_handling "descend"
 simplified_ui true
 theme "ansi"
 
@@ -40,4 +41,11 @@ attention {
         failed false
         done false
     }
+}
+theme_dark "ayu-dark"
+theme_light "ayu-light"
+terminal {
+    font "JetBrainsMono Nerd Font"
+    opacity 0.8
+    blur true
 }
