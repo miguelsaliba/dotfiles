@@ -73,7 +73,6 @@ temperature_night = 2500
 monitors = [ "DP-2" ]
 
 [shell]
-app_icon_colorize = true
 font_family = "Montserrat"
 telemetry_enabled = true
 
@@ -112,6 +111,7 @@ hide_when_no_media = true
 show_label = false
 
 [widget.tray]
+colorize_icons = true
 drawer = true
 pinned = [ "Signal Desktop" ]
 
